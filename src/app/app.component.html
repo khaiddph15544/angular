@@ -1,73 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+<nav>
+    <ul>
+        <li>
+            <a routerLink="login">Login</a>
+        </li>
+        <li>
+            <a routerLink="product">Sản phẩm</a>
+        </li>
+    </ul>
+</nav>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <h1 class="color-red font-weight-bold text-center">Danh sách người dùng</h1>
-  <div class="container">
-    <input type="text" class="form-control w-50 m-auto" (input)="onSearch($event)"/>
-    <a href="add" class="text-decoration-none">Thêm mới</a>
-    <table class="table table-hover">
-      <thead>
-        <tr>
-          <th>Id</th>
-          <th>Tên</th>
-          <th>Tuổi</th>
-          <th>Số điện thoại</th>
-          <th>Email</th>
-          <th>Ảnh đại diện</th>
-          <th>Hành động</th>
-        </tr>
-      </thead>
-      <tbody *ngIf="users.length > 0 ">
-        <tr *ngFor="let student of filterStudent">
-          <td>{{ student.id }}</td>
-          <td>{{ student.name }}</td>
-          <td>{{ student.age }}</td>
-          <td>{{ student.phone }}</td>
-          <td>{{ student.email }}</td>
-          <td><img [src]="student.img" width="100"></td>
-          <td>
-            <a href="update/{{ student.id }}">Cập nhật</a>
-            <button (click)="remove(student.id)" class="btn btn-danger">Xóa</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-    <h3>Thêm mới</h3>
-
-    <form #student="ngForm" (ngSubmit)="addForm(student.value)">
-      <div class="form-group mt-2">
-        <label for="exampleInputEmail1">Họ tên</label>
-        <input type="text" class="form-control" ngModel name="name">
-      </div>
-      <div class="form-group mt-2">
-        <label for="exampleInputEmail1">Tuổi</label>
-        <input type="text" class="form-control" ngModel name="age">
-      </div>
-      <div class="form-group mt-2">
-        <label for="exampleInputEmail1">Số điện thoại</label>
-        <input type="text" class="form-control" ngModel name="phone">
-      </div>
-      <div class="form-group mt-2">
-        <label for="exampleInputEmail1">Email</label>
-        <input type="text" class="form-control" ngModel name="email">
-      </div>
-      <div class="form-group mt-2">
-        <label for="exampleInputEmail1">Image</label>
-        <input type="file" class="form-control" ngModel name="img">
-      </div>
-      <button type="submit" class="btn btn-primary mt-2">Thêm mới</button>
-    </form>
-  </div>
-  <router-outlet></router-outlet>
-</body>
-
-</html>
+<footer>
+    Đây là footer
+</footer>
+<router-outlet></router-outlet>

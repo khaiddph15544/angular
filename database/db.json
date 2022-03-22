@@ -1,0 +1,36 @@
+{
+    "students": [
+      {
+        "id": 1,
+        "name": "Đặng Đình Khải",
+        "age": 19,
+        "phone": "0962597441",
+        "email": "khaiddph15544@fpt.edu.vn",
+        "img": "https://www.w3schools.com/howto/img_avatar.png"
+      },
+      {
+        "id": 2,
+        "name": "Nguyễn Văn H",
+        "age": 22,
+        "phone": "0962597441",
+        "email": "khaiddph15544@fpt.edu.vn",
+        "img": "https://www.w3schools.com/howto/img_avatar.png"
+      },
+      {
+        "id": 3,
+        "name": "Trần Văn S",
+        "age": 19,
+        "phone": "0962597441",
+        "email": "khaiddph15544@fpt.edu.vn",
+        "img": "https://www.w3schools.com/howto/img_avatar.png"
+      },
+      {
+        "id": 4,
+        "name": "afffrrve",
+        "age": 12,
+        "phone": "096259744",
+        "email": "khaiddph15544@fpt.edu.vn",
+        "img": "https://www.w3schools.com/howto/img_avatar.png"
+      }
+    ]
+  }

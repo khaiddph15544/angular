@@ -5,26 +5,24 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
+import { ProductComponent } from './screens/product/product.component';
+import { HomeComponent } from './screens/home/home.component';
 import { FormsModule } from '@angular/forms';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    ProductDetailComponent
+    ProductComponent,
+    HomeComponent,
+    HomeLayoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule,
-    RouterModule.forRoot([
-      {path: "add", component: ProductDetailComponent}
-    ])
+    RouterModule.forRoot([]),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
