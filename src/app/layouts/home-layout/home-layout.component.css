@@ -256,18 +256,18 @@ header .form_search {
 div.nav{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 header .nav nav ul {
     display: flex;
     transition: 0.3s;
-    margin-top: 40px;
 }
 
 header .nav nav ul li {
     list-style: none;
-    padding: 15px 32px 38px;
-    position: relative;
+    padding: 25px 32px;
     cursor: pointer;
+    position: relative;
 }
 
 header .nav nav ul li i {
@@ -283,6 +283,7 @@ header .nav nav ul li:hover .dropdown_father {
     opacity: 1;
     transform: translateY(-10px);
     pointer-events: auto;
+    z-index: 9999;
 }
 
 header .nav nav ul li .dropdown_father {
@@ -361,18 +362,17 @@ header .nav nav ul li .dropdown_father ul li i {
 .sticky {
     width: 100%;
     height: 70px;
-    transition: all 0.4s;
+    transition: all .6s;
     position: fixed;
-    transform: translateY(-42px);
+    top: -70px;
+    transform: translateY(70px);
     z-index: 999999999;
     box-shadow: 2px 2px 2px #e5e5e5;
     display: flex;
     align-items: center;
+    background-color: #fff;
 }
 
-.sticky nav {
-    height: 0;
-}
 
 .sticky i {
     z-index: 10px;
@@ -382,16 +382,8 @@ header .nav nav ul li .dropdown_father ul li i {
 
 .sticky .nav .main_father {
     position: relative;
-    transform: translateY(-20px);
-    transition: all 0.4s;
-    margin: auto;
 }
 
-/* ------------------------------------------------ */
-
-main {
-    padding-top: 190px;
-}
 
 /* ---------------------------------------------- */
 

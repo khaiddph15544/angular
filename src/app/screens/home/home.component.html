@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
+
 <body>
-    
+  <div class="slider">
+    <div class="main">
+      <div class="txt">
+        <h2>a</h2>
+        <span>Sự kết hợp hoàn hoảo giữa thiết kế và chức năng</span> <br>
+        <a href=""><button>XEM THÊM</button></a>
+      </div>
+      <img class="image" src="https://smartslider3.com/wp-content/uploads/2018/07/gradientSlider.jpg" alt="">
+    </div>
+
+    <i (click)="plusSlides(-1)" class="fas fa-chevron-left"></i>
+    <i (click)="plusSlides(1)" class="fas fa-chevron-right"></i>
+    <div class="dotbox">
+      <div class="dot" (click)="currentSlide(1)"></div>
+      <div class="dot" (click)="currentSlide(2)"></div>
+      <div class="dot" (click)="currentSlide(3)"></div>
+    </div>
+  </div>
 </body>
+
 </html>
