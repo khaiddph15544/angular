@@ -12,7 +12,10 @@ header .nav_mobile {
 header * {
     color: #333;
 }
-
+main{
+    width: 1400px;
+    margin: auto;
+}
 .main_header {
     margin: auto;
 }

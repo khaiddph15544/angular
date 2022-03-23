@@ -1,59 +1,50 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  aos_delay = "100";
+  newProduct: Array<any> = [];
+  hotSale: Array<any> = [];
+  constructor(private ps: ProductService) { }
   ngOnInit(): void {
-    // this.slidefun(this.counter)
+    AOS.init()
+    this.ps.get().subscribe(data => {
+      for (let i = data.length - 3; i < data.length; i++) {
+        this.newProduct.push(data[i])
+      }
+      data.sort((a: any, b: any) => a.discount < b.discount ? 1 : (b.discount < a.discount ? -1 : 0))
+      for (let i = 0; i < 10; i++) {
+        this.hotSale.push(data[i])
+      }
+    })
   }
-  myslide = document.querySelectorAll('.main')
-
-  counter = 1;
-  autoSlide = () => {
-    this.counter++;
-    this.slidefun(this.counter);
+  slideConfig = {
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    "autoplay": true,
+    "autoplaySpeed": 2000,
+    Infinity: true,
+    prevArrow: "<i class='fa fa-angle-left' id='arrow-left'></i>",
+    nextArrow: "<i class='fa fa-angle-right'></i>",
+  };
+  slickInit(e: any) {
+    console.log('slick initialized');
   }
-  timer = setInterval(this.autoSlide, 6000);
-
-  dot = document.querySelectorAll('.dot')
-  plusSlides = (n: any): void => {
-    this.counter += n;
-    this.slidefun(this.counter);
-    this.resetTimer();
+  breakpoint(e: any) {
+    console.log('breakpoint');
   }
-  currentSlide = (n: any) => {
-    this.counter = n;
-    this.slidefun(this.counter);
-    this.resetTimer();
+  afterChange(e: any) {
+    console.log('afterChange');
   }
-  // this.slidefun(this.counter);
-  slidefun = (n: any): void => {
-    let i;
-    for (i = 0; i < this.myslide.length; i++) {
-      this.myslide[i].className = 'main';
-      console.log(this.myslide)
-    }
-    for (i = 0; i < this.dot.length; i++) {
-      this.dot[i].className = 'dot';
-    }
-    if (n > this.myslide.length) {
-      this.counter = 1;
-    }
-    if (n < 1) {
-      this.counter = this.myslide.length;
-    }
-    // this.myslide[this.counter - 1].className = 'active_main';
-    // this.dot[this.counter - 1].className += " dot_active";
-    // console.log(this.myslide)
-  }
-
-  resetTimer = () => {
-    clearInterval(this.timer);
-    this.timer = setInterval(this.autoSlide, 6000);
+  beforeChange(e: any) {
+    console.log('beforeChange');
   }
 }

@@ -9,7 +9,9 @@ import { ProductComponent } from './screens/product/product.component';
 import { HomeComponent } from './screens/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
-
+import { ProductService } from './services/product.service';
+import { HttpClientModule } from '@angular/common/http';
+import {SlickCarouselModule} from 'ngx-slick-carousel'
 
 @NgModule({
   declarations: [
@@ -23,9 +25,11 @@ import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component
     AppRoutingModule,
     NgbModule,
     RouterModule.forRoot([]),
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    SlickCarouselModule
   ],
-  providers: [],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

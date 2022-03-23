@@ -1,32 +1,76 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-  <div class="slider">
-    <div class="main">
-      <div class="txt">
-        <h2>a</h2>
-        <span>Sự kết hợp hoàn hoảo giữa thiết kế và chức năng</span> <br>
-        <a href=""><button>XEM THÊM</button></a>
+<div class="new-product">
+  <div class="new_product" id="new_product">
+    <div class="title">
+      <p>PHONG CÁCH MỚI</p>
+      <h2>SẢN PHẨM <br> MỚI</h2>
+      <span>Những mẫu mới nhất, bộ sưu tập hoàn hảo dành cho bạn</span>
+      <div class="bt">
+        <a href="">
+          <a href="?direct=product"><span>Xem tất cả</span> </a>
+        </a>
       </div>
-      <img class="image" src="https://smartslider3.com/wp-content/uploads/2018/07/gradientSlider.jpg" alt="">
     </div>
+    <div class="list_product">
+      <div *ngFor="let p of newProduct" class="card" data-aos="fade-up" data-aos-offset="100" data-aos-delay="100"
+        data-aos-duration="1000">
+        <a href="?action=detail&id_pr=<?php echo $rows['product_id'] ?>">
+          <span id="new">NEW</span>
+          <div class="img">
+            <img src="{{ p.image }}" alt="">
+          </div>
+        </a>
+        <div class="txt">
+          <p>{{ p.product_name }}</p>
+          <div class="price_bt">
+            <span>{{ p.price | currency : "VND"}}</span>
+            <a href="?action=detail&id_pr=<?php echo $rows['product_id'] ?>">
+              <button>MUA NGAY</button>
+            </a>
+          </div>
+        </div>
+      </div>
 
-    <i (click)="plusSlides(-1)" class="fas fa-chevron-left"></i>
-    <i (click)="plusSlides(1)" class="fas fa-chevron-right"></i>
-    <div class="dotbox">
-      <div class="dot" (click)="currentSlide(1)"></div>
-      <div class="dot" (click)="currentSlide(2)"></div>
-      <div class="dot" (click)="currentSlide(3)"></div>
     </div>
   </div>
-</body>
+</div>
 
-</html>
+
+<!-- Hot sale -->
+
+<div class="all_sale" id="hot_sale">
+  <div class="title">
+    <p>Giảm giá tốt nhất</p>
+    <h2>HOT SALES</h2>
+  </div>
+  <div class="slider_sale">
+    <ngx-slick-carousel
+      class="carousel"
+      #slickModel="slick-carousel"
+      [config]="slideConfig"
+      (init)="slickInit($event)"
+      (breakpoint)="breakpoint($event)"
+      (afterChange)="afterChange($event)"
+      (beforeChange)="beforeChange($event)">
+      <div ngxSlickItem class="card" *ngFor="let p of hotSale">
+        <a href="">
+          <span class="sale">-{{ p.discount }}%</span>
+          <div class="img">
+            <img src="{{ p.image }}" alt="">
+          </div>
+        </a>
+        <div class="txt">
+          <p>{{ p.product_name }}</p>
+          <div class="price_bt">
+            <div class="price">
+              <span class="old" *ngIf="p.discount > 0">{{ p.price | currency : "VND"}}</span> <br>
+              <span class="new">{{ p.price - (p.price * p.discount / 100) | currency : "VND" }}</span>
+            </div>
+            <a href="">
+              <button>MUA NGAY</button>
+            </a>
+          </div>
+        </div>
+      </div>
+    </ngx-slick-carousel>
+  </div>
+</div>
