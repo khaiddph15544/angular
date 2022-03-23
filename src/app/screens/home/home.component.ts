@@ -32,8 +32,8 @@ export class HomeComponent implements OnInit {
     "autoplay": true,
     "autoplaySpeed": 2000,
     Infinity: true,
-    prevArrow: "<i class='fa fa-angle-left' id='arrow-left'></i>",
-    nextArrow: "<i class='fa fa-angle-right'></i>",
+    prevArrow: "<i class='fa fa-angle-left' style='transition: 0.4s;opacity: 1;position: absolute;top: 40%;left: -1%;font-size: 35px;z-index: 3;cursor: pointer;padding: 10px;'></i>",
+    nextArrow: "<i class='fa fa-angle-right'style='transition: 0.4s;opacity: 1;position: absolute;top: 40%;right: -1%;font-size: 35px;z-index: 3;cursor: pointer;padding: 10px;' ></i>",
   };
   slickInit(e: any) {
     console.log('slick initialized');
