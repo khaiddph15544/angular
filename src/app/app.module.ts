@@ -10,12 +10,13 @@ import { HomeComponent } from './screens/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     HomeComponent,
-    HomeLayoutComponent
+    HomeLayoutComponent,
   ],
   imports: [
     BrowserModule,

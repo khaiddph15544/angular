@@ -1,7 +1,172 @@
 <header>
+    <!-- -------------------------- -->
+    <div class="main_header">
+        <div class="header_top">
+            <div class="header_top_main">
+                <div class="phone">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>092597441 - 096131045</span>
+                </div>
 
+                <div class="header_top_right">
+
+                    <div class="user">
+                        <input type="checkbox" id="check_user" hidden>
+                        <label for="check_user">
+                            <i class="far fa-user-circle"></i>
+                            <span>Tài khoản</span>
+                        </label>
+                        <div class="bg_user">
+                            <ul class="not_login">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cart">
+                        <i class="fa-solid fa-cart-plus"></i>
+                        <span>Giỏ hàng</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header_bottom">
+            <div class="header_bottom_main">
+
+                <div class="logo">
+                    <a routerLink=""><img src="https://mcdn.nhanh.vn/store/10067/store_1570521101_618.png" alt="" /></a>
+                </div>
+                <div class="nav">
+                    <nav>
+                        <ul class="main_father">
+                            <li><a routerLink="?direct=homepage">Trang chủ</a></li>
+                            <li>
+                                <a routerLink="#new_product">Đồng hồ<i class="fas fa-angle-down"></i></a>
+                                <div class="dropdown_father">
+                                    <div class="arrow"></div>
+                                    <ul>
+                                        <li><a routerLink="?direct=product&filter=men">Đồng hồ nam</a></li>
+                                        <li><a routerLink="?direct=product&filter=women">Đồng hồ nữ</a></li>
+                                        <li id="sub_dropdown">
+                                            <a routerLink="">
+                                                Thương hiệu<i class="fas fa-angle-right"></i>
+                                            </a>
+                                            <div class="dropdown_child">
+                                                <div class="arrow_child"></div>
+                                                <ul>
+
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a routerLink="">Bán chạy</a></li>
+                            <li><a routerLink="">Giảm giá sốc</a></li>
+                            <li><a routerLink="">Bảo hành</a></li>
+                            <li><a routerLink="">Về chúng tôi</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="search">
+                    <input type="checkbox" id="check_search" hidden>
+                    <label for="check_search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label>
+                    <label for="check_search" class="overlay_search"></label>
+                    <div class="form_search">
+                        <form action="" method="GET">
+                            <div class="search">
+                                <input id="input_search" type="text" autocomplete="off" name="keyword"
+                                    placeholder="Nhập từ khóa tìm kiếm...">
+                                <label for="check_search">
+                                    <i class="fas fa-times" id="close_search"></i>
+                                </label>
+                            </div>
+                            <div class="list_search">
+
+                            </div>
+
+                            <ul id="top_search">
+                                <span>Các từ khóa nổi bật:</span>
+                                <li><i class="fas fa-search"></i><a routerLink="#">Hublot</a></li>
+                                <li><i class="fas fa-search"></i><a routerLink="#">Rolex</a></li>
+                                <li><i class="fas fa-search"></i><a routerLink="#">Graff</a></li>
+                                <li><i class="fas fa-search"></i><a routerLink="#">Chanel</a></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </header>
-<router-outlet></router-outlet>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
+
 <footer>
-    Đây là footer
+    <section id="warranty">
+
+    </section>
+    <div class="footer_content">
+        <div class="footer_top">
+            <div class="register_email">
+                <h3>Tham gia cùng chúng tôi</h3>
+                <input type="text" placeholder="NHẬP EMAIL TẠI ĐÂY...">
+                <button>ĐĂNG KÝ</button>
+            </div>
+            <hr>
+        </div>
+        <div class="footer_bottom">
+            <div class="contact">
+                <h4>LIÊN HỆ</h4>
+                <ul>
+                    <li>CÔNG TY CỔ PHẦN TRỰC TUYẾN YOUTH</li>
+                    <li>VPGD: 80/47 Xuân phương - Nam Từ Liêm - Hà Nội</li>
+                    <li>Hotline: 1800 6005</li>
+                    <li>youthwatchs@gmail.com</li>
+                </ul>
+            </div>
+            <div class="support">
+                <h4>HỖ TRỢ</h4>
+                <ol id="support">
+                    <li><a href="">Chính sách bảo hành</a></li>
+                    <li><a href="">Chính sách đổi hàng</a></li>
+                    <li><a href="">Chính sách bảo mật</a></li>
+                    <li><a href="">Chính sách vận chuyển</a></li>
+                    <li><a href="">Hướng dẫn thanh toán</a></li>
+                </ol>
+            </div>
+            <div class="about_us" id="about_us">
+                <h4>VỀ CHÚNG TÔI</h4>
+                <ul>
+                    <li>Với hơn 20 cửa hàng trải dài cả nước, Youth hy vọng sẽ mang đến
+                        sự phục vụ chu đáo cho tất cả các khách hàng. Hệ thống cửa hàng
+                        thời trang Youth luôn luôn lắng nghe những ý kiến đóng góp từ
+                        các khách hàng với mục tiêu đẩy mạnh dịch vụ, mở rộng hệ thống
+                        và làm hài lòng những vị khách đến trên toàn quốc.</li>
+                </ul>
+            </div>
+            <div class="follow_us">
+                <h4>THEO DÕI CHÚNG TÔI</h4>
+                <ul id="icon">
+                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
+                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a href=""><i class="fab fa-youtube-square"></i></a></li>
+                </ul>
+
+                <iframe
+                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FYOUTH-100990415587834&tabs=timeline&width=340&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                    width="340" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                    allowfullscreen="true"
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+        </div>
+    </div>
 </footer>
+<script>
+
+</script>
