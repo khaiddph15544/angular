@@ -18,10 +18,20 @@ const routes: Routes = [
         path: "product",
         component: ProductComponent
       },
+      {
+        path: "detail",
+        component: ProductComponent
+      }
     ]
   },
+
   {
     path: 'login',
+    component: LoginComponent
+  },
+
+  {
+    path: 'register',
     component: LoginComponent
   }
 ];

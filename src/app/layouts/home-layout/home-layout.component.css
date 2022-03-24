@@ -481,21 +481,31 @@ footer {
 }
 
 .gototop {
-    width: 50px;
+    width: 100;
     position: fixed;
     top: 75%;
-    right: 25px;
+    right: -56px;
+    transform: rotate(-90deg);
     cursor: pointer;
+    background-color: #fff;
+    display: flex;
     display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
 }
-
-.btn_gototop {
-    display: block;
+.btn_gototop{
+    display: flex;
 }
-
-#gototop img:hover {
-    transform: rotate(360deg);
-    transition: all .6s;
+.gototop span{
+    font-weight: bold;
+}
+.gototop i{
+    display: inline-block;
+    font-size: 30px;
+    margin-top: 4px;
+    margin-left: 15px;
+    transform: rotate(90deg);
 }
 
 /* ------------------- */

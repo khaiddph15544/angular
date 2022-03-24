@@ -33,4 +33,11 @@ export class HomeLayoutComponent implements OnInit {
       });
     })
   } 
+  gotop(){
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    })
+  }
 }

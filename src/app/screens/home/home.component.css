@@ -455,8 +455,9 @@ body {
 }
 
 .new_product .title h2 {
-    font-size: 44px;
+    font-size: 40px;
     margin-top: 40px;
+    color: #444;
     margin-bottom: 35px;
 }
 
@@ -546,9 +547,20 @@ body {
     padding: 8px 30px;
     border: 1px solid #666;
 }
-
+.slider_best_seller button{
+    padding: 0;
+    background-color: red !important;
+    border-color: #fff !important;
+    color: #fff;
+    font-weight: 600;
+    width: 150px;
+    height: 40px;
+    display: inline-block;
+    margin-bottom: 15px;
+    margin-right: 40px;
+}
 .best_seller {
-    margin: 100px 9%;
+    margin: 100px 5%;
 }
 
 .best_seller .title p {
@@ -642,6 +654,7 @@ body {
 .slider_seller .card .txt .price_bt {
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 
 .slider_seller .card .txt .price span {
@@ -649,14 +662,6 @@ body {
     font-size: 23px;
     color: #D85656;
     font-weight: 600;
-}
-
-.slider_seller .card .txt .price_bt button {
-    padding: 10px 40px;
-    background-color: white;
-    margin-right: 50px;
-    font-size: 15px;
-    border: 1px solid #666;
 }
 
 .list_seller .card {
@@ -736,7 +741,8 @@ body {
 
 .all_sale .title h2 {
     margin-top: 30px;
-    font-size: 44px;
+    font-size: 36px;
+    color: #444;
     margin-bottom: 50px;
 }
 
@@ -752,7 +758,7 @@ body {
 
 .all_sale .slider_sale .card {
     /* border: 1px solid; */
-    margin: 0px 20px;
+    margin: 0px 5px;
 }
 
 .all_sale .slider_sale .img {
@@ -975,12 +981,11 @@ body {
 }
 
 .insta {
-    margin: 150px 9% 0px;
+    margin: 150px 5% 0px;
 }
 
 .insta .title {
     text-align: center;
-
 }
 
 .insta .title h2 {
@@ -1010,13 +1015,42 @@ body {
 
 .insta .list_img {
     text-align: center;
-    margin: 5% 0px;
+    margin: 5% 0;
 }
 
 .insta .list_img img {
     cursor: pointer;
+    margin: 0 4px;
 }
 
 button {
     cursor: pointer;
+}
+.show_all{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    color: #333;
+    position: relative;
+}
+.show_all::after{
+    content: "";
+    display: inline-block;
+    width: 80px;
+    position: absolute;
+    top: 13px;
+    right: 39%;
+    height: 4px;
+    background-color: #333;
+}
+.show_all::before{
+    content: "";
+    display: inline-block;
+    width: 80px;
+    position: absolute;
+    top: 13px;
+    left: 39%;
+    height: 4px;
+    background-color: #333;
 }
