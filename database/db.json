@@ -501,5 +501,25 @@
       "quantity": 1,
       "id": 15
     }
+  ],
+  "sliders": [
+    {
+      "id": 1,
+      "name": "Hublot Big Bang Unico Magic",
+      "image": "https://res.cloudinary.com/dcalzi23m/image/upload/v1648194632/slider_3_glljrb.png",
+      "product_id": 25
+    },
+    {
+      "id": 2,
+      "name": "Hublot Big Bang DJ Snake",
+      "image": "https://res.cloudinary.com/dcalzi23m/image/upload/v1648194631/slider_2_nkqpmk.png",
+      "product_id": 5
+    },
+    {
+      "id": 1,
+      "name": "Hublot Spirit of Big Bang",
+      "image": "https://res.cloudinary.com/dcalzi23m/image/upload/v1648194631/slider_1_p1k8ju.png",
+      "product_id": 6
+    }
   ]
 }

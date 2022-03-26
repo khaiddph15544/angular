@@ -11,7 +11,8 @@ import { FormsModule } from '@angular/forms';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { ProductService } from './services/product.service';
 import { HttpClientModule } from '@angular/common/http';
-import {SlickCarouselModule} from 'ngx-slick-carousel'
+import {SlickCarouselModule} from 'ngx-slick-carousel';
+import { BannerComponent } from './layouts/banner/banner/banner.component'
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {SlickCarouselModule} from 'ngx-slick-carousel'
     ProductComponent,
     HomeComponent,
     HomeLayoutComponent,
+    BannerComponent,
   ],
   imports: [
     BrowserModule,

@@ -55,163 +55,6 @@ body .slick-next {
     z-index: 100;
 } */
 
-.slider {
-    position: relative;
-    height: 660px;
-    background-color: #f5f5f5;
-    overflow: hidden;
-    width: 100%;
-}
-
-.slider .main {
-    height: 660px;
-    width: 100%;
-    position: absolute;
-    z-index: -1;
-}
-
-.slider .main .txt {
-    margin-left: 9%;
-    margin-top: 1%;
-}
-
-.slider .main .txt h2 {
-    opacity: 0;
-    font-size: 50px;
-    margin-bottom: 37px;
-    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.slider .main .txt span {
-    opacity: 0;
-    font-size: 20px;
-    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.slider .main button {
-    margin-top: 40px;
-    opacity: 0;
-    font-size: 17px;
-    padding: 8px 30px;
-    cursor: pointer;
-    border: 2px solid;
-    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.slider .main img {
-    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-    width: 30%;
-    position: absolute;
-    top: 0px;
-    right: 32%;
-    opacity: 0;
-}
-
-.slider .active_main {
-    height: 660px;
-    width: 100%;
-    position: absolute;
-}
-
-.slider .active_main .txt {
-    margin-left: 9%;
-    margin-top: 1%;
-}
-
-.slider .active_main .txt h2 {
-    font-size: 50px;
-    margin-bottom: 37px;
-    transition: all 0.7s cubic-bezier(0.77, 0, 0.175, 1);
-    transform: translateY(50px);
-}
-
-.slider .active_main .txt span {
-    transition: all 1.4s cubic-bezier(0.77, 0, 0.175, 1);
-    font-size: 20px;
-    position: absolute;
-    transform: translateY(40px);
-}
-
-.slider .active_main button {
-    transition: all 2.1s cubic-bezier(0.77, 0, 0.175, 1);
-    margin-top: 40px;
-    font-size: 17px;
-    padding: 8px 30px;
-    cursor: pointer;
-    border: 2px solid;
-    transform: translateY(40px);
-    z-index: 10 !important;
-}
-
-.slider .active_main img {
-    transition: all 0.8s cubic-bezier(0.77, 0, 0.175, 1);
-    width: 30%;
-    position: absolute;
-    top: 0px;
-    right: 12%;
-    transition-delay: 0.3s;
-}
-
-.slider:hover .fa-chevron-left {
-    opacity: 1;
-    left: 0;
-}
-
-.slider .fa-chevron-left {
-    position: absolute;
-    top: 19%;
-    left: 2%;
-    opacity: 0;
-    transition: 0.4s;
-    font-size: 40px;
-    padding: 20px 20px;
-    cursor: pointer;
-}
-
-.slider:hover .fa-chevron-right {
-    opacity: 1;
-    right: 0;
-}
-
-.slider .fa-chevron-right {
-    position: absolute;
-    top: 19%;
-    right: 2%;
-    opacity: 0;
-    transition: 0.4s;
-    font-size: 40px;
-    padding: 20px 20px;
-    cursor: pointer;
-}
-
-.slider .dotbox {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 0%;
-    left: 50%;
-    transform: translate(-50%);
-    bottom: 180px;
-}
-
-.slider .dotbox .dot {
-    width: 13px;
-    height: 13px;
-    border-radius: 100%;
-    margin: 0px 6px;
-    cursor: pointer;
-    border: 1px solid #C4C4C4;
-    background-color: #C4C4C4;
-}
-
-.slider .dotbox .dot_active {
-    transition: 0.3s;
-    border: 1px solid #CFAB64;
-    background-color: white;
-}
-
-
-
 * {
     padding: 0px;
     margin: 0px;
@@ -375,74 +218,10 @@ body {
     border: 1px solid #CFAB64;
     background-color: white;
 }
-
-.gender {
-    background-color: white;
-    width: 70%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    position: absolute;
-    top: 720px;
-    left: 15%;
-    margin-left: 2px;
-}
-
-.gender a {
-    text-decoration: none;
-    color: white;
-}
-
-.gender .men_watch {
-    height: 230px;
-    width: 90%;
-    margin: 5%;
-    overflow: hidden;
-}
-
-.gender .women_watch {
-    height: 230px;
-    width: 90%;
-    margin: 5%;
-    overflow: hidden;
-}
-
-.gender .men_watch img {
-    transition: 0.4s;
-}
-
-.gender .men_watch:hover img {
-    transform: scale(1.1);
-}
-
-.gender .women_watch img {
-    transition: 0.4s;
-}
-
-.gender .women_watch:hover img {
-    transform: scale(1.1);
-}
-
-.gender .men_watch h2 {
-    position: absolute;
-    z-index: 1;
-    letter-spacing: 2px;
-    padding-left: 30px;
-    padding-top: 50px;
-    font-size: 30px;
-}
-
-.gender .women_watch h2 {
-    position: absolute;
-    z-index: 1;
-    letter-spacing: 2px;
-    padding-left: 30px;
-    padding-top: 50px;
-    font-size: 30px;
-}
-
 .new_product {
     display: flex;
-    margin: 200px 5% 0px;
+    width: 1300px;
+    margin: 150px auto;
 }
 
 .new_product img {
@@ -559,8 +338,10 @@ body {
     margin-bottom: 15px;
     margin-right: 40px;
 }
+
 .best_seller {
-    margin: 100px 5%;
+    width: 1300px;
+    margin: 150px auto;
 }
 
 .best_seller .title p {
@@ -579,7 +360,7 @@ body {
 
 .slider_seller {
     border: 1px solid #dfd8d8;
-    width: 623px;
+    width: 650px;
     height: 660px;
     position: relative;
 }
@@ -728,7 +509,8 @@ body {
 }
 
 .all_sale {
-    margin: 100px 5% 0px;
+    width: 1300px;
+    margin: auto;
 }
 
 .all_sale img {
@@ -759,6 +541,9 @@ body {
 .all_sale .slider_sale .card {
     /* border: 1px solid; */
     margin: 0px 5px;
+}
+.all_sale .slider_sale .card:hover{
+    box-shadow: 0 0 10px #c3c3c3;
 }
 
 .all_sale .slider_sale .img {
@@ -916,6 +701,27 @@ body {
     background-color: black;
 }
 
+.box-background-main{
+    width: 100%;
+    overflow: hidden;
+    margin-top: 50px;
+}
+.background-main{
+    width: 100%;
+    margin: auto;
+    height: 500px;
+    background-color: yellow;
+    background-image: url('https://res.cloudinary.com/dcalzi23m/image/upload/v1648290943/hinh-anh-dong-ho-nam-dep_042016059_bn6awy.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    transition: all .6s;
+}
+.background-main:hover{
+    transform: scale(1.2);
+    transition: all .6s;
+}
+
 .women_post {
     margin: 450px 9% 0px;
     display: grid;
@@ -1025,6 +831,9 @@ body {
 
 button {
     cursor: pointer;
+}
+#hot_sale .title{
+    margin-top: 60px;
 }
 .show_all{
     text-decoration: none;
