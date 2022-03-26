@@ -20,9 +20,11 @@ export class HomeLayoutComponent implements OnInit {
       $(window).scroll(function () {
         if (scrollY > 25) {
           $(".header_bottom").addClass("sticky");
+          $(".about-page").css('top', '590px')
         }
         else {
           $(".header_bottom").removeClass("sticky");
+          $(".about-page").css('top', '640px')
         }
         if (scrollY >= 50) {
           $(".gototop").addClass("btn_gototop");

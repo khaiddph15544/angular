@@ -9,7 +9,7 @@ import { ProductComponent } from './screens/product/product.component';
 import { HomeComponent } from './screens/home/home.component';
 import { FormsModule } from '@angular/forms';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
-import { ProductService } from './services/product.service';
+import { ProductService } from './services/product/product.service'; 
 import { HttpClientModule } from '@angular/common/http';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
 import { BannerComponent } from './layouts/banner/banner/banner.component'

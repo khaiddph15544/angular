@@ -1,5 +1,3 @@
-
-
 /* mobile */
 
 header .nav_mobile {
@@ -12,19 +10,22 @@ header .nav_mobile {
 header * {
     color: #333;
 }
-main{
+
+main {
     width: 100%;
     margin: auto;
 }
+
 .main_header {
     margin: auto;
 }
 
-.header_top{
+.header_top {
     background-color: #f5f5f5;
-    padding: 7px 0;
+    padding: 15px 0;
 }
-.header_top_main{
+
+.header_top_main {
     width: 1400px;
     margin: auto;
     display: flex;
@@ -38,7 +39,8 @@ main{
     cursor: pointer;
     background-color: linear-gradient(red, yellow);
 }
-.header_top_main span{
+
+.header_top_main span {
     margin-left: 7px;
 }
 
@@ -62,17 +64,19 @@ main{
 .header_top_main .user ul li {
     list-style-type: none;
 }
-.header_top_right{
+
+.header_top_right {
     display: flex;
 }
 
-.header_bottom_main{
+.header_bottom_main {
     width: 1400px;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
 header .user ul li a {
     display: block;
     width: 200px;
@@ -139,7 +143,8 @@ header .form_search {
     margin-top: 10px;
     margin-bottom: 15px;
 }
-.search i{
+
+.search i {
     font-size: 28px;
     color: #333;
     cursor: pointer;
@@ -256,11 +261,13 @@ header .form_search {
     font-size: 17px;
     color: #FF0404;
 }
-div.nav{
+
+div.nav {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 header .nav nav ul {
     display: flex;
     transition: 0.3s;
@@ -406,7 +413,7 @@ footer {
     display: block;
     margin: auto;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 16px;
 }
 
 .register_email {
@@ -494,13 +501,16 @@ footer {
     justify-content: center;
     padding: 0 10px;
 }
-.btn_gototop{
+
+.btn_gototop {
     display: flex;
 }
-.gototop span{
+
+.gototop span {
     font-weight: bold;
 }
-.gototop i{
+
+.gototop i {
     display: inline-block;
     font-size: 30px;
     margin-top: 4px;

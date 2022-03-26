@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from 'src/app/services/product.service';
+import { ProductService } from 'src/app/services/product/product.service';
 import * as AOS from 'aos';
-import { SliderService } from 'src/app/services/slider.service';
+import { SliderService } from 'src/app/services/slider/slider.service';
 import { BannerComponent } from 'src/app/layouts/banner/banner/banner.component';
 
 @Component({
@@ -16,9 +16,9 @@ export class HomeComponent implements OnInit {
   newProduct: Array<any> = [];
   sliderBestSeller: Array<any> = []
   listBestSeller: Array<any> = []
-  hotSale: Array<any> = [];
-  forMen: Array<any> = [];
-  forWomen: Array<any> = [];
+  forMen: any;
+  forWomen: any;
+  hotSale: any;
   sliders: Array<any> = []
   constructor(
     private ps: ProductService,
@@ -30,31 +30,21 @@ export class HomeComponent implements OnInit {
       for (let i = data.length - 3; i < data.length; i++) {
         this.newProduct.push(data[i])
       }
-      data.sort((a: any, b: any) => a.discount < b.discount ? 1 : (b.discount < a.discount ? -1 : 0))
-      for (let i = 0; i < 10; i++) {
-        this.hotSale.push(data[i])
-      }
-      for (let i = 0; i < data.length; i++) {
-        if (data[i].model == 0) {
-          this.forMen.push(data[i])
-          if (this.forMen.length == 4) {
-            break;
-          }
-        }
-      }
-      for (let i = 0; i < data.length; i++) {
-        if (data[i].model == 1) {
-          this.forWomen.push(data[i])
-          if (this.forWomen.length == 4) {
-            break;
-          }
-        }
-      }
+    })
+    this.ps.getProductByGender(0, 4).subscribe(data => {
+      this.forMen = data
+    })
+    this.ps.getProductByGender(1, 4).subscribe(data => {
+      this.forWomen = data
+    })
+    this.ps.getProductSales(0, 10).subscribe(data => {
+      this.hotSale = data
     })
 
     this.sls.get().subscribe(data => {
       this.sliders = data
     })
+
     window.onload = () => {
       let counter = 1;
       function plusSlides(n: number) {
@@ -75,7 +65,6 @@ export class HomeComponent implements OnInit {
       let setTime = setInterval(autoSlide, 4000);
       function autoSlide() {
         counter += 1;
-        // console.log(counter)
         slidefun(counter);
       }
 
@@ -96,7 +85,7 @@ export class HomeComponent implements OnInit {
       }
 
       let myslide = document.querySelectorAll('.main'),
-        dot = document.querySelectorAll('.dot')
+      dot = document.querySelectorAll('.dot')
       slidefun(counter)
       function slidefun(n: number): any {
 

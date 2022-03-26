@@ -25,5 +25,10 @@ export class ProductService {
   delete(id: Number | String): Observable<any>{
     return this.http.delete(apiUrl+id)
   }
-
+  getProductSales(start: Number, end: Number): Observable<any>{
+    return this.http.get(apiUrl+`?_sort=discount&_order=desc,_start=${start}&_end=${end}`)
+  }
+  getProductByGender(model: Number, limit: any = ''){
+    return this.http.get(apiUrl+`?model=${model}&_limit=${limit}`)
+  }
 }
