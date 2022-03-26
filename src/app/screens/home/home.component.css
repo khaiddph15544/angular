@@ -742,6 +742,7 @@ body {
     background-image: url('https://res.cloudinary.com/dcalzi23m/image/upload/v1648290943/hinh-anh-dong-ho-nam-dep_042016059_bn6awy.jpg');
     background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed;
     overflow: hidden;
     transition: all .6s;
 }
