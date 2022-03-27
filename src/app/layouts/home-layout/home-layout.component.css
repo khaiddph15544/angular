@@ -8,21 +8,27 @@ header .nav_mobile {
 
 
 header * {
-    color: #333;
+    color: #000;
+}
+header{
+    border-bottom: 1px solid #b9afaf;
 }
 
 main {
     width: 100%;
     margin: auto;
+    background-color: #fff;
 }
 
 .main_header {
     margin: auto;
 }
 
+
 .header_top {
-    background-color: #f5f5f5;
+    background-color: #fff;
     padding: 15px 0;
+    color: #fff !important;
 }
 
 .header_top_main {
@@ -68,7 +74,9 @@ main {
 .header_top_right {
     display: flex;
 }
-
+.header_bottom{
+    background-color: #fff;
+}
 .header_bottom_main {
     width: 1400px;
     margin: auto;
@@ -134,19 +142,20 @@ header .form_search {
     z-index: 100;
     display: flex;
     justify-content: center;
-    /* text-align: center; */
     transform: translateY(-100%);
     transition: all .6s;
+    color: #000;
 }
 
 .form_search * {
     margin-top: 10px;
     margin-bottom: 15px;
+    color: #444;
 }
 
 .search i {
     font-size: 28px;
-    color: #333;
+    color: #000;
     cursor: pointer;
 }
 
@@ -214,6 +223,12 @@ header .form_search {
     overflow-y: scroll;
     width: auto;
     display: none;
+}
+#not_found li{
+    margin-left: 0;
+}
+#not_found img{
+    animation: not-found-image 0.8s infinite;
 }
 
 .form_search .list_search .card a {
@@ -381,6 +396,9 @@ header .nav nav ul li .dropdown_father ul li i {
     display: flex;
     align-items: center;
     background-color: #fff;
+}
+.sticky *{
+    color: #000 !important;
 }
 
 

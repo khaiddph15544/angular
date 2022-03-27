@@ -85,6 +85,7 @@
                                 </label>
                             </div>
                             <div class="list_search">
+                                <span *ngIf="listSearch && listSearch.length > 0">{{ listSearch.length }} kết quả phù hợp</span>
                                 <div class="card" *ngFor="let s of listSearch">
                                     <a href="">
                                         <div class="img">
@@ -103,14 +104,22 @@
                                         </div>
                                     </a>
                                 </div>
+                                <div *ngIf="listSearch && listSearch.length == 0"  id="not_found" class="text-center mt-3">
+                                    <img src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648361888/search_not_found33_yjmp2j.png" alt="">
+                                    <h4 class="font-weight-700">Không tìm thấy kết quả!</h4>
+                                    <ul>
+                                        <li>Kiểm tra lỗi chính tả của từ khóa đã nhập</li>
+                                        <li>Thử tìm kiếm bằng từ khóa khác</li>
+                                    </ul>
+                                </div>
                             </div>
 
                             <ul id="top_search">
                                 <span>Các từ khóa nổi bật:</span>
-                                <li><i class="fas fa-search"></i><a routerLink="#">Hublot</a></li>
-                                <li><i class="fas fa-search"></i><a routerLink="#">Rolex</a></li>
-                                <li><i class="fas fa-search"></i><a routerLink="#">Graff</a></li>
-                                <li><i class="fas fa-search"></i><a routerLink="#">Chanel</a></li>
+                                <li><i class="fas fa-search"></i><span>Hublot</span></li>
+                                <li><i class="fas fa-search"></i><span>Rolex</span></li>
+                                <li><i class="fas fa-search"></i><span>Graff</span></li>
+                                <li><i class="fas fa-search"></i><span>Chanel</span></li>
                             </ul>
                         </form>
                     </div>

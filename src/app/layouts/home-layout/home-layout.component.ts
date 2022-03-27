@@ -27,6 +27,7 @@ export class HomeLayoutComponent implements OnInit {
         else {
           $(".header_bottom").removeClass("sticky");
           $(".about-page").css('top', '640px')
+
         }
         if (scrollY >= 50) {
           $(".gototop").addClass("btn_gototop");
@@ -35,6 +36,11 @@ export class HomeLayoutComponent implements OnInit {
           $(".gototop").removeClass("btn_gototop");
         }
       });
+
+      $("#top_search li span").click((e) => {
+        $("#input_search").val(e.target.innerHTML)
+        this.onSearch(e.target.innerHTML)
+      })
     })
   }
   gotop() {
@@ -49,7 +55,11 @@ export class HomeLayoutComponent implements OnInit {
   onSearch(e: any) {
     $("#top_search").css('display', 'none')
     $(".list_search").css('display', 'block')
-    this.searchVal = e.target.value;
+    if(typeof e != 'string'){
+      this.searchVal = e.target.value;
+    }else{
+      this.searchVal = e
+    }
     if(this.searchVal == ''){
       $("#top_search").css('display', 'block')
       $(".list_search").css('display', 'none')
@@ -65,4 +75,5 @@ export class HomeLayoutComponent implements OnInit {
   formatCurrency(data: any) {
     return new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(data)
   }
+
 }

@@ -201,7 +201,7 @@ body {
     position: absolute;
     top: 640px;
     left: 13%;
-    background-color: rgb(231, 231, 231);
+    background-color: #fff;
     padding: 15px;
     font-weight: 500;
 }
@@ -210,19 +210,21 @@ body {
     text-align: center;
     display: block;
     margin-top: 12px;
+    font-weight: 700;
+    color: #333;
 }
 
 .qualified-warrant, .delivery-policy, .warranty-policy{
     width: 350px;
     height: 200px;
-    background-color: #fff;
+    background-color: #e7f5f7;
     margin: 0 10px;
     overflow: hidden;
+    color: #fff;
 }
 .delivery-policy{
     border-left: none;
-    background-color: red;
-    color: #fff;
+    background-color: #e7f5f7;
 }
 
 .ship-smoke{
@@ -240,7 +242,7 @@ body {
     display: block;
 }
 .qualified-warrant img{
-    width: 45% ;
+    width: 42% ;
     margin: 15px auto;
     display: block;
 }
