@@ -32,7 +32,9 @@
             <div class="header_bottom_main">
 
                 <div class="logo">
-                    <a routerLink=""><img src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648304785/logo-germe_ba9rvi.png" alt="" /></a>
+                    <a routerLink=""><img
+                            src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648304785/logo-germe_ba9rvi.png"
+                            alt="" /></a>
                 </div>
                 <div class="nav">
                     <nav>
@@ -75,14 +77,32 @@
                     <div class="form_search">
                         <form action="" method="GET">
                             <div class="search">
+                                <i class="fas fa-search"></i>
                                 <input id="input_search" type="text" autocomplete="off" name="keyword"
-                                    placeholder="Nhập từ khóa tìm kiếm...">
+                                    (input)="onSearch($event)" placeholder="Nhập từ khóa tìm kiếm...">
                                 <label for="check_search">
                                     <i class="fas fa-times" id="close_search"></i>
                                 </label>
                             </div>
                             <div class="list_search">
-
+                                <div class="card" *ngFor="let s of listSearch">
+                                    <a href="">
+                                        <div class="img">
+                                            <img src="{{ s.image }}" alt="">
+                                        </div>
+                                        <div class="txt">
+                                            <p>{{ s.product_name }}</p>
+                                            <div class="price">
+                                                <span id="old">
+                                                    {{ formatCurrency(s.price) }}
+                                                </span>
+                                                <span id="new">
+                                                    {{ formatCurrency(s.price - (s.price * s.discount / 100)) }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
 
                             <ul id="top_search">

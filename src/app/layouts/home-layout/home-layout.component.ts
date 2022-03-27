@@ -2,6 +2,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import * as $ from 'jquery'
+import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
   selector: 'app-home-layout',
@@ -12,7 +13,8 @@ import * as $ from 'jquery'
 })
 export class HomeLayoutComponent implements OnInit {
 
-  constructor() {
+  listSearch: any
+  constructor(private ps: ProductService) {
   }
 
   ngOnInit(): void {
@@ -34,12 +36,33 @@ export class HomeLayoutComponent implements OnInit {
         }
       });
     })
-  } 
-  gotop(){
+  }
+  gotop() {
     window.scroll({
       top: 0,
       left: 0,
       behavior: 'smooth'
     })
+  }
+
+  searchVal =""
+  onSearch(e: any) {
+    $("#top_search").css('display', 'none')
+    $(".list_search").css('display', 'block')
+    this.searchVal = e.target.value;
+    if(this.searchVal == ''){
+      $("#top_search").css('display', 'block')
+      $(".list_search").css('display', 'none')
+    }
+    this.ps.get().subscribe(data => {
+      this.listSearch = data.filter((product: any) => {
+        const usernameLowerCase = product.product_name.toLowerCase()
+        const searchValLowerCase = this.searchVal.toLowerCase().trim()
+        return usernameLowerCase.indexOf(searchValLowerCase) !== -1
+      })
+    })
+  }
+  formatCurrency(data: any) {
+    return new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(data)
   }
 }
