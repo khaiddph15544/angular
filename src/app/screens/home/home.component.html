@@ -87,7 +87,7 @@
     <div class="main_seller">
       <div class="slider_seller">
         <ngx-slick-carousel class="carousel" #slickModel="slick-carousel" [config]="bestSellerSlideConfig">
-          <div ngxSlickItem class="card" *ngFor="let p of newProduct">
+          <div ngxSlickItem class="card" *ngFor="let p of sliderBestSeller">
             <a routerLink="">
               <div class="img">
                 <img src="{{ p.image }}" alt="">
@@ -109,7 +109,7 @@
         </ngx-slick-carousel>
       </div>
       <div class="list_seller">
-        <div class="card" *ngFor="let p of newProduct">
+        <div class="card" *ngFor="let p of listBestSeller">
           <a routerLink="">
             <span id="sale"></span>
             <span id="sale">HOT</span>

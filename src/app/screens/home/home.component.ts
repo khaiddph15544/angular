@@ -11,7 +11,7 @@ import { CategoryService } from 'src/app/services/category/category.service';
 })
 
 export class HomeComponent implements OnInit {
-
+  bestSeller: Array<any> = []
   aos_delay = "100";
   newProduct: Array<any> = [];
   sliderBestSeller: Array<any> = []
@@ -42,6 +42,17 @@ export class HomeComponent implements OnInit {
     })
     this.sls.get().subscribe(data => {
       this.sliders = data
+    })
+    this.ps.productBestSeller().subscribe((data: any) => {
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].order_detail.length > 0) {
+          this.bestSeller.push(data[i])
+        }
+      }
+      this.bestSeller.sort((a: any, b: any) => a.order_detail.length > b.order_detail.length ? -1 : (b.order_detail.length > a.order_detail.length ? 1 : 0))
+      const arrBestSeller = this.bestSeller.slice(0, 5)
+      this.sliderBestSeller = arrBestSeller.slice(0, 3)
+      this.listBestSeller = arrBestSeller.slice(3, 5)
     })
     window.onload = () => {
       let counter = 1;

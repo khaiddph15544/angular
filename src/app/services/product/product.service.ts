@@ -14,7 +14,7 @@ export class ProductService {
     return this.http.get(apiUrl)
   }
   getOne(id: Number | String): Observable<any>{
-    return this.http.get(apiUrl+id)
+    return this.http.get(apiUrl+`${id}?_expand=category`)
   }
   insert(data: any): Observable<any>{
     return this.http.post(apiUrl, data)
@@ -36,5 +36,8 @@ export class ProductService {
   }
   productPagination(){
     return this.http.get(apiUrl+`?_page=1&_limit=12`)
+  }
+  productBestSeller(){
+    return this.http.get(apiUrl+`?_embed=order_detail`)
   }
 }

@@ -1,22 +1,17 @@
 <div class="container_detail">
     <div class="main_content">
         <div class="img">
-            <img src="" alt="">
+            <img src="{{ productDetail.image }}" alt="">
         </div>
 
-        <div class="content">
-            <h2 name="product_name" id="name_pr"><?php echo $product_detail['product_name'] ?></h2> <br>
-            <span id="status">Trạng thái: <span>
-                    
-                </span></span> <br>
+        <div class="content" *ngIf="productDetail">
+            <h2 name="product_name" id="name_pr">{{ productDetail.product_name }}</h2> <br>
+            <span id="status">Trạng thái: <span>{{ status }}</span></span> <br>
             <hr style="color: #fff;">
-            <span id="price">Giá: <span id="new_cost">
-                </span> <del id="old_cost"><?php if ($product_detail['discount'] > 0) echo number_format($product_detail["price"], 0, '.', '.') . "đ"; ?></del>
+            <span id="price">Giá: <span id="new_cost">{{ formatCurrency(productDetail.price - (productDetail.price * productDetail.discount / 100 )) }}</span> <del id="old_cost" *ngIf="productDetail.discount > 0">{{ formatCurrency(productDetail.price) }}</del>
             </span>
-            <span id="model">Dành cho đối tượng:
-                
-                </span> <br>
-            <span>Thương hiệu: <?php echo $product_detail['cate_name'] ?></span> <br>
+            <span id="model">Dành cho đối tượng: {{ model }}</span> <br>
+            <span>Thương hiệu: {{ productDetail.category.cate_name }}</span> <br>
             <span>Phí vận chuyển: </span> <span id="ship">30.000 đ</span> <br>
             <span>Số lượng <input type="button" id="minus_detail" value="-"><input type="button" id="quantity_detail"><input type="button" id="plus_detail" value="+"> </span>
 
@@ -24,7 +19,6 @@
                 <button id="addtocart" onclick=''>Thêm vào giỏ hàng</button>
                 <button id="buy_now">Mua ngay</button>
             </div>
-            <span id="check_session_js" hidden><?php echo $status_session ?></span>
         </div>
 
     </div>
@@ -32,16 +26,16 @@
 
         <div class="description">
             <h3 id="desc">Mô tả: </h3>
-            <span id="desc_text"><?php echo $product_detail['description'] ?></span>
+            <span id="desc_text">{{ productDetail.desc }}</span>
         </div>
 
         <div class="comment">
             <div class="main_comment">
-                <h3>Bình luận về <?php echo $product_detail['product_name'] ?></h3>
+                <h3>Bình luận về {{ productDetail.product_name }}</h3>
                 <form action="" method="POST" id="comment_form">
                     <span id="cmt_error"></span>
                     <div class="cmt_input">
-                        <input type="text" name="cmt_content" id="cmt_content" placeholder="Để lại bình luận tại đầy...">
+                        <input type="text" name="cmt_content" id="cmt_content" placeholder="Để lại bình luận tại đây...">
                     </div>
                     <button type="button" id="execute_comment">Gửi bình luận</button>
                 </form>

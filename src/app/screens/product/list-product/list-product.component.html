@@ -56,12 +56,11 @@
                 </aside>
             </div>
             <div class="main_right">
-
                 <h1>SẢN PHẨM <span id="count_products"></span></h1>
                 <div class="right">
                     <article class="product" *ngFor="let p of listProduct">
                         <div class="product_img">
-                            <a routerLink="">
+                            <a routerLink="/product/{{ p.id }}">
                                 <img src="{{ p.image }}" alt="">
                             </a>
                         </div>
