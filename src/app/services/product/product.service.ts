@@ -31,4 +31,10 @@ export class ProductService {
   getProductByGender(model: Number, limit: any = ''){
     return this.http.get(apiUrl+`?model=${model}&_limit=${limit}`)
   }
+  getProductByView(){
+    return this.http.get(apiUrl+`?_sort=view&_limit=5`)
+  }
+  productPagination(){
+    return this.http.get(apiUrl+`?_page=1&_limit=12`)
+  }
 }

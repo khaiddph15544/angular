@@ -57,7 +57,7 @@ export class HomeComponent implements OnInit {
       }
       function resetsetTime() {
         clearInterval(setTime);
-        setTime = setInterval(autoSlide, 6000);
+        setTime = setInterval(autoSlide, 4000);
       }
 
       let setTime = setInterval(autoSlide, 4000);
