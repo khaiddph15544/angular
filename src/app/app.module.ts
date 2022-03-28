@@ -12,6 +12,8 @@ import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component
 import { ProductService } from './services/product/product.service'; 
 import { HttpClientModule } from '@angular/common/http';
 import {SlickCarouselModule} from 'ngx-slick-carousel';
+import { SliderService } from './services/slider/slider.service';
+import { CategoryService } from './services/category/category.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,10 @@ import {SlickCarouselModule} from 'ngx-slick-carousel';
     HttpClientModule,
     SlickCarouselModule
   ],
-  providers: [ProductService],
+  providers: [
+    ProductService,
+    CategoryService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

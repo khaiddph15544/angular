@@ -2,6 +2,7 @@ import { APP_BASE_HREF } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import * as $ from 'jquery'
+import { CategoryService } from 'src/app/services/category/category.service';
 import { ProductService } from 'src/app/services/product/product.service';
 
 @Component({
@@ -14,10 +15,16 @@ import { ProductService } from 'src/app/services/product/product.service';
 export class HomeLayoutComponent implements OnInit {
 
   listSearch: any
-  constructor(private ps: ProductService) {
+  listCate: any;
+  constructor(
+    private ps: ProductService,
+    private cate: CategoryService) {
   }
 
   ngOnInit(): void {
+    this.cate.get().subscribe(data => {
+      this.listCate = data
+    })
     $(window.onload = () => {
       $(window).scroll(function () {
         if (scrollY > 25) {
@@ -51,16 +58,16 @@ export class HomeLayoutComponent implements OnInit {
     })
   }
 
-  searchVal =""
+  searchVal = ""
   onSearch(e: any) {
     $("#top_search").css('display', 'none')
     $(".list_search").css('display', 'block')
-    if(typeof e != 'string'){
+    if (typeof e != 'string') {
       this.searchVal = e.target.value;
-    }else{
+    } else {
       this.searchVal = e
     }
-    if(this.searchVal == ''){
+    if (this.searchVal == '') {
       $("#top_search").css('display', 'block')
       $(".list_search").css('display', 'none')
     }

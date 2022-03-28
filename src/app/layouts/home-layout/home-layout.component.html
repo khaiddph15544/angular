@@ -54,7 +54,9 @@
                                             <div class="dropdown_child">
                                                 <div class="arrow_child"></div>
                                                 <ul>
-
+                                                    <li *ngFor="let cate of listCate">
+                                                        <a href="">{{ cate.cate_name }}</a>
+                                                    </li>
                                                 </ul>
                                             </div>
                                         </li>
