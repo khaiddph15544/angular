@@ -1,52 +1,11 @@
-.slick-slider {
-    width: 100%;
-    background-color: #fff;
-    margin-left: 20px;
-    margin-bottom: 50px;
-    position: relative;
-    margin: auto;
-}
-
-.slick-slider:hover .fa-angle-left {
-    opacity: 1;
-    left: -3%;
-}
-.all_sale .slider_sale .fa-angle-right {
-    transition: 0.4s;
-    opacity: 0;
-    position: absolute;
-    top: 40%;
-    right: -1%;
-    font-size: 35px;
-    z-index: 3;
-    cursor: pointer;
-    padding: 10px;
-}
-
-.slick-slide {
-    border: none;
-}
-
-.fa-angle-right {
-    font-size: 40px !important;
-
-}
-
-* {
-    padding: 0px;
-    margin: 0px;
-}
-
-body {
-    font-family: sans-serif;
-}
 
 .slider {
     position: relative;
     height: 660px;
-    background-color: #f5f5f5;
+    background-color: #fff;
     overflow: hidden;
     width: 100%;
+    color: #000;
 }
 
 .slider .main {
@@ -80,7 +39,7 @@ body {
     font-size: 17px;
     padding: 8px 30px;
     cursor: pointer;
-    border: 2px solid;
+    border: 2px solid #000;
     transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
@@ -124,7 +83,7 @@ body {
     font-size: 17px;
     padding: 8px 30px;
     cursor: pointer;
-    border: 2px solid;
+    border: 2px solid #000;
     transform: translateY(40px);
     z-index: 10 !important;
 }
@@ -145,7 +104,7 @@ body {
 
 .slider .fa-chevron-left {
     position: absolute;
-    top: 19%;
+    top: 30%;
     left: 2%;
     opacity: 0;
     transition: 0.4s;
@@ -161,7 +120,7 @@ body {
 
 .slider .fa-chevron-right {
     position: absolute;
-    top: 19%;
+    top: 30%;
     right: 2%;
     opacity: 0;
     transition: 0.4s;
@@ -195,6 +154,51 @@ body {
     border: 1px solid #CFAB64;
     background-color: white;
 }
+
+
+.slick-slider {
+    width: 100%;
+    background-color: #fff;
+    margin-left: 20px;
+    margin-bottom: 50px;
+    position: relative;
+    margin: auto;
+}
+
+.slick-slider:hover .fa-angle-left {
+    opacity: 1;
+    left: -3%;
+}
+.all_sale .slider_sale .fa-angle-right {
+    transition: 0.4s;
+    opacity: 0;
+    position: absolute;
+    top: 40%;
+    right: -1%;
+    font-size: 35px;
+    z-index: 3;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.slick-slide {
+    border: none;
+}
+
+.fa-angle-right {
+    font-size: 40px !important;
+
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: sans-serif;
+}
+
 .about-page{
     display: flex;
     justify-content: center;

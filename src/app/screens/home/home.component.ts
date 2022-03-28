@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product/product.service';
 import * as AOS from 'aos';
 import { SliderService } from 'src/app/services/slider/slider.service';
-import { BannerComponent } from 'src/app/layouts/banner/banner/banner.component';
 
 @Component({
   selector: 'app-home',
@@ -19,7 +18,8 @@ export class HomeComponent implements OnInit {
   forMen: any;
   forWomen: any;
   hotSale: any;
-  sliders: Array<any> = []
+  listCate: any;
+  sliders: any;
   constructor(
     private ps: ProductService,
     private sls: SliderService
@@ -40,71 +40,72 @@ export class HomeComponent implements OnInit {
     this.ps.getProductSales(0, 10).subscribe(data => {
       this.hotSale = data
     })
-
     this.sls.get().subscribe(data => {
       this.sliders = data
     })
-
     window.onload = () => {
-      let counter = 1;
-      function plusSlides(n: number) {
-        counter += n;
-        slidefun(counter);
-        resetsetTime();
-      }
-      function currentSlide(n: number) {
-        counter = n;
-        slidefun(counter);
-        resetsetTime();
-      }
-      function resetsetTime() {
-        clearInterval(setTime);
-        setTime = setInterval(autoSlide, 6000);
-      }
-
-      let setTime = setInterval(autoSlide, 4000);
-      function autoSlide() {
-        counter += 1;
-        slidefun(counter);
-      }
-
-      (<HTMLDivElement>document.querySelector(".fa-chevron-left")).onclick = () => {
-        plusSlides(-1)
-      }
-      (<HTMLDivElement>document.querySelector(".fa-chevron-right")).onclick = () => {
-        plusSlides(1)
-      }
-      (<HTMLDivElement>document.querySelector("#dot1")).onclick = () => {
-        currentSlide(1)
-      }
-      (<HTMLDivElement>document.querySelector("#dot2")).onclick = () => {
-        currentSlide(2)
-      }
-      (<HTMLDivElement>document.querySelector("#dot3")).onclick = () => {
-        currentSlide(3)
-      }
-
-      let myslide = document.querySelectorAll('.main'),
-      dot = document.querySelectorAll('.dot')
-      slidefun(counter)
-      function slidefun(n: number): any {
-
-        let i;
-        for (i = 0; i < myslide.length; i++) {
-          myslide[i].className = 'main';
+      if (this.sliders.length > 0) {
+        let counter = 1;
+        function plusSlides(n: number) {
+          counter += n;
+          slidefun(counter);
+          resetsetTime();
         }
-        for (i = 0; i < dot.length; i++) {
-          dot[i].className = 'dot';
+        function currentSlide(n: number) {
+          counter = n;
+          slidefun(counter);
+          resetsetTime();
         }
-        if (n > myslide.length) {
-          counter = 1;
+        function resetsetTime() {
+          clearInterval(setTime);
+          setTime = setInterval(autoSlide, 6000);
         }
-        if (n < 1) {
-          counter = myslide.length;
+
+        let setTime = setInterval(autoSlide, 4000);
+        function autoSlide() {
+          counter += 1;
+          slidefun(counter);
         }
-        myslide[counter - 1].className = 'active_main';
-        dot[counter - 1].className += " dot_active";
-      };
+
+        (<HTMLDivElement>document.querySelector(".fa-chevron-left")).onclick = () => {
+          plusSlides(-1)
+        }
+        (<HTMLDivElement>document.querySelector(".fa-chevron-right")).onclick = () => {
+          plusSlides(1)
+        }
+        (<HTMLDivElement>document.querySelector("#dot1")).onclick = () => {
+          currentSlide(1)
+        }
+        (<HTMLDivElement>document.querySelector("#dot2")).onclick = () => {
+          currentSlide(2)
+        }
+        (<HTMLDivElement>document.querySelector("#dot3")).onclick = () => {
+          currentSlide(3)
+        }
+
+        let myslide = document.querySelectorAll('.main'),
+          dot = document.querySelectorAll('.dot')
+        slidefun(counter)
+        function slidefun(n: number): any {
+          console.log(myslide)
+
+          let i;
+          for (i = 0; i < myslide.length; i++) {
+            myslide[i].className = 'main';
+          }
+          for (i = 0; i < dot.length; i++) {
+            dot[i].className = 'dot';
+          }
+          if (n > myslide.length) {
+            counter = 1;
+          }
+          if (n < 1) {
+            counter = myslide.length;
+          }
+          myslide[counter - 1].className = 'active_main';
+          dot[counter - 1].className += " dot_active";
+        };
+      }
     }
   }
 
@@ -129,5 +130,4 @@ export class HomeComponent implements OnInit {
   formatCurrency(data: any) {
     return new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(data)
   }
-
 }
