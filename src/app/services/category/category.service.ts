@@ -25,4 +25,7 @@ export class CategoryService {
   delete(id: Number | String): Observable<any>{
     return this.http.delete(apiUrl+id)
   }
+  getProductByCate(categoryId: Number | String): Observable<any>{
+    return this.http.get(apiUrl+`${categoryId}?_embed=products`)
+  }
 }

@@ -17,7 +17,11 @@ import { ProductDetailComponent } from './screens/product/product-detail/product
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule  } from '@angular/material/paginator';
 import { MatTableModule  } from '@angular/material/table';
-import { MatButtonModule } from '@angular/material/button'
+import { MatButtonModule } from '@angular/material/button';
+import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout/dashboard-layout.component';
+import { DashboardComponent } from './screens/admin/dashboard/dashboard.component';
+import { CategoryManageComponent } from './screens/admin/category-manage/category-manage.component';
+import { ProductManageComponent } from './screens/admin/product-manage/product-manage.component'
 
 @NgModule({
   declarations: [
@@ -26,6 +30,10 @@ import { MatButtonModule } from '@angular/material/button'
     HomeLayoutComponent,
     ListProductComponent,
     ProductDetailComponent,
+    DashboardLayoutComponent,
+    DashboardComponent,
+    CategoryManageComponent,
+    ProductManageComponent,
   ],
   imports: [
     BrowserModule,

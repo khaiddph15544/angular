@@ -223,7 +223,8 @@ main{
 }
 
 .container_detail .product_involve .list_involve .card .img img {
-    width: 100%;
+    width: 85%;
+    margin: auto;
 }
 
 .container_detail .product_involve .list_involve a {
@@ -312,6 +313,11 @@ main{
 }
 #cmt_error{
     color: red;
+}
+#quantity_detail, #minus_detail, #plus_detail{
+    width: 45px;
+    height: 25px;
+    text-align: center;
 }
 
 @media screen and (max-width: 1300px) {

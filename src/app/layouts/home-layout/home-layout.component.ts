@@ -26,15 +26,15 @@ export class HomeLayoutComponent implements OnInit {
       this.listCate = data
     })
     $(window.onload = () => {
-      $(window).scroll(function () {
+      $(window.onscroll = () => {
         if (scrollY > 25) {
           $(".header_bottom").addClass("sticky");
           $(".about-page").css('top', '590px')
-        }
-        else {
+          $('.form_cart').addClass('sub-cart')
+        } else {
           $(".header_bottom").removeClass("sticky");
-          $(".about-page").css('top', '640px')
-
+          $(".about-page").css('top', '640px');
+          $('.form_cart').removeClass('sub-cart')
         }
         if (scrollY >= 50) {
           $(".gototop").addClass("btn_gototop");
