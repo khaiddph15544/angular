@@ -1,0 +1,7 @@
+<form [formGroup]="categoryForm" (ngSubmit)="onSubmit(categoryForm.value)" id="func_form">
+    <div>
+        <label for="">Mã loại hàng</label> <input type="text" formControlName="id"  placeholder="Auto Number" readonly>
+        <label for="">Tên loại hàng</label> <input type="text" formControlName="cate_name">
+        <button name="btn_add">Thực hiện</button>
+    </div>
+</form>

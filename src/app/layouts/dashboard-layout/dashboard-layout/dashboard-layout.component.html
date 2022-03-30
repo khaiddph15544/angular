@@ -5,16 +5,16 @@
         </div>
         <div class="aside_content">
             <ul>
-                <li><a href="">TRANG CHỦ</a></li>
-                <li><a href="">LOẠI HÀNG</a></li>
-                <li><a href="">HÀNG HÓA</a></li>
-                <li><a href="">NGƯỜI DÙNG</a></li>
-                <li><a href="">BÌNH LUẬN</a></li>
-                <li><a href="">ĐƠN HÀNG</a></li>
-                <li><a href="">BẢO HÀNH</a></li>
-                <li><a href="">GIỎ HÀNG</a></li>
-                <li><a href="">SLIDER</a></li>
-                <li><a href="">THỐNG KÊ</a></li>
+                <li><a routerLink="/admin">TRANG CHỦ</a></li>
+                <li><a routerLink="/admin/category">LOẠI HÀNG</a></li>
+                <li><a routerLink="/admin/product">HÀNG HÓA</a></li>
+                <li><a routerLink="/admin/user">NGƯỜI DÙNG</a></li>
+                <li><a routerLink="/admin/comment">BÌNH LUẬN</a></li>
+                <li><a routerLink="/admin/order">ĐƠN HÀNG</a></li>
+                <li><a routerLink="/admin/warranty">BẢO HÀNH</a></li>
+                <li><a routerLink="/admin/cart">GIỎ HÀNG</a></li>
+                <li><a routerLink="/admin/slider">SLIDER</a></li>
+                <li><a routerLink="/admin/statistical">THỐNG KÊ</a></li>
             </ul>
         </div>
     </aside>
@@ -23,7 +23,7 @@
             
         </div>
         <div class="main_content">
-            
+            <router-outlet></router-outlet>
         </div>
     </main>
 </div>

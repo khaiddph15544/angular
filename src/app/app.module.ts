@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './screens/home/home.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { ProductService } from './services/product/product.service'; 
 import { HttpClientModule } from '@angular/common/http';
@@ -20,8 +20,9 @@ import { MatTableModule  } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout/dashboard-layout.component';
 import { DashboardComponent } from './screens/admin/dashboard/dashboard.component';
-import { CategoryManageComponent } from './screens/admin/category-manage/category-manage.component';
-import { ProductManageComponent } from './screens/admin/product-manage/product-manage.component'
+import { ProductManageComponent } from './screens/admin/product-manage/product-manage.component';
+import { CategoryFormComponent } from './screens/admin/category/category-form/category-form.component'
+import { CategoryManageComponent } from './screens/admin/category/category-manage/category-manage.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ProductManageComponent } from './screens/admin/product-manage/product-m
     DashboardComponent,
     CategoryManageComponent,
     ProductManageComponent,
+    CategoryFormComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { ProductManageComponent } from './screens/admin/product-manage/product-m
     BrowserAnimationsModule,
     MatPaginatorModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    ReactiveFormsModule
   ],
   providers: [
     ProductService,

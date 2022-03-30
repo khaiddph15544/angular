@@ -2,7 +2,8 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout/dashboard-layout.component';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
-import { CategoryManageComponent } from './screens/admin/category-manage/category-manage.component';
+import { CategoryFormComponent } from './screens/admin/category/category-form/category-form.component';
+import { CategoryManageComponent } from './screens/admin/category/category-manage/category-manage.component';
 import { DashboardComponent } from './screens/admin/dashboard/dashboard.component';
 import { HomeComponent } from './screens/home/home.component';
 import { LoginComponent } from './screens/login/login.component';
@@ -46,8 +47,16 @@ const routes: Routes = [
       },
       {
         path: 'category',
-        component: CategoryManageComponent
-      }
+        component: CategoryManageComponent,
+      },
+      {
+        path: 'category/add',
+        component: CategoryFormComponent,
+      },
+      {
+        path: 'category/update/:id',
+        component: CategoryFormComponent,
+      },
     ]
   }
 ];
