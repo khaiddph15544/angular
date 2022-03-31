@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './screens/home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import { HomeLayoutComponent } from './components/home-layout/home-layout.component';
 import { ProductService } from './services/product/product.service'; 
 import { HttpClientModule } from '@angular/common/http';
 import { SlickCarouselModule } from 'ngx-slick-carousel';
@@ -18,7 +18,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatPaginatorModule  } from '@angular/material/paginator';
 import { MatTableModule  } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
-import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout/dashboard-layout.component';
+import { DashboardLayoutComponent } from './components/dashboard-layout/dashboard-layout/dashboard-layout.component';
 import { DashboardComponent } from './screens/admin/dashboard/dashboard.component';
 import { ProductManageComponent } from './screens/admin/product-manage/product-manage.component';
 import { CategoryFormComponent } from './screens/admin/category/category-form/category-form.component'

@@ -1,7 +1,7 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout/dashboard-layout.component';
-import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import { DashboardLayoutComponent } from './components/dashboard-layout/dashboard-layout/dashboard-layout.component';
+import { HomeLayoutComponent } from './components/home-layout/home-layout.component';
 import { CategoryFormComponent } from './screens/admin/category/category-form/category-form.component';
 import { CategoryManageComponent } from './screens/admin/category/category-manage/category-manage.component';
 import { DashboardComponent } from './screens/admin/dashboard/dashboard.component';
