@@ -45,7 +45,7 @@
   <div class="new_product" id="new_product">
     <div class="title">
       <p>PHONG CÁCH MỚI</p>
-      <h2>SẢN PHẨM <br> MỚI</h2>
+      <h2>SẢN PHẨM <p>MỚI</p></h2>
       <span>Những mẫu mới nhất, bộ sưu tập hoàn hảo dành cho bạn</span>
       <div class="bt">
         <a routerLink="">
@@ -116,7 +116,7 @@
             <img src="{{ p.image }}" alt="">
           </a>
           <div class="txt">
-            <p></p>
+            <p>{{ p.product_name }}</p>
             <div class="price_bt">
               <div class="price">
                 <span id="old" *ngIf="p.discount">{{ formatCurrency(p.price) }}</span> <br>
@@ -137,16 +137,15 @@
 <!-- For men -->
 <div class="all_sale" id="hot_sale">
   <div class="title">
-    <div data-aos="flip-right" data-aos-offset="100" data-aos-delay="300" data-aos-duration="300">
-      <p class="text-center">Lựa chọn cho phái mạnh</p>
+    <div data-aos="flip-right" data-aos-offset="50" data-aos-delay="200" data-aos-duration="1000">
+      <p class="text-center">Tốc độ nhanh nhất, sức mạnh lớn nhất</p>
       <a routerLink=""><span class="show_all">Xem tất cả</span></a>
     </div>
-    <h2 class="text-center font-weight-bold" data-aos="fade-up" data-aos-offset="100" data-aos-delay="500"
-      data-aos-duration="1000">ĐỒNG HỒ NAM</h2>
-
+    <h2 class="text-center font-weight-bold" data-aos="fade-up" data-aos-offset="150" data-aos-delay="300"
+      data-aos-duration="1000">Thương hiệu Apple</h2>
   </div>
   <div class="slider_sale">
-    <div class="card" *ngFor="let p of forMen" data-aos="fade-right" data-aos-offset="100" data-aos-delay="700"
+    <div class="card" *ngFor="let p of apple" data-aos="fade-right" data-aos-offset="250" data-aos-delay="600"
       data-aos-duration="1000">
       <a routerLink="">
         <span class="sale">-{{ p.discount }}%</span>
@@ -171,23 +170,32 @@
 </div>
 
 
-<div class="box-background-main" data-aos="zoom-in" data-aos-offset="100" data-aos-delay="800" data-aos-duration="300">
-  <div class="background-main"></div>
+<div class="box-background-main">
+  <div class="background-main">
+    <div class="background-main-content">
+      <img src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648748303/1633170286_837_Hinh-anh-lua-ngon-lua-dep_u9dnk2.jpg" alt="">
+      <button type="button" class="discover_sub" (click)="discoverSub()">KHÁM PHÁ</button>
+      <h3 data-aos="zoom-in" data-aos-offset="100" data-aos-delay="400" data-aos-duration="200">THÁNG <span>4</span> NÀY</h3>
+      <h2 data-aos="zoom-in" data-aos-offset="300" data-aos-delay="600" data-aos-duration="200">CÓ GÌ HOT</h2>
+      <video id="video-background" src="" loop controls></video>
+      <h4>Cùng nhau <br> <br> <br> chờ đón</h4>
+      <h5>XIAOMI <br> <br> <br> 12 | 12 PRO</h5>
+    </div>
+  </div>
 </div>
-
 <!-- For women -->
 <div class="all_sale" id="hot_sale">
   <div class="title">
-    <div data-aos="flip-left" data-aos-offset="100" data-aos-delay="300" data-aos-duration="500">
-      <p class="text-center">Lựa chọn cho phái đẹp</p>
+    <div data-aos="flip-left" data-aos-offset="50" data-aos-delay="300" data-aos-duration="200">
+      <p class="text-center">Hãy tưởng tượng</p>
       <a routerLink=""><span class="show_all">Xem tất cả</span></a>
     </div>
-    <h2 class="text-center font-weight-bold" data-aos="fade-up" data-aos-offset="100" data-aos-delay="600"
-      data-aos-duration="700">ĐỒNG HỒ NỮ</h2>
+    <h2 class="text-center font-weight-bold" data-aos="fade-up" data-aos-offset="150" data-aos-delay="300"
+      data-aos-duration="200">Thương hiệu Samsung</h2>
   </div>
   <div class="slider_sale ">
-    <div class="card" *ngFor="let p of forWomen" data-aos="fade-left" data-aos-offset="100" data-aos-delay="800"
-      data-aos-duration="1000">
+    <div class="card" *ngFor="let p of samsung" data-aos="fade-left" data-aos-offset="250" data-aos-delay="600"
+      data-aos-duration="200">
       <a routerLink="">
         <span class="sale">-{{ p.discount }}%</span>
         <div class="img">
@@ -249,11 +257,10 @@
     <h2>Instagram</h2>
   </div>
   <div class="list_img">
-    <img src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648113196/imstagram_2_esxuyv.png" alt="">
-    <img src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648113196/imstagram_3_phw4x9.png" alt="">
-    <img src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648113196/imstagram_6_jizems.png" alt="">
-    <img src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648113196/imstagram_4_g2qcqu.png" alt="">
-    <img src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648113196/imstagram_5_qfxswj.png" alt="">
-    <img src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648113196/imstagram_1_ctuqjr.png" alt="">
+    <img src="assets/image/instagram/img1.jpeg" alt="">
+    <img src="assets/image/instagram/img2.jpg" alt="">
+    <img src="assets/image/instagram/img3.jpg" alt="">
+    <img src="assets/image/instagram/img4.jpeg" alt="">
+    <img src="assets/image/instagram/img6.jpg" alt="">
   </div>
 </div>

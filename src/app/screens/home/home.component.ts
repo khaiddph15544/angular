@@ -16,8 +16,8 @@ export class HomeComponent implements OnInit {
   newProduct: Array<any> = [];
   sliderBestSeller: Array<any> = []
   listBestSeller: Array<any> = []
-  forMen: any;
-  forWomen: any;
+  apple: any;
+  samsung: any;
   hotSale: any;
   sliders: any;
   constructor(
@@ -31,11 +31,11 @@ export class HomeComponent implements OnInit {
         this.newProduct.push(data[i])
       }
     })
-    this.ps.getProductByGender(0, 4).subscribe(data => {
-      this.forMen = data
+    this.ps.getProductByCate(1, 5).subscribe(data => {
+      this.apple = data
     })
-    this.ps.getProductByGender(1, 4).subscribe(data => {
-      this.forWomen = data
+    this.ps.getProductByCate(2, 5).subscribe(data => {
+      this.samsung = data
     })
     this.ps.getProductSales(0, 10).subscribe(data => {
       this.hotSale = data
@@ -117,6 +117,10 @@ export class HomeComponent implements OnInit {
       };
     }
   }
+  discoverSub(){
+    $(".background-main-content").addClass("active_sub")
+    $("")
+  }
 
   bestSellerSlideConfig = {
     slidesToShow: 1,
@@ -124,8 +128,8 @@ export class HomeComponent implements OnInit {
     "autoplay": true,
     "autoplaySpeed": 2000,
     Infinity: true,
-    prevArrow: "<i class='fa fa-angle-left' style='transition: 0.4s;opacity: 1;position: absolute;top: 40%;left: -1%;font-size: 35px;z-index: 3;cursor: pointer;padding: 10px;'></i>",
-    nextArrow: "<i class='fa fa-angle-right'style='transition: 0.4s;opacity: 1;position: absolute;top: 40%;right: -1%;font-size: 35px;z-index: 3;cursor: pointer;padding: 10px;' ></i>",
+    prevArrow: "<i class='fa fa-angle-left' style='transition: 0.4s;opacity: 1;position: absolute;top: 40%;left: 2%;font-size: 35px;z-index: 3;cursor: pointer;padding: 10px;'></i>",
+    nextArrow: "<i class='fa fa-angle-right'style='transition: 0.4s;opacity: 1;position: absolute;top: 40%;right: 2%;font-size: 35px;z-index: 3;cursor: pointer;padding: 10px;' ></i>",
   }
   slideConfig = {
     slidesToShow: 4,

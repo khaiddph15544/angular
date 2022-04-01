@@ -28,8 +28,8 @@ export class ProductService {
   getProductSales(start: Number, end: Number): Observable<any>{
     return this.http.get(apiUrl+`?_sort=discount&_order=desc,_start=${start}&_end=${end}`)
   }
-  getProductByGender(model: Number, limit: any = ''){
-    return this.http.get(apiUrl+`?model=${model}&_limit=${limit}`)
+  getProductByCate(cate: Number, limit: any = ''){
+    return this.http.get(apiUrl+`?categoryId=${cate}&_limit=${limit}`)
   }
   getProductByView(){
     return this.http.get(apiUrl+`?_sort=view&_limit=5`)

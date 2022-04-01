@@ -43,6 +43,15 @@ export class HomeLayoutComponent implements OnInit {
           $(".gototop").removeClass("btn_gototop");
         }
       });
+      window.onscroll = () => {
+        if(scrollY < 2100 || scrollY > 3400){
+          console.log(scrollY)
+          $(".background-main-content").removeClass("active_sub")
+          $("video").attr("src", "")
+        }else{
+          $("video").attr("src", "assets/image/product/banner_sub.mp4")
+        }
+      }
 
       $("#top_search li span").click((e) => {
         $("#input_search").val(e.target.innerHTML)
