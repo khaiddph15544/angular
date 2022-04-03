@@ -1,0 +1,39 @@
+.top nav ul {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.top nav ul li {
+    list-style: none;
+    padding: 25px 35px;
+    font-size: 16px;
+    width: 230px;
+    box-shadow: rgba(0, 0, 0, 0.2) 1.95px 1.95px 2.6px;
+}
+
+.top nav ul li i {
+    padding-right: 8px;
+}
+.new_user{
+    width: 92.5%;
+    margin: auto;
+    margin-top: 50px;
+}
+.new_user h2{
+    font-size: 25px;
+}
+.new_user table tr th{
+    background-color: #E8E8E8;
+    border-bottom: 0;
+    color: #25282B;
+    padding: 12px 0;
+    padding-left: 35px;
+}
+.new_user table tr{
+    font-size: 17px;
+}
+.new_user table tr td{
+    padding: 15px 0;
+    padding-left: 35px;
+}

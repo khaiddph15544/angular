@@ -1,1 +1,35 @@
-HOMEPAGE
+<div class="top">
+    <nav>
+        <ul>
+            <li> <i class="fas fa-layer-group"></i> {{ countCate }} Loại hàng</li>
+            <li> <i class="fas fa-box"></i>{{ countProduct }} hàng hóa</li>
+            <li> <i class="fas fa-user"></i>{{ countUser }} Người dùng</li>
+            <li> <i class="fas fa-comment-alt"></i>{{ countComment }} Bình luận</li>
+            <li> <i class="fas fa-clipboard-list"></i>{{ countOrder }} Đơn hàng</li>
+        </ul>
+    </nav>
+</div>
+
+<div class="new_user">
+    <h2>Thành viên mới</h2>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Người dùng</th>
+                <th>Email</th>
+                <th>Tuổi</th>
+                <th>Thời gian đăng ký</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.user_name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.age }}</td>
+                <td>{{ user.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

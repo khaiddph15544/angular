@@ -1,10 +1,9 @@
 import { APP_BASE_HREF } from '@angular/common';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import * as $ from 'jquery'
 import { CategoryService } from 'src/app/services/category/category.service';
 import { ProductService } from 'src/app/services/product/product.service';
-
 @Component({
   selector: 'app-home-layout',
   templateUrl: './home-layout.component.html',
@@ -12,6 +11,7 @@ import { ProductService } from 'src/app/services/product/product.service';
     './home-layout.component.css',
     '../../app.component.css']
 })
+
 export class HomeLayoutComponent implements OnInit {
 
   listSearch: any
@@ -22,6 +22,7 @@ export class HomeLayoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    
     this.cate.get().subscribe(data => {
       this.listCate = data
     })
@@ -84,6 +85,7 @@ export class HomeLayoutComponent implements OnInit {
       })
     })
   }
+
   formatCurrency(data: any) {
     return new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(data)
   }

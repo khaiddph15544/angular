@@ -155,14 +155,14 @@
       "id": 14
     },
     {
-      "product_name": "Xiaomi Redmi Note 11Pro 5G",
+      "product_name": "Xiaomi Redmi Note 11 Pro 5G",
       "image": "assets/image/product/redminote11.png",
       "price": 6500000,
       "quantity": 1000,
       "discount": 5,
       "view": 100,
       "desc": "Yacht- Master là dòng đồng hồ lịch lãm nhưng mang đậm chất thời trang và thể thao, dòng sản phẩm nổi bật này của thương hiệu Rolex lừng danh sẽ mang đến cho người sở hữu sự nổi bật và tự tin tuyệt đối trước đám đông. Rolex Yacht-Master 268655 Pave chính là một cái tên không thể bỏ qua.",
-      "categoryId": 3,
+      "categoryId": 4,
       "id": 15
     },
     {
@@ -173,7 +173,7 @@
       "discount": 15,
       "view": 120,
       "desc": "Mặt số skeleton không đơn giản chỉ là lộ máy mà đó còn là cả một bức tranh nghệ thuật. Chiếc Hublot Big Bang Unico Black Magic nổi bật vô cùng ngầu với bộ vỏ ceramic đen toàn bộ từ vành bezel, thân vỏ cho tới bộ khóa. Chất liệu ceramic nổi bật là một chất liệu hiện đại, trọng lượng nhẹ và có độ cứng rất cao.",
-      "categoryId": 6,
+      "categoryId": 4,
       "id": 16
     },
     {
@@ -211,9 +211,8 @@
       "slug": "samsung"
     },
     {
-      "cate_name": "Oppo",
       "id": 3,
-      "slug": "oppo"
+      "cate_name": "Oppo"
     },
     {
       "cate_name": "Xiaomi",
@@ -226,9 +225,8 @@
       "slug": "realme"
     },
     {
-      "cate_name": "Vivo",
       "id": 6,
-      "slug": "vivo"
+      "cate_name": "Vivo"
     }
   ],
   "users": [
@@ -237,6 +235,7 @@
       "password": "$2a$10$aqtA9/cYuySYrnN9ze13d.ajt/jl78kbxiwsqIDOPuc/bx5bP1Lse",
       "image": "http://res.cloudinary.com/dcalzi23m/image/upload/v1645204821/fi3v66tqpwrnief1qgpd.jpg",
       "user_name": "khaidang",
+      "age": 19,
       "role": "1",
       "id": 1
     },
@@ -245,6 +244,7 @@
       "password": "$2a$10$aqtA9/cYuySYrnN9ze13d.ajt/jl78kbxiwsqIDOPuc/bx5bP1Lse",
       "image": "http://res.cloudinary.com/dcalzi23m/image/upload/v1645204857/pebzrucdtwkklogpxzlh.jpg",
       "user_name": "khanhnguyen",
+      "age": 22,
       "role": "0",
       "id": 2
     },
@@ -253,6 +253,7 @@
       "password": "$2a$10$ymIkWez007.euSJJ/ejrf.h/XwjvJf/FiI5ZTfFft4j0C.c8xgl9O",
       "image": "http://res.cloudinary.com/dcalzi23m/image/upload/v1645204928/vaj9izj6ydfnskqeod3d.jpg",
       "user_name": "dangkhai",
+      "age": 25,
       "role": "1",
       "id": 3
     },
@@ -261,6 +262,7 @@
       "password": "$2a$10$aqtA9/cYuySYrnN9ze13d.ajt/jl78kbxiwsqIDOPuc/bx5bP1Lse",
       "image": "http://res.cloudinary.com/dcalzi23m/image/upload/v1645204983/coduilnoi5ehex8uvhmb.jpg",
       "user_name": "hanhnguyen",
+      "age": 44,
       "role": "1",
       "id": 4
     },
@@ -269,6 +271,7 @@
       "password": "$2a$10$B0fFOZddoGjebh22m5gF5uCFLtAZBqVANG1uC0br3aUmqjkUg5afm",
       "image": "http://res.cloudinary.com/dcalzi23m/image/upload/v1645197996/wrmvfyickb1cdtzlfi3l.png",
       "user_name": "iiiiiii",
+      "age": 19,
       "role": "1",
       "id": 5
     }

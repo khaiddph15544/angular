@@ -11,7 +11,7 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   get(): Observable<any> {
-    return this.http.get(apiUrl)
+    return this.http.get(apiUrl+`?_expand=category`)
   }
   getOne(id: Number | String): Observable<any>{
     return this.http.get(apiUrl+`${id}?_expand=category`)

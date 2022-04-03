@@ -13,6 +13,7 @@ export class CategoryFormComponent implements OnInit {
   categoryForm: FormGroup
   id: any
   dataUpdate: any
+  action: String = "Thêm mới"
   constructor(
     private cate: CategoryService,
     private router: Router,
@@ -25,6 +26,7 @@ export class CategoryFormComponent implements OnInit {
     this.id = this.activeRoute.snapshot.params['id']
     if (this.id != undefined) {
       this.cate.getOne(this.id).subscribe(data => {
+        this.action = "Cập nhật"
         this.dataUpdate = data
         this.categoryForm = new FormGroup({
           id: new FormControl(this.dataUpdate.id),
@@ -39,12 +41,12 @@ export class CategoryFormComponent implements OnInit {
   }
 
   onSubmit(data: any) {
-    if(this.id != undefined){
+    if (this.id != undefined) {
       this.cate.update(data).subscribe(data => {
         alert('Cập nhật dữ liệu thành công!')
         this.router.navigate(["/admin/category"])
       })
-    }else{
+    } else {
       this.cate.insert(data).subscribe(data => {
         alert('Thêm mới dữ liệu thành công!')
         this.router.navigate(["/admin/category"])

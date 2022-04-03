@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product/product.service';
 import * as AOS from 'aos';
 import { SliderService } from 'src/app/services/slider/slider.service';
-import { CategoryService } from 'src/app/services/category/category.service';
 
 @Component({
   selector: 'app-home',

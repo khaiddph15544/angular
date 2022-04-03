@@ -5,10 +5,14 @@ import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component
 import { CategoryFormComponent } from './pages/admin/category/category-form/category-form.component';
 import { CategoryManageComponent } from './pages/admin/category/category-manage/category-manage.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
-import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
-import { ListProductComponent } from './pages/product/list-product/list-product.component';
-import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
+import { ProductFormComponent } from './pages/admin/product/product-form/product-form.component';
+import { ProductManageComponent } from './pages/admin/product/product-manage/product-manage.component';
+import { UserFormComponent } from './pages/admin/user/user-form/user-form.component';
+import { UserManageComponent } from './pages/admin/user/user-manage/user-manage.component';
+import { HomeComponent } from './pages/client/home/home.component';
+import { LoginComponent } from './pages/client/login/login.component';
+import { ListProductComponent } from './pages/client/product/list-product/list-product.component';
+import { ProductDetailComponent } from './pages/client/product/product-detail/product-detail.component';
 
 const routes: Routes = [
   {
@@ -20,18 +24,18 @@ const routes: Routes = [
         component: HomeComponent,
       },
       {
-        path: "product",
+        path: "phones",
         component: ListProductComponent,
       },
       {
-        path: "product/:cateName",
+        path: "phones/:cateName",
         component: ListProductComponent
       },
       {
-        path: "product/:id/show",
+        path: "phones/:id/show",
         component: ProductDetailComponent
       }
-      
+
     ]
   },
   {
@@ -61,6 +65,30 @@ const routes: Routes = [
       {
         path: 'category/update/:id',
         component: CategoryFormComponent,
+      },
+      {
+        path: 'product',
+        component: ProductManageComponent,
+      },
+      {
+        path: 'product/add',
+        component: ProductFormComponent,
+      },
+      {
+        path: 'product/update/:id',
+        component: ProductFormComponent,
+      },
+      {
+        path: 'user',
+        component: UserManageComponent,
+      },
+      {
+        path: 'user/add',
+        component: UserFormComponent,
+      },
+      {
+        path: 'user/update/:id',
+        component: UserFormComponent,
       },
     ]
   }

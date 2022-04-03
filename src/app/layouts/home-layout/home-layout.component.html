@@ -45,7 +45,7 @@
                         <ul class="main_father">
                             <li><a routerLink="">Trang chủ</a></li>
                             <li>
-                                <a routerLink="/product">Điện thoại<i class="fas fa-angle-down"></i></a>
+                                <a routerLink="/phones">Điện thoại<i class="fas fa-angle-down"></i></a>
                                 <div class="dropdown_father">
                                     <div class="arrow"></div>
                                     <ul>
@@ -59,7 +59,7 @@
                                                 <div class="arrow_child"></div>
                                                 <ul>
                                                     <li *ngFor="let cate of listCate">
-                                                        <a routerLink="/product/{{ cate.slug }}">{{ cate.cate_name }}</a>
+                                                        <a routerLink="/phones/{{ cate.slug }}">{{ cate.cate_name }}</a>
                                                     </li>
                                                 </ul>
                                             </div>

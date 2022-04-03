@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { ProductService } from 'src/app/services/product/product.service';
 
@@ -14,8 +14,6 @@ export class ListProductComponent implements OnInit {
   listCate: any
   listProduct: any
   listProductByView: any
-  currentPage: number = 1
-  limitPerPage: number = 9
   page: number = 1
   minPrice: any
   maxPrice: any
@@ -23,20 +21,21 @@ export class ListProductComponent implements OnInit {
   constructor(
     private cate: CategoryService,
     private ps: ProductService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private router: Router
   ) { }
 
-  ngOnInit(): void {
-    let slug = this.activeRoute.snapshot.params['cateName']
-
-    if (slug == undefined) {
-      this.getAllProduct()
-    } else {
-      this.cate.getProductBySlug(slug).subscribe(data => {
-        console.log(data)
-        this.listProduct = data[0].products
-      })
-    }
+  ngOnInit(): void { 
+    this.activeRoute.params.subscribe(event => {
+      const { cateName } = event
+      if (cateName == undefined) {
+        this.getAllProduct()
+      } else {
+        console.log(this.router.url)
+        this.router.navigate(["phones/" + cateName])
+        this.getProductBySlug(cateName)
+      }
+    })
     window.scroll({
       top: 0,
       left: 0,
@@ -50,10 +49,25 @@ export class ListProductComponent implements OnInit {
     })
   }
 
+  showProductByCate(slug: String) {
+    console.log(slug)
+
+  }
+
+  getProductBySlug(slug: String) {
+    this.cate.getProductBySlug(slug).subscribe(data => {
+      this.listProduct = data[0].products
+    })
+  }
+
   getAllProduct() {
     this.ps.get().subscribe((data) => {
       this.listProduct = data
     })
+  }
+  currentListProduct = () => {
+    this.listProduct.sort((a: any, b: any) => a.id < b.id ? -1 : (b.id < a.id ? 1 : 0))
+    return this.listProduct
   }
 
   filterByPrice() {
@@ -81,20 +95,20 @@ export class ListProductComponent implements OnInit {
         this.sortByPriceHighToLow()
         break;
       default:
-        this.getAllProduct()
+        this.currentListProduct()
         break;
     }
   }
 
   productNewest() {
-    this.listProduct.sort((a:any, b:any) => a.id < b.id ? -1 : (b.id < a.id ? 1 : 0))
+    this.listProduct.sort((a: any, b: any) => a.id < b.id ? -1 : (b.id < a.id ? 1 : 0))
     this.listProduct = this.listProduct.reverse()
   }
   sortByPriceLowToHigh() {
-    this.listProduct.sort((a: any, b: any) => (a.price- (a.price * a.discount / 100)) < (b.price- (b.price * b.discount / 100)) ? -1 : (b.price- (b.price * b.discount / 100) < (a.price- (a.price * a.discount / 100)) ? 1 : 0) )
+    this.listProduct.sort((a: any, b: any) => (a.price - (a.price * a.discount / 100)) < (b.price - (b.price * b.discount / 100)) ? -1 : (b.price - (b.price * b.discount / 100) < (a.price - (a.price * a.discount / 100)) ? 1 : 0))
   }
   sortByPriceHighToLow() {
-    this.listProduct.sort((a: any, b: any) => (a.price- (a.price * a.discount / 100)) > (b.price- (b.price * b.discount / 100)) ? -1 : (b.price- (b.price * b.discount / 100) > (a.price- (a.price * a.discount / 100)) ? 1 : 0) )
+    this.listProduct.sort((a: any, b: any) => (a.price - (a.price * a.discount / 100)) > (b.price - (b.price * b.discount / 100)) ? -1 : (b.price - (b.price * b.discount / 100) > (a.price - (a.price * a.discount / 100)) ? 1 : 0))
   }
 
   formatCurrency(data: any) {

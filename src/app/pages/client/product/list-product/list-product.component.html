@@ -19,7 +19,7 @@
                         <h3>Theo thương hiệu</h3>
                         <div class="filter_by_brand">
                             <div class="brand" *ngFor="let cate of listCate">
-                                <input type="checkbox" id="brand_{{ cate.cate_id }}" value="{{ cate.cate_id }}">
+                                <input type="checkbox" (click)="showProductByCate(cate.slug)" id="brand_{{ cate.cate_id }}" value="{{ cate.cate_id }}">
                                 {{ cate.cate_name }}
                             </div>
                         </div>
@@ -37,7 +37,7 @@
                     <div class="main_best_viewer">
                         <article class="most_viewed_product" *ngFor="let v of listProductByView">
                             <div class="img_most_viewed_product">
-                                <a routerLink="?action=detail&id_pr=<?php echo $rows['product_id'] ?>">
+                                <a routerLink="">
                                     <img src="{{ v.image }}" alt="">
                                 </a>
                             </div>
@@ -67,7 +67,7 @@
                     <article class="product"
                         *ngFor="let p of listProduct | paginate: {itemsPerPage: 9, currentPage: page}">
                         <div class="product_img">
-                            <a routerLink="/product/{{ p.id }}/show">
+                            <a routerLink="/phones/{{ p.id }}/show">
                                 <img src="{{ p.image }}" alt="">
                             </a>
                         </div>
@@ -81,7 +81,7 @@
                                     }}</span>
                                 <span class="old_price" *ngIf="p.discount">{{ formatCurrency(p.price) }}</span>
                             </div>
-                            <a routerLink="/product/{{ p.id }}/show/show">Xem chi tiết</a>
+                            <a routerLink="/phones/{{ p.id }}/show/show">Xem chi tiết</a>
                         </div>
                     </article>
                 </div>
