@@ -27,6 +27,16 @@ export class ListProductComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    let slug = this.activeRoute.snapshot.params['cateName']
+
+    if (slug == undefined) {
+      this.getAllProduct()
+    } else {
+      this.cate.getProductBySlug(slug).subscribe(data => {
+        console.log(data)
+        this.listProduct = data[0].products
+      })
+    }
     window.scroll({
       top: 0,
       left: 0,
@@ -38,7 +48,6 @@ export class ListProductComponent implements OnInit {
     this.ps.getProductByView().subscribe(data => {
       this.listProductByView = data
     })
-    this.getAllProduct()
   }
 
   getAllProduct() {
@@ -51,14 +60,12 @@ export class ListProductComponent implements OnInit {
     this.minPrice = $("#min_price").val()
     this.maxPrice = $("#max_price").val()
     this.arrFilterByPrice = []
-    this.ps.get().subscribe(data => {
-      data.forEach((e: any) => {
-        if ((e.price - (e.price * e.discount / 100)) >= this.minPrice && (e.price - (e.price * e.discount / 100)) <= this.maxPrice) {
-          this.arrFilterByPrice.push(e)
-        }
-      });
-      this.listProduct = this.arrFilterByPrice
-    })
+    this.listProduct.forEach((e: any) => {
+      if ((e.price - (e.price * e.discount / 100)) >= this.minPrice && (e.price - (e.price * e.discount / 100)) <= this.maxPrice) {
+        this.arrFilterByPrice.push(e)
+      }
+    });
+    this.listProduct = this.arrFilterByPrice
   }
   sortBy(event: any) {
     const targetSort = event.target.value
@@ -79,20 +86,15 @@ export class ListProductComponent implements OnInit {
     }
   }
 
-  productNewest(){
-    this.ps.get().subscribe(data => {
-      this.listProduct = data.reverse()
-    })
+  productNewest() {
+    this.listProduct.sort((a:any, b:any) => a.id < b.id ? -1 : (b.id < a.id ? 1 : 0))
+    this.listProduct = this.listProduct.reverse()
   }
-  sortByPriceLowToHigh(){
-    this.ps.getProductPrice('asc').subscribe(data => {
-      this.listProduct = data
-    })
+  sortByPriceLowToHigh() {
+    this.listProduct.sort((a: any, b: any) => (a.price- (a.price * a.discount / 100)) < (b.price- (b.price * b.discount / 100)) ? -1 : (b.price- (b.price * b.discount / 100) < (a.price- (a.price * a.discount / 100)) ? 1 : 0) )
   }
-  sortByPriceHighToLow(){
-    this.ps.getProductPrice('desc').subscribe(data => {
-      this.listProduct = data
-    })
+  sortByPriceHighToLow() {
+    this.listProduct.sort((a: any, b: any) => (a.price- (a.price * a.discount / 100)) > (b.price- (b.price * b.discount / 100)) ? -1 : (b.price- (b.price * b.discount / 100) > (a.price- (a.price * a.discount / 100)) ? 1 : 0) )
   }
 
   formatCurrency(data: any) {

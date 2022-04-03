@@ -67,7 +67,7 @@
                     <article class="product"
                         *ngFor="let p of listProduct | paginate: {itemsPerPage: 9, currentPage: page}">
                         <div class="product_img">
-                            <a routerLink="/product/{{ p.id }}">
+                            <a routerLink="/product/{{ p.id }}/show">
                                 <img src="{{ p.image }}" alt="">
                             </a>
                         </div>
@@ -81,7 +81,7 @@
                                     }}</span>
                                 <span class="old_price" *ngIf="p.discount">{{ formatCurrency(p.price) }}</span>
                             </div>
-                            <a routerLink="/product/{{ p.id }}">Xem chi tiết</a>
+                            <a routerLink="/product/{{ p.id }}/show/show">Xem chi tiết</a>
                         </div>
                     </article>
                 </div>

@@ -24,13 +24,14 @@ const routes: Routes = [
         component: ListProductComponent,
       },
       {
-        path: "product/:id",
-        component: ProductDetailComponent
+        path: "product/:cateName",
+        component: ListProductComponent
       },
       {
-        path: "product/cate=:cateName",
-        component: ListProductComponent
+        path: "product/:id/show",
+        component: ProductDetailComponent
       }
+      
     ]
   },
   {

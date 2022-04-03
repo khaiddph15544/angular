@@ -43,14 +43,14 @@
                 <div class="nav">
                     <nav>
                         <ul class="main_father">
-                            <li><a routerLink="?direct=homepage">Trang chủ</a></li>
+                            <li><a routerLink="">Trang chủ</a></li>
                             <li>
-                                <a routerLink="#new_product">Điện thoại<i class="fas fa-angle-down"></i></a>
+                                <a routerLink="/product">Điện thoại<i class="fas fa-angle-down"></i></a>
                                 <div class="dropdown_father">
                                     <div class="arrow"></div>
                                     <ul>
-                                        <li><a routerLink="?direct=product&filter=men">Đồng hồ nam</a></li>
-                                        <li><a routerLink="?direct=product&filter=women">Đồng hồ nữ</a></li>
+                                        <li><a routerLink="">Đồng hồ nam</a></li>
+                                        <li><a routerLink="">Đồng hồ nữ</a></li>
                                         <li id="sub_dropdown">
                                             <a routerLink="">
                                                 Thương hiệu<i class="fas fa-angle-right"></i>
@@ -59,7 +59,7 @@
                                                 <div class="arrow_child"></div>
                                                 <ul>
                                                     <li *ngFor="let cate of listCate">
-                                                        <a href="">{{ cate.cate_name }}</a>
+                                                        <a routerLink="/product/{{ cate.slug }}">{{ cate.cate_name }}</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -94,7 +94,7 @@
                                 <span *ngIf="listSearch && listSearch.length > 0">{{ listSearch.length }} kết quả phù
                                     hợp</span>
                                 <div class="card" *ngFor="let s of listSearch">
-                                    <a href="">
+                                    <a routerLink="">
                                         <div class="img">
                                             <img src="{{ s.image }}" alt="">
                                         </div>
@@ -169,11 +169,11 @@
             <div class="support">
                 <h4>HỖ TRỢ</h4>
                 <ol id="support">
-                    <li><a href="">Chính sách bảo hành</a></li>
-                    <li><a href="">Chính sách đổi hàng</a></li>
-                    <li><a href="">Chính sách bảo mật</a></li>
-                    <li><a href="">Chính sách vận chuyển</a></li>
-                    <li><a href="">Hướng dẫn thanh toán</a></li>
+                    <li><a routerLink="">Chính sách bảo hành</a></li>
+                    <li><a routerLink="">Chính sách đổi hàng</a></li>
+                    <li><a routerLink="">Chính sách bảo mật</a></li>
+                    <li><a routerLink="">Chính sách vận chuyển</a></li>
+                    <li><a routerLink="">Hướng dẫn thanh toán</a></li>
                 </ol>
             </div>
             <div class="about_us" id="about_us">
@@ -189,14 +189,14 @@
             <div class="follow_us">
                 <h4>THEO DÕI CHÚNG TÔI</h4>
                 <ul id="icon">
-                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                    <li><a href=""><i class="fab fa-youtube-square"></i></a></li>
+                    <li><a routerLink=""><i class="fab fa-facebook"></i></a></li>
+                    <li><a routerLink=""><i class="fab fa-instagram"></i></a></li>
+                    <li><a routerLink=""><i class="fab fa-twitter"></i></a></li>
+                    <li><a routerLink=""><i class="fab fa-youtube-square"></i></a></li>
                 </ul>
 
                 <iframe
-                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FYOUTH-100990415587834&tabs=timeline&width=340&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+                    src="https://www.facebook.com/plugins/page.php?routerLink=https%3A%2F%2Fwww.facebook.com%2FYOUTH-100990415587834&tabs=timeline&width=340&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
                     width="340" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
                     allowfullscreen="true"
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>

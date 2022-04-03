@@ -28,4 +28,7 @@ export class CategoryService {
   getProductByCate(categoryId: Number | String): Observable<any>{
     return this.http.get(apiUrl+`${categoryId}?_embed=products`)
   }
+  getProductBySlug(slug: String): Observable<any>{
+    return this.http.get(apiUrl+`?slug=${slug}&_embed=products`)
+  }
 }

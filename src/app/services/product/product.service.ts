@@ -43,4 +43,5 @@ export class ProductService {
   productByPagination(currentPage: Number, limit: Number){
     return this.http.get(apiUrl+`?_page=${currentPage}&_limit=${limit}`)
   }
+  
 }
