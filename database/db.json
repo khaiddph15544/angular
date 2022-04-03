@@ -233,46 +233,51 @@
     {
       "email": "khaidang1123@gmail.com",
       "password": "$2a$10$aqtA9/cYuySYrnN9ze13d.ajt/jl78kbxiwsqIDOPuc/bx5bP1Lse",
-      "image": "http://res.cloudinary.com/dcalzi23m/image/upload/v1645204821/fi3v66tqpwrnief1qgpd.jpg",
+      "image": "assets/image/user/user1.jpg",
       "user_name": "khaidang",
+      "gender": 0,
       "age": 19,
-      "role": "1",
+      "role": 1,
       "id": 1
     },
     {
       "email": "khanhnq@gmail.com",
       "password": "$2a$10$aqtA9/cYuySYrnN9ze13d.ajt/jl78kbxiwsqIDOPuc/bx5bP1Lse",
-      "image": "http://res.cloudinary.com/dcalzi23m/image/upload/v1645204857/pebzrucdtwkklogpxzlh.jpg",
+      "image": "assets/image/user/user2.jpg",
       "user_name": "khanhnguyen",
+      "gender": 0,
       "age": 22,
-      "role": "0",
+      "role": 1,
       "id": 2
     },
     {
       "email": "dangkhai12@gmail.com",
       "password": "$2a$10$ymIkWez007.euSJJ/ejrf.h/XwjvJf/FiI5ZTfFft4j0C.c8xgl9O",
-      "image": "http://res.cloudinary.com/dcalzi23m/image/upload/v1645204928/vaj9izj6ydfnskqeod3d.jpg",
+      "image": "assets/image/user/user3.jpg",
       "user_name": "dangkhai",
+      "gender": 0,
       "age": 25,
-      "role": "1",
+      "role": 0,
       "id": 3
     },
     {
       "email": "hanhnt@gmail.com",
       "password": "$2a$10$aqtA9/cYuySYrnN9ze13d.ajt/jl78kbxiwsqIDOPuc/bx5bP1Lse",
-      "image": "http://res.cloudinary.com/dcalzi23m/image/upload/v1645204983/coduilnoi5ehex8uvhmb.jpg",
+      "image": "assets/image/user/user4.jpg",
       "user_name": "hanhnguyen",
+      "gender": 1,
       "age": 44,
-      "role": "1",
+      "role": 0,
       "id": 4
     },
     {
       "email": "khaid1123@gmail.com",
       "password": "$2a$10$B0fFOZddoGjebh22m5gF5uCFLtAZBqVANG1uC0br3aUmqjkUg5afm",
-      "image": "http://res.cloudinary.com/dcalzi23m/image/upload/v1645197996/wrmvfyickb1cdtzlfi3l.png",
+      "image": "assets/image/user/user5.png",
       "user_name": "iiiiiii",
+      "gender": 0,
       "age": 19,
-      "role": "1",
+      "role": 0,
       "id": 5
     }
   ],

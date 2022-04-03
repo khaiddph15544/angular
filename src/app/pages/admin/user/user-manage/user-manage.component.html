@@ -16,10 +16,10 @@
         <tr *ngFor="let u of listUser | paginate: {itemsPerPage: 4, currentPage: page}" id="row_{{u.id}}">
             <td>{{ u.email }}</td>
             <td><img [src]="u.image" alt=""></td>
-            <td>{{ u.gender }}</td>
+            <td>{{ u.gender == 0 ? "Nam" : "Nữ" }}</td>
             <td>{{ u.age }}</td>
             <td>{{ u.user_name }}</td>
-            <td>{{ u.role }}</td>
+            <td>{{ u.role == 1 ? "Quản trị viên" : "Người dùng" }}</td>
             <td>
                 <a routerLink="update/{{ u.id }}"><button class="btn btn-warning">Sửa</button></a>
                 <a (click)="onDelete(u.id)" id="remove"><button class="btn btn-danger">Xóa</button></a>
