@@ -1,8 +1,8 @@
 {
   "products": [
     {
-      "product_name": "Iphone SE 2020",
-      "image": "assets/image/product/iphonese2020.png",
+      "product_name": "Iphone 11",
+      "image": "assets/image/product/iphone11.png",
       "price": 10000000,
       "quantity": 1000,
       "discount": 5,
@@ -202,15 +202,18 @@
   "categories": [
     {
       "cate_name": "Iphone",
-      "id": 1
+      "id": 1,
+      "slug": "apple-iphone"
     },
     {
       "cate_name": "Samsung",
-      "id": 2
+      "id": 2,
+      "slug": "samsung"
     },
     {
       "cate_name": "Oppo",
-      "id": 3
+      "id": 3,
+      "slug": "oppo"
     },
     {
       "cate_name": "Xiaomi",
@@ -218,11 +221,13 @@
     },
     {
       "cate_name": "Realme",
-      "id": 5
+      "id": 5,
+      "slug": "realme"
     },
     {
       "cate_name": "Vivo",
-      "id": 6
+      "id": 6,
+      "slug": "vivo"
     }
   ],
   "users": [
@@ -528,20 +533,20 @@
   "sliders": [
     {
       "id": 1,
-      "name": "Hublot Big Bang Unico Magic",
-      "image": "assets/image/slider/slider_1.png",
+      "name": "Iphone 13 Pro Max",
+      "image": "assets/image/slider/iphone13promax.png",
       "product_id": 25
     },
     {
       "id": 2,
-      "name": "Hublot Big Bang DJ Snake",
-      "image": "assets/image/slider/slider_2.png",
+      "name": "Samsung Galaxy S22 Ultra",
+      "image": "assets/image/slider/s22ultra.png",
       "product_id": 5
     },
     {
       "id": 1,
-      "name": "Hublot Spirit of Big Bang",
-      "image": "assets/image/slider/slider_3.png",
+      "name": "Xiaomi 11T",
+      "image": "assets/image/slider/xiaomi11t.png",
       "product_id": 6
     }
   ]

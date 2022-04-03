@@ -1,11 +1,14 @@
 <div class="slider">
   <div *ngFor="let p of sliders" class="main">
     <div class="txt">
-      <h2>
+      <h2 *ngIf="p.name.length > 20">
         {{ p.name.split(" ")[0] }}
         <p> {{ p.name.slice(p.name.split(" ")[0].length + 1, p.name.length) }}</p>
       </h2>
-      <span>Sự kết hợp hoàn hoảo giữa thiết kế và chức năng</span> <br>
+      <h2 *ngIf="p.name.length < 20">
+        {{ p.name }}
+      </h2>
+      <span>Sự kết hợp hoàn hảo giữa thiết kế và chức năng</span> <br>
       <a href=""><button>XEM THÊM</button></a>
     </div>
     <img class="image" src="{{ p.image }}" alt="">
@@ -28,7 +31,7 @@
       alt="">
   </div>
   <div class="delivery-policy">
-    <span id="default-top">Giao hàng đúng giờ</span>
+    <span id="default-top">Giao hàng nhanh chóng</span>
     <img class="ship-smoke" data-aos="fade-right" data-aos-offset="150" data-aos-duration="1000"
       src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648310103/ship-smoke_qbipyy.png" alt="">
     <img class="moto-ship" data-aos="fade-right" data-aos-offset="150" data-aos-duration="1000"
@@ -49,14 +52,14 @@
       <span>Những mẫu mới nhất, bộ sưu tập hoàn hảo dành cho bạn</span>
       <div class="bt">
         <a routerLink="">
-          <a routerLink="?direct=product"><span>Xem tất cả</span> </a>
+          <a routerLink="/product"><span>Xem tất cả</span> </a>
         </a>
       </div>
     </div>
     <div class="list_product">
       <div *ngFor="let p of newProduct" class="card" data-aos="fade-up" data-aos-offset="100" data-aos-delay="100"
         data-aos-duration="1000">
-        <a routerLink="?action=detail&id_pr=<?php echo $rows['product_id'] ?>">
+        <a routerLink="/product/{{ p.id }}">
           <span id="new">NEW</span>
           <div class="img">
             <img src="{{ p.image }}" alt="">
@@ -66,7 +69,7 @@
           <p>{{ p.product_name }}</p>
           <div class="price_bt">
             <span>{{ formatCurrency(p.price) }}</span>
-            <a routerLink="?action=detail&id_pr=<?php echo $rows['product_id'] ?>">
+            <a routerLink="/product/{{ p.id }}">
               <button>MUA NGAY</button>
             </a>
           </div>
@@ -88,7 +91,7 @@
       <div class="slider_seller">
         <ngx-slick-carousel class="carousel" #slickModel="slick-carousel" [config]="bestSellerSlideConfig">
           <div ngxSlickItem class="card" *ngFor="let p of sliderBestSeller">
-            <a routerLink="">
+            <a routerLink="/product/{{ p.id }}">
               <div class="img">
                 <img src="{{ p.image }}" alt="">
               </div>
@@ -99,7 +102,7 @@
                 <div class="price">
                   <span>{{ formatCurrency(p.price) }}</span>
                 </div>
-                <a routerLink="" class="slider_best_seller">
+                <a routerLink="/product/{{ p.id }}" class="slider_best_seller">
                   <button>MUA NGAY</button>
                 </a>
               </div>
@@ -110,7 +113,7 @@
       </div>
       <div class="list_seller">
         <div class="card" *ngFor="let p of listBestSeller">
-          <a routerLink="">
+          <a routerLink="/product/{{ p.id }}">
             <span id="sale"></span>
             <span id="sale">HOT</span>
             <img src="{{ p.image }}" alt="">
@@ -122,7 +125,7 @@
                 <span id="old" *ngIf="p.discount">{{ formatCurrency(p.price) }}</span> <br>
                 <span id='new'>{{ formatCurrency(p.price - (p.price * p.discount / 100)) }}</span>
               </div>
-              <a routerLink="?action=detail&id_pr=<?php echo $rows['product_id'] ?>">
+              <a routerLink="/product/{{ p.id }}">
                 <button>MUA NGAY</button>
               </a>
             </div>
@@ -139,7 +142,7 @@
   <div class="title">
     <div data-aos="flip-right" data-aos-offset="50" data-aos-delay="200" data-aos-duration="1000">
       <p class="text-center">Tốc độ nhanh nhất, sức mạnh lớn nhất</p>
-      <a routerLink=""><span class="show_all">Xem tất cả</span></a>
+      <a routerLink="/product/cate=apple-iphone"><span class="show_all">Xem tất cả</span></a>
     </div>
     <h2 class="text-center font-weight-bold" data-aos="fade-up" data-aos-offset="150" data-aos-delay="300"
       data-aos-duration="1000">Thương hiệu Apple</h2>
@@ -147,7 +150,7 @@
   <div class="slider_sale">
     <div class="card" *ngFor="let p of apple" data-aos="fade-right" data-aos-offset="250" data-aos-delay="600"
       data-aos-duration="1000">
-      <a routerLink="">
+      <a routerLink="/product/{{ p.id }}">
         <span class="sale">-{{ p.discount }}%</span>
         <div class="img">
           <img src="{{ p.image }}" alt="">
@@ -160,7 +163,7 @@
             <span class="old" *ngIf="p.discount > 0">{{ formatCurrency(p.price) }}</span> <br>
             <span class="new">{{ formatCurrency(p.price - (p.price * p.discount / 100)) }}</span>
           </div>
-          <a routerLink="">
+          <a routerLink="/product/{{ p.id }}">
             <button>MUA NGAY</button>
           </a>
         </div>
@@ -188,7 +191,7 @@
   <div class="title">
     <div data-aos="flip-left" data-aos-offset="50" data-aos-delay="300" data-aos-duration="200">
       <p class="text-center">Hãy tưởng tượng</p>
-      <a routerLink=""><span class="show_all">Xem tất cả</span></a>
+      <a routerLink="/product/samsung"><span class="show_all">Xem tất cả</span></a>
     </div>
     <h2 class="text-center font-weight-bold" data-aos="fade-up" data-aos-offset="150" data-aos-delay="300"
       data-aos-duration="200">Thương hiệu Samsung</h2>
@@ -196,7 +199,7 @@
   <div class="slider_sale ">
     <div class="card" *ngFor="let p of samsung" data-aos="fade-left" data-aos-offset="250" data-aos-delay="600"
       data-aos-duration="200">
-      <a routerLink="">
+      <a routerLink="/product/{{ p.id }}">
         <span class="sale">-{{ p.discount }}%</span>
         <div class="img">
           <img src="{{ p.image }}" alt="">
@@ -209,7 +212,7 @@
             <span class="old" *ngIf="p.discount > 0">{{ formatCurrency(p.price)}}</span> <br>
             <span class="new">{{ formatCurrency(p.price - (p.price * p.discount / 100)) }}</span>
           </div>
-          <a routerLink="">
+          <a routerLink="/product/{{ p.id }}">
             <button>MUA NGAY</button>
           </a>
         </div>
@@ -229,7 +232,7 @@
   <div class="slider_sale">
     <ngx-slick-carousel class="carousel" #slickModel="slick-carousel" [config]="slideConfig">
       <div ngxSlickItem class="card" *ngFor="let p of hotSale">
-        <a routerLink="">
+        <a routerLink="/product/{{ p.id }}">
           <span class="sale">-{{ p.discount }}%</span>
           <div class="img">
             <img src="{{ p.image }}" alt="">
@@ -242,7 +245,7 @@
               <span class="old" *ngIf="p.discount > 0">{{ formatCurrency(p.price) }}</span> <br>
               <span class="new">{{ formatCurrency(p.price - (p.price * p.discount / 100)) }}</span>
             </div>
-            <a routerLink="">
+            <a routerLink="/product/{{ p.id }}">
               <button>MUA NGAY</button>
             </a>
           </div>

@@ -26,6 +26,7 @@ export class HomeLayoutComponent implements OnInit {
       this.listCate = data
     })
     $(window.onload = () => {
+      
       $(window.onscroll = () => {
         if (scrollY > 25) {
           $(".header_bottom").addClass("sticky");
@@ -42,16 +43,11 @@ export class HomeLayoutComponent implements OnInit {
         else {
           $(".gototop").removeClass("btn_gototop");
         }
-      });
-      window.onscroll = () => {
-        if(scrollY < 2100 || scrollY > 3400){
-          console.log(scrollY)
+        if (scrollY < 2100 || scrollY > 3400) {
           $(".background-main-content").removeClass("active_sub")
           $("video").attr("src", "")
-        }else{
-          $("video").attr("src", "assets/image/product/banner_sub.mp4")
         }
-      }
+      });
 
       $("#top_search li span").click((e) => {
         $("#input_search").val(e.target.innerHTML)

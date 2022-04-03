@@ -25,7 +25,7 @@ export class ProductService {
   delete(id: Number | String): Observable<any>{
     return this.http.delete(apiUrl+id)
   }
-  getProductSales(start: Number, end: Number): Observable<any>{
+  getProductSales(start: Number | String | '', end: Number | String = ''): Observable<any>{
     return this.http.get(apiUrl+`?_sort=discount&_order=desc,_start=${start}&_end=${end}`)
   }
   getProductByCate(cate: Number, limit: any = ''){
@@ -34,10 +34,13 @@ export class ProductService {
   getProductByView(){
     return this.http.get(apiUrl+`?_sort=view&_limit=5`)
   }
-  productPagination(){
-    return this.http.get(apiUrl+`?_page=1&_limit=12`)
+  getProductPrice(orderBy: String){
+    return this.http.get(apiUrl+`?_sort=price&_order=${orderBy}`)
   }
   productBestSeller(){
     return this.http.get(apiUrl+`?_embed=order_detail`)
+  }
+  productByPagination(currentPage: Number, limit: Number){
+    return this.http.get(apiUrl+`?_page=${currentPage}&_limit=${limit}`)
   }
 }

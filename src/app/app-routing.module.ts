@@ -1,14 +1,14 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardLayoutComponent } from './components/dashboard-layout/dashboard-layout/dashboard-layout.component';
-import { HomeLayoutComponent } from './components/home-layout/home-layout.component';
-import { CategoryFormComponent } from './screens/admin/category/category-form/category-form.component';
-import { CategoryManageComponent } from './screens/admin/category/category-manage/category-manage.component';
-import { DashboardComponent } from './screens/admin/dashboard/dashboard.component';
-import { HomeComponent } from './screens/home/home.component';
-import { LoginComponent } from './screens/login/login.component';
-import { ListProductComponent } from './screens/product/list-product/list-product.component';
-import { ProductDetailComponent } from './screens/product/product-detail/product-detail.component';
+import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout/dashboard-layout.component';
+import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import { CategoryFormComponent } from './pages/admin/category/category-form/category-form.component';
+import { CategoryManageComponent } from './pages/admin/category/category-manage/category-manage.component';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { HomeComponent } from './pages/home/home.component';
+import { LoginComponent } from './pages/login/login.component';
+import { ListProductComponent } from './pages/product/list-product/list-product.component';
+import { ProductDetailComponent } from './pages/product/product-detail/product-detail.component';
 
 const routes: Routes = [
   {
@@ -26,6 +26,10 @@ const routes: Routes = [
       {
         path: "product/:id",
         component: ProductDetailComponent
+      },
+      {
+        path: "product/cate=:cateName",
+        component: ListProductComponent
       }
     ]
   },

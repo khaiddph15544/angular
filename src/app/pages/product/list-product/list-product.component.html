@@ -10,11 +10,11 @@
                     <form action="" method="GET">
                         <h3>Khoảng Giá</h3>
                         <div class="filter_by_price">
-                            <input id="min" autocomplete="off" type="number" name="min_price" placeholder="Từ">
-                            <input id="max" autocomplete="off" type="number" name="max_price" placeholder="Đến">
+                            <input id="min_price" autocomplete="off" type="number" name="min_price" placeholder="Từ">
+                            <input id="max_price" autocomplete="off" type="number" name="max_price" placeholder="Đến">
                         </div>
                         <div class="filter">
-                            <button type="button" id="bt_filter_price">ÁP DỤNG</button>
+                            <button type="button" (click)="filterByPrice()">ÁP DỤNG</button>
                         </div>
                         <h3>Theo thương hiệu</h3>
                         <div class="filter_by_brand">
@@ -56,9 +56,16 @@
                 </aside>
             </div>
             <div class="main_right">
-                <h1>SẢN PHẨM <span id="count_products"></span></h1>
+                <h1>SẢN PHẨM <span id="count_products"></span></h1> <span class="result_product_length" *ngIf="listProduct">( Tìm thấy {{ listProduct.length }} sản phẩm phù hợp )</span>
+                <select name="" (input)="sortBy($event)" id="sort-by">
+                    <option value="0">Sắp xếp theo</option>
+                    <option value="1">Mới nhất</option>
+                    <option value="2">Giá từ thấp đến cao</option>
+                    <option value="3">Giá từ cao đến thấp</option>
+                </select>
                 <div class="right">
-                    <article class="product" *ngFor="let p of listProduct">
+                    <article class="product"
+                        *ngFor="let p of listProduct | paginate: {itemsPerPage: 9, currentPage: page}">
                         <div class="product_img">
                             <a routerLink="/product/{{ p.id }}">
                                 <img src="{{ p.image }}" alt="">
@@ -70,60 +77,49 @@
 
                         <div class="text_product">
                             <div class="sale">
-                                <span class="new_price">{{ formatCurrency(p.price - (p.price * p.discount / p.price))
+                                <span class="new_price">{{ formatCurrency(p.price - (p.price * p.discount / 100))
                                     }}</span>
                                 <span class="old_price" *ngIf="p.discount">{{ formatCurrency(p.price) }}</span>
                             </div>
-                            <a routerLink="">Xem chi tiết</a>
+                            <a routerLink="/product/{{ p.id }}">Xem chi tiết</a>
                         </div>
                     </article>
                 </div>
-                <div class="pagination_product">
-                    <i class='fa fa-angle-left'></i>
-                    <ul></ul> <i class='fa fa-angle-right'></i>
-                    <div class="goto">
-                        <input id="index_page" type="text" value="1" hidden>
-                    </div>
+                <div class="listBtnPage" *ngIf="listProduct && listProduct.length > 9">
+                    <pagination-controls (pageChange)="page = $event"></pagination-controls>
                 </div>
+
 
                 <aside class="best_viewer">
                     <h3>Xem nhiều nhất</h3>
                     <div class="main_best_viewer">
-                        <!-- <?php foreach ($top_viewer as $rows) { ?> -->
                         <article class="most_viewed_product">
                             <div class="img_most_viewed_product">
-                                <a routerLink="?action=detail&id_pr=<?php echo $rows['product_id'] ?>">
-                                    <img src="../../admin/product/<?php echo $rows['image'] ?>" alt="">
+                                <a routerLink="">
+                                    <img src="" alt="">
                                 </a>
                             </div>
                             <div class="price_most_viewed_product">
                                 <div class="product_name_most_viewed_product">
-                                    <a routerLink="?action=detail&id_pr=<?php echo $rows['product_id'] ?>">
-                                        <!-- <?php echo $rows['product_name'] ?> -->
+                                    <a routerLink="">
                                     </a>
                                 </div>
                                 <div class="price">
                                     <p class="oldprice">
-                                        <!-- <?php
-                                                            if ($rows['discount'] > 0) {
-                                                                echo number_format($rows['price']) . " ₫";
-                                                            } ?> -->
+
                                     </p>
                                     <p class="newprice">
-                                        <!-- <?php echo number_format(round($rows['price'] - ($rows['price'] * $rows['discount'] / 100))) ?>
-                                        ₫ -->
+
                                     </p>
                                 </div>
                             </div>
                         </article>
                     </div>
-                    <!--  -->
                 </aside>
             </div>
         </section>
 
         <p id="filter_at_home" style="display: none">
-            <!-- <?php echo $_REQUEST['cate_id'] ?> -->
         </p>
     </main>
 </div>

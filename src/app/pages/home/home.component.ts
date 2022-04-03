@@ -56,6 +56,8 @@ export class HomeComponent implements OnInit {
     })
     window.onload = () => {
       let counter = 1;
+      let myslide = document.querySelectorAll('.main'),
+      dot = document.querySelectorAll('.dot')
       function plusSlides(n: number) {
         counter += n;
         slidefun(counter);
@@ -93,12 +95,8 @@ export class HomeComponent implements OnInit {
         currentSlide(3)
       }
 
-      let myslide = document.querySelectorAll('.main'),
-        dot = document.querySelectorAll('.dot')
       slidefun(counter)
       function slidefun(n: number): any {
-        console.log(myslide)
-
         let i;
         for (i = 0; i < myslide.length; i++) {
           myslide[i].className = 'main';
@@ -117,9 +115,10 @@ export class HomeComponent implements OnInit {
       };
     }
   }
-  discoverSub(){
+  discoverSub() {
     $(".background-main-content").addClass("active_sub")
-    $("")
+    $("video").attr("src", "assets/image/product/banner_sub.mp4")
+    $("#video-background").attr("autoplay", 'true')
   }
 
   bestSellerSlideConfig = {
@@ -137,10 +136,10 @@ export class HomeComponent implements OnInit {
     "autoplay": true,
     "autoplaySpeed": 2000,
     Infinity: true,
-    prevArrow: "<i class='fa fa-angle-left' style='transition: 0.4s;opacity: 1;position: absolute;top: 40%;left: -1%;font-size: 35px;z-index: 3;cursor: pointer;padding: 10px;'></i>",
-    nextArrow: "<i class='fa fa-angle-right'style='transition: 0.4s;opacity: 1;position: absolute;top: 40%;right: -1%;font-size: 35px;z-index: 3;cursor: pointer;padding: 10px;' ></i>",
+    prevArrow: "<i class='fa fa-angle-left' style='transition: 0.4s;opacity: 1;position: absolute;top: 40%;left: -10px;font-size: 35px;z-index: 3;cursor: pointer;padding: 10px;'></i>",
+    nextArrow: "<i class='fa fa-angle-right'style='transition: 0.4s;opacity: 1;position: absolute;top: 40%;right: -10px;font-size: 35px;z-index: 3;cursor: pointer;padding: 10px;' ></i>",
   };
   formatCurrency(data: any) {
-    return new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(data)
+    return new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(Math.round(data))
   }
 }
