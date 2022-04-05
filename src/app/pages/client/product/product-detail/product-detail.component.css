@@ -209,21 +209,19 @@ main{
 }
 
 .container_detail .product_involve .list_involve {
-    /* border: 1px solid; */
     margin-top: 70px;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 15px;
 }
 
 .container_detail .product_involve .list_involve .card .img {
     width: 100%;
-    margin-top: 5%;
     text-align: center;
-
 }
 
 .container_detail .product_involve .list_involve .card .img img {
-    width: 85%;
+    width: 70%;
     margin: auto;
 }
 
@@ -250,7 +248,7 @@ main{
     display: flex;
     justify-content: space-between;
     padding: 0px 5%;
-    margin-right: 25px;
+    margin-right: 5px;
 }
 
 

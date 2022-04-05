@@ -1,28 +1,4 @@
-<div class="slider">
-  <div *ngFor="let p of sliders" class="main">
-    <div class="txt">
-      <h2 *ngIf="p.name.length > 20">
-        {{ p.name.split(" ")[0] }}
-        <p> {{ p.name.slice(p.name.split(" ")[0].length + 1, p.name.length) }}</p>
-      </h2>
-      <h2 *ngIf="p.name.length < 20">
-        {{ p.name }}
-      </h2>
-      <span>Sự kết hợp hoàn hảo giữa thiết kế và chức năng</span> <br>
-      <a href=""><button>XEM THÊM</button></a>
-    </div>
-    <img class="image" src="{{ p.image }}" alt="">
-  </div>
-
-  <i class="fas fa-chevron-left"></i>
-  <i class="fas fa-chevron-right"></i>
-  <div class="dotbox">
-    <div class="dot" id="dot1"></div>
-    <div class="dot" id="dot2"></div>
-    <div class="dot" id="dot3"></div>
-  </div>
-</div>
-
+<app-banner></app-banner>
 <div class="about-page">
   <div class="qualified-warrant">
     <span id="default-top">Chất lượng dẫn đầu</span>
@@ -140,15 +116,15 @@
 <!-- For men -->
 <div class="all_sale" id="hot_sale">
   <div class="title">
-    <div data-aos="flip-right" data-aos-offset="50" data-aos-delay="200" data-aos-duration="1000">
+    <div data-aos="flip-right" data-aos-offset="100" data-aos-delay="500" data-aos-duration="200">
       <p class="text-center">Tốc độ nhanh nhất, sức mạnh lớn nhất</p>
       <a routerLink="/phones/apple-iphone"><span class="show_all">Xem tất cả</span></a>
     </div>
     <h2 class="text-center font-weight-bold" data-aos="fade-up" data-aos-offset="150" data-aos-delay="300"
-      data-aos-duration="1000">Thương hiệu Apple</h2>
+      data-aos-duration="700">Thương hiệu Apple</h2>
   </div>
   <div class="slider_sale">
-    <div class="card" *ngFor="let p of apple" data-aos="fade-right" data-aos-offset="250" data-aos-delay="600"
+    <div class="card" *ngFor="let p of apple" data-aos="fade-right" data-aos-offset="250" data-aos-delay="400"
       data-aos-duration="1000">
       <a routerLink="/phones/{{ p.id }}/show">
         <span class="sale">-{{ p.discount }}%</span>
@@ -179,7 +155,7 @@
       <img src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648748303/1633170286_837_Hinh-anh-lua-ngon-lua-dep_u9dnk2.jpg" alt="">
       <button type="button" class="discover_sub" (click)="discoverSub()">KHÁM PHÁ</button>
       <h3 data-aos="zoom-in" data-aos-offset="100" data-aos-delay="400" data-aos-duration="200">THÁNG <span>4</span> NÀY</h3>
-      <h2 data-aos="zoom-in" data-aos-offset="300" data-aos-delay="600" data-aos-duration="200">CÓ GÌ HOT</h2>
+      <h2 data-aos="zoom-in" data-aos-offset="200" data-aos-delay="500" data-aos-duration="300">CÓ GÌ HOT</h2>
       <video id="video-background" src="" loop controls></video>
       <h4>Cùng nhau <br> <br> <br> chờ đón</h4>
       <h5>XIAOMI <br> <br> <br> 12 | 12 PRO</h5>
@@ -189,16 +165,16 @@
 <!-- For women -->
 <div class="all_sale" id="hot_sale">
   <div class="title">
-    <div data-aos="flip-left" data-aos-offset="50" data-aos-delay="300" data-aos-duration="200">
+    <div data-aos="flip-left" data-aos-offset="100" data-aos-delay="400" data-aos-duration="300">
       <p class="text-center">Hãy tưởng tượng</p>
       <a routerLink="/phones/samsung"><span class="show_all">Xem tất cả</span></a>
     </div>
     <h2 class="text-center font-weight-bold" data-aos="fade-up" data-aos-offset="150" data-aos-delay="300"
-      data-aos-duration="200">Thương hiệu Samsung</h2>
+      data-aos-duration="700">Thương hiệu Samsung</h2>
   </div>
   <div class="slider_sale ">
-    <div class="card" *ngFor="let p of samsung" data-aos="fade-left" data-aos-offset="250" data-aos-delay="600"
-      data-aos-duration="200">
+    <div class="card" *ngFor="let p of samsung" data-aos="fade-left" data-aos-offset="250" data-aos-delay="400"
+      data-aos-duration="1000">
       <a routerLink="/phones/{{ p.id }}/show">
         <span class="sale">-{{ p.discount }}%</span>
         <div class="img">

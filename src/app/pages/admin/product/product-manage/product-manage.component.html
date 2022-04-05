@@ -8,17 +8,19 @@
             <th>Discount</th>
             <th>Description</th>
             <th>Cate name</th>
+            <th>Status</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let p of listProduct | paginate: {itemsPerPage: 4, currentPage: page}" id="row_{{p.id}}">
-            <td>{{ p.product_name }}</td>
+            <td id="product_name">{{ p.product_name }}</td>
             <td><img [src]="p.image" alt=""></td>
             <td>{{ formatCurrency(p.price) }}</td>
             <td>{{ p.discount }} %</td>
             <td id="desc">{{ p.desc.slice(0, 100) }}...</td>
             <td>{{ p.category.cate_name }}</td>
+            <td><app-status-btn [status]="p.status" (changeStatus)="changeStatus($event, p)"></app-status-btn></td>
             <td>
                 <a routerLink="update/{{ p.id }}"><button class="btn btn-warning">Sửa</button></a>
                 <a (click)="onDelete(p.id)" id="remove"><button class="btn btn-danger">Xóa</button></a>

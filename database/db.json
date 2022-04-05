@@ -9,6 +9,7 @@
       "view": 50,
       "desc": "Hublot Spirit Of Big Bang Titanium Ceramic 45mm, 601.NM.0173.LR chiếc đồng hồ này sở hữu một kích thước thuộc hàng khủng: 45mm cùng với chất liệu titanium siêu bền nhẹ và cứng cỗ máy này lại không quá nặng nhưng vẫn đầm tay.",
       "categoryId": 1,
+      "status": 1,
       "id": 1
     },
     {
@@ -20,7 +21,13 @@
       "view": 46,
       "desc": "Hublot Big Bang DJ Snake 45mm là thành quả của sự hợp tác giữa nghệ sĩ người Pháp DJ Snake và thương hiệu đồng hồ Hublot. Thiết kế sở hữu vô số khía cạnh đặc biệt giống như người nghệ sĩ tài năng đã truyền cảm hứng cho nó. Sự xuất hiện của chiếc đồng hồ Hublot Big Bang DJ Snake 45mm như một điểm nhấn, nhấn mạnh vào sự năng động, thể thao và khác biệt của chủ sở hữu.",
       "categoryId": 1,
-      "id": 2
+      "status": 1,
+      "id": 2,
+      "category": {
+        "cate_name": "Iphone",
+        "id": 1,
+        "slug": "apple-iphone"
+      }
     },
     {
       "product_name": "Iphone 12 Pro Max",
@@ -31,7 +38,13 @@
       "view": 80,
       "desc": "Graff Structural Tourbillon Skeleton Automatic mang mã hiệu MGSTO46TB được nhà sản xuất chế tác rất công phu với bộ vỏ được chế tác bằng chất liệu Platinum, mặt số có thiết kế Skeleton đầy hấp dẫn.",
       "categoryId": 1,
-      "id": 3
+      "status": 1,
+      "id": 3,
+      "category": {
+        "cate_name": "Iphone",
+        "id": 1,
+        "slug": "apple-iphone"
+      }
     },
     {
       "product_name": "Samsung Galaxy A52",
@@ -42,6 +55,7 @@
       "view": 70,
       "desc": "DEFY El Primero 21 có lẽ là mẫu đồng hồ thú vị nhất được ra mắt cùng thời điểm với những anh em của mình vào năm 2017. Phải là những bậc thầy trong chế tác đồng hồ, Zenith mới có thể chế tạo ra chiếc đồng hồ tuyệt phẩm như vậy.",
       "categoryId": 2,
+      "status": 1,
       "id": 4
     },
     {
@@ -53,6 +67,7 @@
       "view": 50,
       "desc": "Mẫu đồng hồ Chanel Première mã hiệu H6126 với thiết kế đơn giản nhưng lại mang vẻ đẹp vô cùng sang trọng, đẳng cấp. Với vỏ từ 2 chất liệu vàng vàng 18k cùng dây cao su màu đen vừa mang lại cảm giác thoải mái, yên tâm vừa là một lời tuyên bố về phong cách đẳng cấp và quý phái của phái đẹp.",
       "categoryId": 3,
+      "status": 1,
       "id": 5
     },
     {
@@ -64,6 +79,7 @@
       "view": 100,
       "desc": "Đồng hồ Hublot Spirit Of Big Bang Tourbillon Sapphire Rainbow 42mm là sự hợp nhất giữa giá trị truyền thống và hiện đại, mang đến một trải nghiệm tuyệt vời đối với người đeo. Sự xuất hiện của đồng hồ trên cổ tay chủ sở hữu không chỉ cho những giá trị nhận biết thời gian, mà còn biểu tượng của một phong cách luôn hợp thời và là lời khẳng định cho đẳng cấp riêng.",
       "categoryId": 1,
+      "status": 1,
       "id": 6
     },
     {
@@ -75,6 +91,7 @@
       "view": 150,
       "desc": "Bộ sưu tập đồng hồ Longines La grande classic que de Longines được vinh danh là bộ sưu tập của vẻ đẹp cổ điển vĩnh hằng. Mẫu đồng hồ Longines La Grande Classique L49084942 sử dụng màu xanh da trời sang trọng làm mặt số, được điêu khắc rất tinh xảo cùng số chỉ giờ La Mã.",
       "categoryId": 5,
+      "status": 1,
       "id": 7
     },
     {
@@ -86,6 +103,7 @@
       "view": 100,
       "desc": "Chiếc đồng hồ sẽ khiến người khác phải ngưỡng mộ và ghen tỵ với bạn bởi sức hấp dẫn không thể cưỡng lại đến từ gam màu đen mạnh mẽ từ phần mặt số, nam tính. Thay vì lớp vỏ được làm từ vàng 18k King Gold ở phiên bản này Hublot mang tới chất liệu là Titanium với đường kính 45 mm.",
       "categoryId": 5,
+      "status": 1,
       "id": 8
     },
     {
@@ -97,6 +115,7 @@
       "view": 250,
       "desc": "Chanel J12 XS H5237 với thiết kế \"siêu nhỏ\" và chất liệu sứ công nghệ cao với đường kính mặt số chỉ 19mm, đính 32 viên kim cương cắt sáng chói góp phần tôn lên nét quyến rũ nơi cổ tay người đẹp. Sự khác lạ của chất liệu đối với nữ giới càng làm tăng thêm hiệu ứng của gốm công nghệ cao màu trắng.",
       "categoryId": 5,
+      "status": 1,
       "id": 9
     },
     {
@@ -108,6 +127,7 @@
       "view": 500,
       "desc": "Rolex Datejust vẫn là dòng sản phẩm thu hút đông đảo sự chú ý của khách hàng trên toàn thế giới. Trong công nghệ chế tác đồng hồ, vàng mang tính chất sang trọng, quý phái, thường được sử dụng cho những chiếc đồng hồ thiết kế cổ điển còn thép mang đặc tính bền bỉ với độ chống chịu áp lực cao, dành cho những mẫu có tính chất trẻ trung, hiện đại. Nhận ra những đặc điểm này, ngay từ những năm 1930, Rolex đã kết hợp hai chất liệu vàng và thép tạo thành những mẫu đồng hồ sang trọng. Rolex Datejust 41mm 126334 là một chiếc đồng hồ như vậy.",
       "categoryId": 3,
+      "status": 1,
       "id": 10
     },
     {
@@ -119,6 +139,7 @@
       "view": 250,
       "desc": "Chiếc đồng hồ Zenith DEFY Zero G 95.9000.8812-78.R584 được thiết kế theo phong cách hiện đại với tông màu xám làm chủ đạo. Bộ vỏ titanium độ cứng cao có đường kính lên tới 44mm kết hợp dây đeo cao su màu xanh vô cùng sang trọng. Chiếc đồng hồ nổi bật với thiết kế skeleton bên trong toát lên vẻ đẹp của sự phức tạp cho cỗ máy",
       "categoryId": 2,
+      "status": 1,
       "id": 11
     },
     {
@@ -130,6 +151,7 @@
       "view": 400,
       "desc": "Chanel Boy Friend Tweed H6127, một chiếc đồng hồ nữ với sức quyến rũ nam tính, được thiết kế với cùng một tinh thần táo bạo. Với size nhỏ 21,5 x 27,9 mm, đồng hồ được chế tác bằng thép với lớp tráng men mô phỏng mẫu vải Tweed trong các sắc thái khác nhau của màu xám. ",
       "categoryId": 2,
+      "status": 1,
       "id": 12
     },
     {
@@ -141,6 +163,7 @@
       "view": 500,
       "desc": "Chiếc đồng hồ ZENITH Pilot Montre D'Aeronef Type 20 Tourbillon Chronograph Rose Gold 48mm được thiết kế theo phong cách đồng hồ phi công điển hình của hãng rất được yêu thích. Đồng hồ với tông màu đen, bộ vỏ vàng hồng , nổi bật với thiết kế skeleton bên trong toát lên vẻ đẹp của sự phức tạp cho cỗ máy.",
       "categoryId": 2,
+      "status": 1,
       "id": 13
     },
     {
@@ -152,6 +175,7 @@
       "view": 200,
       "desc": "Zenith Elite Classic Ultra-Thin (18229067901c498), có vỏ bằng vàng hồng 39mm 18k bao quanh mặt số bằng bạc sunray trên dây đeo cá sấu màu nâu với khóa bằng vàng hồng 18k. Các chức năng bao gồm giờ, phút và giây",
       "categoryId": 6,
+      "status": 1,
       "id": 14
     },
     {
@@ -163,6 +187,7 @@
       "view": 100,
       "desc": "Yacht- Master là dòng đồng hồ lịch lãm nhưng mang đậm chất thời trang và thể thao, dòng sản phẩm nổi bật này của thương hiệu Rolex lừng danh sẽ mang đến cho người sở hữu sự nổi bật và tự tin tuyệt đối trước đám đông. Rolex Yacht-Master 268655 Pave chính là một cái tên không thể bỏ qua.",
       "categoryId": 4,
+      "status": 1,
       "id": 15
     },
     {
@@ -174,6 +199,7 @@
       "view": 120,
       "desc": "Mặt số skeleton không đơn giản chỉ là lộ máy mà đó còn là cả một bức tranh nghệ thuật. Chiếc Hublot Big Bang Unico Black Magic nổi bật vô cùng ngầu với bộ vỏ ceramic đen toàn bộ từ vành bezel, thân vỏ cho tới bộ khóa. Chất liệu ceramic nổi bật là một chất liệu hiện đại, trọng lượng nhẹ và có độ cứng rất cao.",
       "categoryId": 4,
+      "status": 1,
       "id": 16
     },
     {
@@ -185,6 +211,7 @@
       "view": 120,
       "desc": "Mặt số skeleton không đơn giản chỉ là lộ máy mà đó còn là cả một bức tranh nghệ thuật. Chiếc Hublot Big Bang Unico Black Magic nổi bật vô cùng ngầu với bộ vỏ ceramic đen toàn bộ từ vành bezel, thân vỏ cho tới bộ khóa. Chất liệu ceramic nổi bật là một chất liệu hiện đại, trọng lượng nhẹ và có độ cứng rất cao.",
       "categoryId": 1,
+      "status": 1,
       "id": 17
     },
     {
@@ -196,6 +223,7 @@
       "view": 120,
       "desc": "Mặt số skeleton không đơn giản chỉ là lộ máy mà đó còn là cả một bức tranh nghệ thuật. Chiếc Hublot Big Bang Unico Black Magic nổi bật vô cùng ngầu với bộ vỏ ceramic đen toàn bộ từ vành bezel, thân vỏ cho tới bộ khóa. Chất liệu ceramic nổi bật là một chất liệu hiện đại, trọng lượng nhẹ và có độ cứng rất cao.",
       "categoryId": 2,
+      "status": 1,
       "id": 18
     }
   ],
@@ -226,7 +254,8 @@
     },
     {
       "id": 6,
-      "cate_name": "Vivo"
+      "cate_name": "Vivo",
+      "slug": "vivo"
     }
   ],
   "users": [
@@ -557,6 +586,15 @@
       "name": "Xiaomi 11T",
       "image": "assets/image/slider/xiaomi11t.png",
       "product_id": 6
+    }
+  ],
+  "cart": [
+    {
+      "cartid": 1,
+      "userId": 1,
+      "productId": 5,
+      "price": 15000000,
+      "quantity": 2
     }
   ]
 }

@@ -22,13 +22,18 @@ import { CategoryFormComponent } from './pages/admin/category/category-form/cate
 import { CategoryManageComponent } from './pages/admin/category/category-manage/category-manage.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AdminComponent } from './components/admin/admin.component';
-import { ClientComponent } from './components/client/client.component';
 import { ProductDetailComponent } from './pages/client/product/product-detail/product-detail.component';
 import { ListProductComponent } from './pages/client/product/list-product/list-product.component';
 import { HomeComponent } from './pages/client/home/home.component';
 import { ProductFormComponent } from './pages/admin/product/product-form/product-form.component';
 import { UserManageComponent } from './pages/admin/user/user-manage/user-manage.component';
-
+import * as AOS from 'aos';
+import 'aos/dist/aos.css';
+import { StatusBtnComponent } from './components/status-btn/status-btn.component';
+import { CategoryDetailComponent } from './pages/admin/category/category-detail/category-detail.component';
+import { HeaderComponent } from './components/client/header/header.component';
+import { FooterComponent } from './components/client/footer/footer.component';
+import { BannerComponent } from './components/client/banner/banner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,9 +47,13 @@ import { UserManageComponent } from './pages/admin/user/user-manage/user-manage.
     ProductManageComponent,
     CategoryFormComponent,
     AdminComponent,
-    ClientComponent,
     ProductFormComponent,
     UserManageComponent,
+    StatusBtnComponent,
+    CategoryDetailComponent,
+    HeaderComponent,
+    FooterComponent,
+    BannerComponent
   ],
   imports: [
     BrowserModule,

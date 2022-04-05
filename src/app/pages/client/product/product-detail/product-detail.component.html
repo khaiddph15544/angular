@@ -17,7 +17,8 @@
             <span>Phí vận chuyển: </span> <span id="ship">30.000 đ</span> <br>
             <span>Số lượng
                 <input type="button" id="minus_detail" value="-" (click)="minus_quantity()">
-                <input type="text" id="quantity_detail" (input)="onChangeQuantity($event)" value="{{ currentQuantity }}">
+                <input type="text" id="quantity_detail" (input)="onChangeQuantity($event)"
+                    value="{{ currentQuantity }}">
                 <input type="button" id="plus_detail" value="+" (click)="plus_quantity()">
             </span>
 
@@ -80,31 +81,31 @@
         <div class="title">
             <h2>Sản phẩm tương tự</h2>
         </div>
-        <ngx-slick-carousel class="carousel" #slickModel="slick-carousel" [config]="productInvolveSlideConfig">
 
-            <div ngxSlickItem class="list_involve" *ngFor="let p of productByCate">
-                <div class="card">
-                    <a>
-                        <div class="img">
-                            <img src="{{ p.image }}" alt="">
+        <div class="list_involve">
+            <div class="card py-4" *ngFor="let p of productByCate">
+                <a routerLink="/phones/{{ p.id }}/show">
+                    <div class="img">
+                        <img src="{{ p.image }}" alt="">
+                    </div>
+                </a>
+                <div class="txt">
+                    <p>{{ p.product_name }}</p>
+                    <div class="price_bt">
+                        <div class="price">
+                            <span class="old">{{ formatCurrency(p.price) }}</span>
+                            <span class="new" id="new_price">
+                                {{formatCurrency(p.price - (p.price * p.discount / 100))}}
+                            </span>
                         </div>
-                    </a>
-                    <div class="txt">
-                        <p>{{ p.product_name }}</p>
-                        <div class="price_bt">
-                            <div class="price">
-                                <span class="old">{{ formatCurrency(p.price) }}</span>
-                                <span class="new" id="new_price">
-                                    {{formatCurrency(p.price - (p.price * p.discount / 100))}}
-                                </span>
-                            </div>
-                            <div class="bt">
+                        <div class="bt">
+                            <a routerLink="/phones/{{ p.id }}/show">
                                 <button>MUA NGAY</button>
-                            </div>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </ngx-slick-carousel>
+        </div>
     </div>
 </div>

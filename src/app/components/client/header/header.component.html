@@ -1,0 +1,161 @@
+<header>
+    <!-- -------------------------- -->
+    <div class="main_header">
+        <div class="header_top">
+            <div class="header_top_main">
+                <div class="phone">
+                    <i class="fa-solid fa-phone"></i>
+                    <span>092597441 - 096131045</span>
+                </div>
+
+                <div class="header_top_right">
+                    <div class="user">
+                        <input type="checkbox" id="check_user" hidden>
+                        <label for="check_user">
+                            <a routerLink="/login">
+                                <i class="far fa-user-circle"></i>
+                                <span>Tài khoản</span>
+                            </a>
+                        </label>
+                        <div class="bg_user">
+                            <ul class="not_login">
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cart">
+                        <div (click)="showCart()" style="cursor: pointer">
+                            <span class="form_cart">
+                                <i class="fa-solid fa-cart-plus"></i>
+                                <span class="count_cart_product">
+                                    <span id="count_cart">4</span>
+                                </span>
+                            </span>
+                            <span>Giỏ hàng</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header_bottom">
+            <div class="header_bottom_main">
+                <div class="logo">
+                    <a routerLink=""><img src="assets/image/logo.png" alt="" /></a>
+                </div>
+                <div class="nav">
+                    <nav>
+                        <ul class="main_father">
+                            <li><a routerLink="">Trang chủ</a></li>
+                            <li>
+                                <a routerLink="/phones">Điện thoại<i class="fas fa-angle-down"></i></a>
+                                <div class="dropdown_father">
+                                    <div class="arrow"></div>
+                                    <ul>
+                                        <li><a routerLink="">Đồng hồ nam</a></li>
+                                        <li><a routerLink="">Đồng hồ nữ</a></li>
+                                        <li id="sub_dropdown">
+                                            <a routerLink="">
+                                                Thương hiệu<i class="fas fa-angle-right"></i>
+                                            </a>
+                                            <div class="dropdown_child">
+                                                <div class="arrow_child"></div>
+                                                <ul>
+                                                    <li *ngFor="let cate of listCate">
+                                                        <a routerLink="/phones/{{ cate.slug }}">{{ cate.cate_name }}</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li><a routerLink="">Bán chạy</a></li>
+                            <li><a routerLink="">Giảm giá sốc</a></li>
+                            <li><a routerLink="">Bảo hành</a></li>
+                            <li><a routerLink="/admin">Quản trị</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="search">
+                    <input type="checkbox" id="check_search" hidden>
+                    <label for="check_search">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </label>
+                    <label for="check_search" class="overlay_search"></label>
+                    <div class="form_search">
+                        <form action="" method="GET">
+                            <div class="search">
+                                <i class="fas fa-search"></i>
+                                <input id="input_search" type="text" autocomplete="off" name="keyword"
+                                    (input)="onSearch($event)" placeholder="Nhập từ khóa tìm kiếm...">
+                                <label for="check_search">
+                                    <i class="fas fa-times" (click)="closeSearch()"></i>
+                                </label>
+                            </div>
+                            <div class="list_search">
+                                <span *ngIf="listSearch && listSearch.length > 0">{{ listSearch.length }} kết quả phù
+                                    hợp</span>
+                                <div class="card" *ngFor="let s of listSearch">
+                                    <a routerLink="/phones/{{ s.id }}/show" (click)="closeSearch()">
+                                        <div class="img">
+                                            <img src="{{ s.image }}" alt="">
+                                        </div>
+                                        <div class="txt">
+                                            <p>{{ s.product_name }}</p>
+                                            <div class="price">
+                                                <span id="old">
+                                                    {{ formatCurrency(s.price) }}
+                                                </span>
+                                                <span id="new">
+                                                    {{ formatCurrency(s.price - (s.price * s.discount / 100)) }}
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div *ngIf="listSearch && listSearch.length == 0" id="not_found"
+                                    class="text-center mt-3">
+                                    <img src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648361888/search_not_found33_yjmp2j.png"
+                                        alt="">
+                                    <h4 class="font-weight-700">Không tìm thấy kết quả!</h4>
+                                    <ul>
+                                        <li>Kiểm tra lỗi chính tả của từ khóa đã nhập</li>
+                                        <li>Thử tìm kiếm bằng từ khóa khác</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <ul id="top_search">
+                                <span>Các từ khóa nổi bật:</span>
+                                <li><i class="fas fa-search"></i><span>Iphone</span></li>
+                                <li><i class="fas fa-search"></i><span>Samsung</span></li>
+                                <li><i class="fas fa-search"></i><span>Oppo</span></li>
+                                <li><i class="fas fa-search"></i><span>Xiaomi</span></li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</header>
+
+<div class="cart-theme">
+    <div class="cart-theme-header">
+        <h2>GIỎ HÀNG CỦA BẠN</h2>
+        <i class="fas fa-times" style="cursor: pointer" (click)="closeCart()"></i>
+    </div>
+    <div class="cart-theme-content-empty" *ngIf="listCart && listCart.length > 0">
+        <p>Hiện đang chưa có sản phẩm nào</p>
+        <p>trong giỏ hàng của bạn.</p>
+        <button>Mua hàng ngay</button>
+    </div>
+    <div class="cart-theme-content" *ngIf="listCart && listCart.length > 0">
+
+    </div>
+</div>
+
+<div class="layer-cart" (click)="closeSearch()"></div>
+<div class="gototop" (click)="gotop()">
+    <span>Về đầu trang </span> <i class="fa-solid fa-arrow-up-long"></i>
+</div>

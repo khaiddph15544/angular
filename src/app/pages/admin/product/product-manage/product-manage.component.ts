@@ -26,4 +26,8 @@ export class ProductManageComponent implements OnInit {
   formatCurrency(data: number){
     return new Intl.NumberFormat("vi-VN", {style: "currency", currency: "VND"}).format(Math.round(data))
   }
+  changeStatus(event: number, product: any){
+    const newProduct = {...product, status: event}
+    this.ps.update(newProduct).subscribe()
+  }
 }

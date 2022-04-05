@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { ProductService } from 'src/app/services/product/product.service';
 
@@ -20,39 +20,31 @@ export class ProductDetailComponent implements OnInit {
   offsetTop: any
   constructor(
     private activeRoute: ActivatedRoute,
+    private router: Router,
     private ps: ProductService,
     private cate: CategoryService
   ) { }
 
   ngOnInit(): void {
-    const id = this.activeRoute.snapshot.params['id']
-    this.ps.getOne(id).subscribe(data => {
-      this.productDetail = data
-      this.status = this.productDetail.quantity > 0 ? 'Còn hàng' : 'Hết hàng'
-      this.model = this.productDetail.model == 0 ? 'Nam' : 'Nữ'
-      this.cate.getProductByCate(this.productDetail.categoryId).subscribe(data => {
-        this.productByCate = data.products
+    this.activeRoute.params.subscribe(event => {
+      const {id} = event
+      if(id != undefined){
+        this.router.navigate(["/phones/"+id+"/show"])
+        window.scroll({
+          top:0,
+          left: 0,
+          behavior: 'smooth' 
+        })
+      }
+      this.ps.getOne(id).subscribe(data => {
+        this.productDetail = data
+        this.status = this.productDetail.quantity > 0 ? 'Còn hàng' : 'Hết hàng'
+        this.model = this.productDetail.model == 0 ? 'Nam' : 'Nữ'
+        this.cate.getProductByCate(this.productDetail.categoryId).subscribe(data => {
+          this.productByCate = data.products.filter((item: any) => item.id != id)
+        })
       })
     })
-
-    window.onload = () => {
-      let itemPerScreen;
-      if (this.productByCate.length >= 4) {
-        itemPerScreen = 4
-      } else {
-        itemPerScreen = this.productByCate.length
-      }
-      console.log(itemPerScreen)
-      this.productInvolveSlideConfig = {
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        "autoplay": true,
-        "autoplaySpeed": 2000,
-        Infinity: true,
-        prevArrow: "<i class='fa fa-angle-left'></i>",
-        nextArrow: "<i class='fa fa-angle-right'style='transition: 0.4s;opacity: 1;position: absolute;top: 50%;right: -1%;font-size: 35px;z-index: 3;cursor: pointer;padding: 10px;' ></i>",
-      }
-    }
   }
 
   onChangeQuantity(e: any) {

@@ -2,6 +2,7 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout/dashboard-layout.component';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
+import { CategoryDetailComponent } from './pages/admin/category/category-detail/category-detail.component';
 import { CategoryFormComponent } from './pages/admin/category/category-form/category-form.component';
 import { CategoryManageComponent } from './pages/admin/category/category-manage/category-manage.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
@@ -65,6 +66,10 @@ const routes: Routes = [
       {
         path: 'category/update/:id',
         component: CategoryFormComponent,
+      },
+      {
+        path: 'category/detail/:id',
+        component: CategoryDetailComponent,
       },
       {
         path: 'product',

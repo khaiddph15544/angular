@@ -31,7 +31,6 @@ export class ListProductComponent implements OnInit {
       if (cateName == undefined) {
         this.getAllProduct()
       } else {
-        console.log(this.router.url)
         this.router.navigate(["phones/" + cateName])
         this.getProductBySlug(cateName)
       }
@@ -47,11 +46,6 @@ export class ListProductComponent implements OnInit {
     this.ps.getProductByView().subscribe(data => {
       this.listProductByView = data
     })
-  }
-
-  showProductByCate(slug: String) {
-    console.log(slug)
-
   }
 
   getProductBySlug(slug: String) {

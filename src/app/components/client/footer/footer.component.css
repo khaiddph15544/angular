@@ -1,0 +1,92 @@
+
+/* ---------------------------------------------- */
+
+footer {
+    width: 100%;
+    background-color: #32303b;
+    display: inline-block;
+    color: #ddd;
+}
+
+.footer_content {
+    width: 1300px;
+    margin: auto;
+}
+
+.footer_top * {
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.register_email {
+    margin: 50px 0;
+}
+
+.footer_top input {
+    width: 600px;
+    height: 33px;
+    text-indent: 20px;
+    text-align: left;
+    color: #000;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.footer_top hr {
+    width: 50%;
+}
+
+.footer_top button {
+    width: 603px;
+    height: 35px;
+    background-color: #000;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ddd;
+}
+
+.footer_top ::placeholder {
+    color: #7a7676;
+    font-weight: bold;
+}
+
+.footer_bottom {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 40px 0;
+    line-height: 23px;
+}
+
+.footer_bottom ul {
+    width: 85%;
+}
+
+.footer_bottom li {
+    margin-top: 25px;
+    list-style-type: none;
+}
+
+.footer_bottom #icon {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    color: red;
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.footer_bottom li a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+#support li {
+    list-style-type: decimal;
+    margin-left: 15px;
+}
+
+.footer_bottom li a:hover {
+    color: #fff;
+}
