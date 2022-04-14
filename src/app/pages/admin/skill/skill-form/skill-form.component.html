@@ -1,0 +1,17 @@
+<form [formGroup]="skillForm" (ngSubmit)="onSubmit(skillForm.value)" id="func_form">
+    <div>
+        <input type="text" formControlName="id" hidden>
+        <label for="">Name</label> <input type="text" formControlName="name" >
+        <app-show-validate [formField]="skillForm.get('name')" key="Tên năng lực"></app-show-validate>
+        <label for="">Point</label> <input type="text" formControlName="point">
+        <app-show-validate [formField]="skillForm.get('point')" key="Điểm năng lực"></app-show-validate>
+        <label for="">Image</label> <input type="file" (change)="changeImage($event)">
+        <div>
+            <img *ngIf="oldImage" [src]="oldImage" id="oldImage" alt="">
+            <i *ngIf="id && previewUpload" id="arrow-image" class="fa-solid fa-arrows-left-right"></i>
+            <img [src]="previewUpload" alt="" id="previewUpload">
+        </div>
+        <button name="btn_add" class="btn btn-success" [disabled]="!skillForm.valid">{{ action }}</button>
+        <a routerLink="/admin/skill"><button class="ms-2 btn btn-danger" type="button">Hủy</button></a> 
+    </div>
+</form>

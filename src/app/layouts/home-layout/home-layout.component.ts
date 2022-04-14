@@ -1,86 +1,70 @@
-import { APP_BASE_HREF } from '@angular/common';
 import { Component, Inject, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import * as $ from 'jquery'
-import { CategoryService } from 'src/app/services/category/category.service';
-import { ProductService } from 'src/app/services/product/product.service';
+import { ProfileService } from 'src/app/services/profile/profile.service';
+import { ProjectService } from 'src/app/services/project/project.service';
+import { SchoolService } from 'src/app/services/school/school.service';
+import { SkillService } from 'src/app/services/skill/skill.service';
+
 
 @Component({
   selector: 'app-home-layout',
   templateUrl: './home-layout.component.html',
-  styleUrls: [
-    './home-layout.component.css',
-    '../../app.component.css']
+  styleUrls: ['./home-layout.component.css']
 })
 export class HomeLayoutComponent implements OnInit {
 
-  listSearch: any
-  listCate: any;
+  profile: any
+  skills: Array<any> = []
+  projects: Array<any> = []
+  schools: Array<any> = []
   constructor(
-    private ps: ProductService,
-    private cate: CategoryService) {
+    private ps: ProfileService,
+    private sk: SkillService,
+    private prs: ProjectService,
+    private sch: SchoolService
+  ) {
+    $(window.onscroll = () => {
+      if (scrollY > 850) {
+        $(".bar").each(function () {
+          $(this).find(".bar-inner").animate({
+            width: $(this).attr("id")
+          }, 2000)
+        });
+      }
+    })
   }
 
   ngOnInit(): void {
-    this.cate.get().subscribe(data => {
-      this.listCate = data
-    })
-    $(window.onload = () => {
-      $(window.onscroll = () => {
-        if (scrollY > 25) {
-          $(".header_bottom").addClass("sticky");
-          $(".about-page").css('top', '590px')
-          $('.form_cart').addClass('sub-cart')
-        } else {
-          $(".header_bottom").removeClass("sticky");
-          $(".about-page").css('top', '640px');
-          $('.form_cart').removeClass('sub-cart')
-        }
-        if (scrollY >= 50) {
-          $(".gototop").addClass("btn_gototop");
-        }
-        else {
-          $(".gototop").removeClass("btn_gototop");
-        }
-      });
-
-      $("#top_search li span").click((e) => {
-        $("#input_search").val(e.target.innerHTML)
-        this.onSearch(e.target.innerHTML)
-      })
-    })
-  }
-  gotop() {
-    window.scroll({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    })
-  }
-
-  searchVal = ""
-  onSearch(e: any) {
-    $("#top_search").css('display', 'none')
-    $(".list_search").css('display', 'block')
-    if (typeof e != 'string') {
-      this.searchVal = e.target.value;
-    } else {
-      this.searchVal = e
-    }
-    if (this.searchVal == '') {
-      $("#top_search").css('display', 'block')
-      $(".list_search").css('display', 'none')
-    }
     this.ps.get().subscribe(data => {
-      this.listSearch = data.filter((product: any) => {
-        const usernameLowerCase = product.product_name.toLowerCase()
-        const searchValLowerCase = this.searchVal.toLowerCase().trim()
-        return usernameLowerCase.indexOf(searchValLowerCase) !== -1
+      this.profile = data[0]
+    })
+    this.sk.get().subscribe(data => {
+      data.forEach((e: any) => {
+        if(e.status == 1){
+          this.skills.push(e)
+        }
+      })
+    })
+    this.prs.get().subscribe(data => {
+      data.forEach((e: any) => {
+        if(e.status == 1){
+          this.projects.push(e)
+        }
+      })
+    })
+    this.sch.get().subscribe(data => {
+      data.forEach((e: any) => {
+        if(e.status == 1){
+          this.schools.push(e)
+        }
       })
     })
   }
-  formatCurrency(data: any) {
-    return new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(data)
+  directToFacebook() {
+    window.location.href = "https://www.facebook.com/Khaidang121002/"
   }
-
+  redirectToPorfolio(){
+    window.location.href = "https://porfolio-beta-one.vercel.app/"
+  }
 }

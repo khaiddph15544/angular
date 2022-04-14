@@ -1,0 +1,20 @@
+<form [formGroup]="archieveForm" (ngSubmit)="onSubmit(archieveForm.value)" id="func_form">
+    <div>
+        <input type="text" formControlName="id" hidden>
+        <label for="">Name</label> <input type="text" formControlName="name" >
+        <app-show-validate [formField]="archieveForm.get('name')" key="Tên thành tích"></app-show-validate>
+        <label for="">School name</label> 
+        <select name="" formControlName="schoolId">
+            <option [value]="school.id" *ngFor="let school of schools">{{ school.name }}</option>
+        </select>
+        <app-show-validate [formField]="archieveForm.get('schooId')" key="Tên trường"></app-show-validate>
+        <label for="">Start at</label> <input type="date" formControlName="start_at">
+        <app-show-validate [formField]="archieveForm.get('start_at')" key="Ngày bắt đầu"></app-show-validate>
+        <label for="">End at</label> <input type="date" formControlName="end_at">
+        <app-show-validate [formField]="archieveForm.get('end_at')" key="Ngày kết thúc"></app-show-validate>
+        <label for="">Description</label> <textarea name="" cols="30" rows="8" formControlName="desc"></textarea>
+        <app-show-validate [formField]="archieveForm.get('desc')" key="Mô tả thành tích"></app-show-validate>
+        <button name="btn_add" class="btn btn-success" [disabled]="!archieveForm.valid">{{ action }}</button>
+        <a routerLink="/admin/project"><button class="ms-2 btn btn-danger" type="button">Hủy</button></a>
+    </div>
+</form>

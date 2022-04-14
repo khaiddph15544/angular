@@ -1,0 +1,40 @@
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm.value)" id="func_form" class="sliceForm">
+    <div>
+        <input type="text" formControlName="id" hidden>
+        <label for="">Họ và tên</label> <input type="text" formControlName="fullname">
+        <app-show-validate [formField]="profileForm.get('fullname')" key="Họ và tên"></app-show-validate>
+        <label for="">Ảnh đại diện</label> <input type="file" (change)="changeImage($event)">
+        <div>
+            <img [src]="oldImage" id="oldImage" alt="">
+            <i *ngIf="previewUpload" id="arrow-image" class="fa-solid fa-arrows-left-right"></i>
+            <img [src]="previewUpload" alt="" id="previewUpload">
+        </div>
+        <label for="">Ngày sinh</label> <input type="date" formControlName="birthday">
+        <app-show-validate [formField]="profileForm.get('birthday')" key="Ngày sinh"></app-show-validate>
+    </div>
+    <div>
+        <label for="">Nơi sinh</label> <input type="text" formControlName="born">
+        <app-show-validate [formField]="profileForm.get('born')" key="Nơi sinh"></app-show-validate>
+        <label for="">Vị trí tuyển dụng</label> <input type="text" formControlName="applyFor">
+        <app-show-validate [formField]="profileForm.get('applyFor')" key="Vị trí tuyển dụng"></app-show-validate>
+        <label for="">Trang cá nhân</label> <input type="text" formControlName="porfolio">
+        <app-show-validate [formField]="profileForm.get('porfolio')" key="Trang cá nhân"></app-show-validate>
+        <label for="">Số điện thoại</label> <input type="text" formControlName="phoneNumber">
+        <app-show-validate [formField]="profileForm.get('phoneNumber')" key="Số điện thoại"></app-show-validate>
+        <label for="">Email</label> <input type="text" formControlName="email">
+        <app-show-validate [formField]="profileForm.get('email')" key="Email"></app-show-validate>
+    </div>
+    <div>
+        <label for="">Facebook</label> <input type="text" formControlName="facebook">
+        <app-show-validate [formField]="profileForm.get('facebook')" key="Facebook"></app-show-validate>
+        <label for="">Điểm mạnh</label> <textarea name="" cols="30" rows="10" formControlName="strength"></textarea>
+        <app-show-validate [formField]="profileForm.get('strength')" key="Điểm mạnh"></app-show-validate>
+        <label for="">Mục tiêu</label> <input type="text" formControlName="target">
+        <app-show-validate [formField]="profileForm.get('target')" key="Mục tiêu"></app-show-validate>
+    </div>
+    <div>
+        <button name="btn_add" class="btn btn-success">Cập nhật</button>
+        <button type="button" class="ms-2 btn btn-danger" (click)="returnPage()">Hủy</button>
+    </div>
+
+</form>

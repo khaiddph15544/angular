@@ -1,0 +1,40 @@
+
+#func_form label{
+    font-size: 18px;
+    font-weight: bold;
+}
+#func_form button{
+    width: 150px;
+    height: 35px;
+    cursor: pointer;
+}
+#btn_current_page{
+    background-color: #000;
+    color: #fff;
+}
+#func_form input, select{
+    width: 100%;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #999;
+    text-indent: 15px;
+    margin: 15px 0;
+    padding: 10px 0;
+    font-size: 16px;
+    background-color: #fff;
+}
+textarea{
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    resize: none;
+    text-indent: 15px;
+    font-size: 16px;
+}
+#func_form{
+    margin-top: 10px;
+}
+#func_form div{
+    width: 90%;
+    margin: auto;
+}

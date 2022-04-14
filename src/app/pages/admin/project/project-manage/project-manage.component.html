@@ -1,0 +1,28 @@
+<a routerLink="add"><button class="btn btn-success" id="add">Thêm mới</button></a>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Role</th>
+            <th>Start at</th>
+            <th>End at</th>
+            <th>Description</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let project of projects" id="row_{{project.id}}">
+            <td>{{ project.name }}</td>
+            <td>{{ project.role }}</td>
+            <td>{{ project.start_at }}</td>
+            <td>{{ project.end_at }}</td>
+            <td id="desc">{{ project.desc.slice(0, 100) }}...</td>
+            <td><app-btn-status [status]="project.status" (changeStatus)="changeStatus($event, project)"></app-btn-status></td>
+            <td>
+                <a routerLink="update/{{ project.id }}"><button class="btn btn-warning">Sửa</button></a>
+                <button class="btn btn-danger ms-1" (click)="onDelete(project.id)">Xóa</button>
+            </td>
+        </tr>
+    </tbody>
+</table>

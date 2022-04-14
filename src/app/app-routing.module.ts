@@ -2,13 +2,18 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout/dashboard-layout.component';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
-import { CategoryFormComponent } from './screens/admin/category/category-form/category-form.component';
-import { CategoryManageComponent } from './screens/admin/category/category-manage/category-manage.component';
-import { DashboardComponent } from './screens/admin/dashboard/dashboard.component';
-import { HomeComponent } from './screens/home/home.component';
-import { LoginComponent } from './screens/login/login.component';
-import { ListProductComponent } from './screens/product/list-product/list-product.component';
-import { ProductDetailComponent } from './screens/product/product-detail/product-detail.component';
+import { ArchievementFormComponent } from './pages/admin/archievement/archievement-form/archievement-form.component';
+import { ArchievementManageComponent } from './pages/admin/archievement/archievement-manage/archievement-manage/archievement-manage.component';
+import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
+import { ProfileFormComponent } from './pages/admin/profile/profile-form/profile-form.component';
+import { ProfileManageComponent } from './pages/admin/profile/profile-manage/profile-manage.component';
+import { ProjectFormComponent } from './pages/admin/project/project-form/project-form.component';
+import { ProjectManageComponent } from './pages/admin/project/project-manage/project-manage.component';
+import { SchoolFormComponent } from './pages/admin/school/school-form/school-form.component';
+import { SchoolManageComponent } from './pages/admin/school/school-manage/school-manage.component';
+import { SkillFormComponent } from './pages/admin/skill/skill-form/skill-form.component';
+import { SkillManageComponent } from './pages/admin/skill/skill-manage/skill-manage.component';
+import { HomeComponent } from './pages/client/home/home.component';
 
 const routes: Routes = [
   {
@@ -19,46 +24,72 @@ const routes: Routes = [
         path: "",
         component: HomeComponent,
       },
-      {
-        path: "product",
-        component: ListProductComponent,
-      },
-      {
-        path: "product/:id",
-        component: ProductDetailComponent
-      }
     ]
   },
   {
-    path: 'login',
-    component: LoginComponent
-  },
-  {
-    path: 'register',
-    component: LoginComponent
-  },
-  {
-    path: 'admin',
+    path: "admin",
     component: DashboardLayoutComponent,
     children: [
       {
-        path: '',
+        path: "",
         component: DashboardComponent
       },
       {
-        path: 'category',
-        component: CategoryManageComponent,
+        path: "profile",
+        component: ProfileManageComponent
       },
       {
-        path: 'category/add',
-        component: CategoryFormComponent,
+        path: "profile/update/:id",
+        component: ProfileFormComponent
       },
       {
-        path: 'category/update/:id',
-        component: CategoryFormComponent,
+        path: "skill",
+        component: SkillManageComponent
       },
+      {
+        path: "skill/add",
+        component: SkillFormComponent
+      },
+      {
+        path: "skill/update/:id",
+        component: SkillFormComponent
+      },
+      {
+        path: "project",
+        component: ProjectManageComponent
+      },
+      {
+        path: "project/add",
+        component: ProjectFormComponent
+      },
+      {
+        path: "project/update/:id",
+        component: ProjectFormComponent
+      },
+      {
+        path: "school",
+        component: SchoolManageComponent
+      },
+      {
+        path: "school/add",
+        component: SchoolFormComponent
+      },
+      {
+        path: "school/update/:id",
+        component: SchoolFormComponent
+      },{
+        path: "archievement",
+        component: ArchievementManageComponent
+      },{
+        path: "archievement/add",
+        component: ArchievementFormComponent
+      },{
+        path: "archievement/update/:id",
+        component: ArchievementFormComponent
+      }
     ]
   }
+  
 ];
 
 @NgModule({

@@ -1,0 +1,17 @@
+<form [formGroup]="projectForm" (ngSubmit)="onSubmit(projectForm.value)" id="func_form">
+    <div>
+        <input type="text" formControlName="id" hidden>
+        <label for="">Name</label> <input type="text" formControlName="name">
+        <app-show-validate [formField]="projectForm.get('name')" key="Tên dự án"></app-show-validate>
+        <label for="">Role</label> <input type="text" formControlName="role">
+        <app-show-validate [formField]="projectForm.get('role')" key="Vai trò"></app-show-validate>
+        <label for="">Start at</label> <input type="date" formControlName="start_at">
+        <app-show-validate [formField]="projectForm.get('start_at')" key="Ngày bắt đầu"></app-show-validate>
+        <label for="">End at</label> <input type="date" formControlName="end_at">
+        <app-show-validate [formField]="projectForm.get('end_at')" key="Ngày kết thúc"></app-show-validate>
+        <label for="">Description</label> <textarea name="" cols="20" rows="8" formControlName="desc"></textarea>
+        <app-show-validate [formField]="projectForm.get('desc')" key="Mô tả"></app-show-validate>
+        <button name="btn_add" class="btn btn-success" [disabled]="!projectForm.valid">{{ action }}</button>
+        <a routerLink="/admin/project"><button class="ms-2 btn btn-danger" type="button">Hủy</button></a> 
+    </div>
+</form>

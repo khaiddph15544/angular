@@ -1,0 +1,15 @@
+<form [formGroup]="schoolForm" (ngSubmit)="onSubmit(schoolForm.value)" id="func_form">
+    <div>
+        <input type="text" formControlName="id" hidden>
+        <label for="">Name</label> <input type="text" formControlName="name" >
+        <app-show-validate [formField]="schoolForm.get('name')" key="Tên trường"></app-show-validate>
+        <label for="">Major</label> <input type="text" formControlName="major">
+        <app-show-validate [formField]="schoolForm.get('major')" key="Chuyên nghành"></app-show-validate>
+        <label for="">Start at</label> <input type="date" formControlName="start_at">
+        <app-show-validate [formField]="schoolForm.get('start_at')" key="Ngày bắt đầu"></app-show-validate>
+        <label for="">End at</label> <input type="date" formControlName="end_at">
+        <app-show-validate [formField]="schoolForm.get('end_at')" key="Ngày kết thúc"></app-show-validate>
+        <button name="btn_add" class="btn btn-success" [disabled]="!schoolForm.valid">{{ action }}</button>
+        <a routerLink="/admin/school"><button class="ms-2 btn btn-danger" type="button">Hủy</button></a>
+    </div>
+</form>

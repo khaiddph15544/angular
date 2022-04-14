@@ -1,214 +1,204 @@
-<header>
-    <!-- -------------------------- -->
-    <div class="main_header">
-        <div class="header_top">
-            <div class="header_top_main">
-                <div class="phone">
+<a routerLink="/admin"><button class="btn btn-success m-auto d-block">QUẢN TRỊ</button></a>
+<div class="container-cv" *ngIf="profile">
+    <div class="sub-cv">
+
+    </div>
+    <div class="sub-cv-2">
+
+    </div>
+    <img src="assets/image/pen_PNG7404.png" id="bg-image" alt="">
+    <div class="main-cv">
+        <div class="main-cv-left">
+            <div class="avatar">
+                <div class="main-avatar">
+                    <div class="image">
+                        <img src="assets/image/avatar-image.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="sub-detail"></div>
+
+            <div class="profile">
+                <div class="title-top">
+                    PROFILE
+                    <div class="title-top-arrow-left">
+
+                    </div>
+                    <div class="title-top-arrow-right">
+
+                    </div>
+                </div>
+                <i class="fa-solid fa-briefcase"></i>
+                <p>{{ profile.applyFor }}</p>
+                <i class="fa-solid fa-cake-candles"></i>
+                <p>{{ profile.birthday }}</p>
+                <i class="fa-solid fa-location-dot"></i>
+                <p>{{ profile.born }}</p>
+                <i class="fa-solid fa-globe"></i>
+                <p style="cursor: pointer;" (click)="redirectToPorfolio()">{{ profile.porfolio }}</p>
+                <div class="icon-bottom">
+                    <i class="fa-solid fa-address-card"></i>
+                </div>
+            </div>
+            <div class="contact">
+                <div class="title-top">
+                    CONTACT
+                    <div class="title-top-arrow-left">
+
+                    </div>
+                    <div class="title-top-arrow-right">
+
+                    </div>
+                </div>
+                <i class="fa-solid fa-phone"></i>
+                <p>{{ profile.phoneNumber }}</p>
+                <i class="fa-brands fa-facebook-square"></i>
+                <p><a style="cursor: pointer;" (click)="directToFacebook()">{{ profile.facebook }}</a></p>
+                <i class="fa-solid fa-envelope"></i>
+                <p>{{ profile.email }}</p>
+                <div class="icon-bottom">
                     <i class="fa-solid fa-phone"></i>
-                    <span>092597441 - 096131045</span>
+                </div>
+            </div>
+            <div class="target">
+                <div class="title-top">
+                    TARGET
+                    <div class="title-top-arrow-left">
+
+                    </div>
+                    <div class="title-top-arrow-right">
+
+                    </div>
+                </div>
+                <i class="fa-solid fa-bullseye"></i>
+                <p>- {{ profile.target }}</p>
+                <div class="icon-bottom">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+            </div>
+            <div class="skill">
+                <div class="title-top">
+                    SKILLS
+                    <div class="title-top-arrow-left">
+
+                    </div>
+                    <div class="title-top-arrow-right">
+
+                    </div>
+                </div>
+                <div class="bar-1" *ngFor="let sk of skills">
+                    <div class="box-skill">
+                        <div class="skill-image">
+                            <img [src]="sk.image" alt="">
+                        </div>
+                        <div class="title">{{ sk.name }}</div>
+                    </div>
+                    <div class="bar" id="{{sk.point}}%">
+                        <div class="bg-bar-inner">
+                            <div class="bar-inner">
+
+                            </div>
+                        </div>
+                        <div class="bar-percent">{{ sk.point }}%</div>
+                    </div>
+                </div>
+                <div class="icon-bottom">
+                    <i class="fa-solid fa-person-rays"></i>
+                </div>
+            </div>
+
+            <div class="skill">
+                <div class="title-top">
+                    LANGUAGE
+                    <div class="title-top-arrow-left">
+
+                    </div>
+                    <div class="title-top-arrow-right">
+
+                    </div>
+                </div>
+                <div class="bar-1">
+                    <div class="title">Tiếng anh cơ bản</div>
+                    <div class="bar" id="70%">
+                        <div class="bg-bar-inner">
+                            <div class="bar-inner">
+
+                            </div>
+                        </div>
+                        <div class="bar-percent">70%</div>
+                    </div>
                 </div>
 
-                <div class="header_top_right">
-
-                    <div class="user">
-                        <input type="checkbox" id="check_user" hidden>
-                        <label for="check_user">
-                            <i class="far fa-user-circle"></i>
-                            <span>Tài khoản</span>
-                        </label>
-                        <div class="bg_user">
-                            <ul class="not_login">
-                            </ul>
+                <div class="icon-bottom">
+                    <i class="fa-solid fa-book-journal-whills"></i>
+                </div>
+            </div>
+        </div>
+        <div class="main-cv-right">
+            <div class="main-right-top">
+                <h1><label id="last_name">{{ profile.fullname.split(" ")[0] }}</label> {{
+                    profile.fullname.slice(profile.fullname.split(" ")[0].length + 1, profile.fullname.length) }}</h1>
+                <p id="major">BACKEND DEVELOPER</p>
+                <p id="profile">Hồ sơ cá nhân</p>
+                <p id="strength"><b>Điểm mạnh:</b> {{ profile.strength }}</p>
+            </div>
+            <div class="experience">
+                <h2>Kinh nghiệm</h2>
+                <p>Chưa có kinh nghiệm làm việc tại các công ty</p>
+            </div>
+            <div class="project">
+                <h2>Dự án</h2>
+                <div *ngFor="let project of projects" class="main-mark">
+                    <div>
+                        <span>{{ project.start_at }}</span> <br> <span>{{ project.end_at }}</span>
+                    </div>
+                    <div class="mark">
+                    </div>
+                    <div class="list-main-content">
+                        <h3>{{ project.name }}</h3>
+                        <span>Vai trò: {{ project.role }}</span>
+                        <p id="project-desc">
+                            {{ project.desc }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="education">
+                <h2>Trường học</h2>
+                <div *ngFor="let sch of schools" class="mt-5">
+                    <div class="list-school">
+                        <div class="main-mark">
+                            <div>
+                                <span>{{ sch.start_at }} -</span> <br> <span>{{ sch.end_at }}</span>
+                            </div>
+                            <div class="mark">
+                            </div>
+                            <div class="list-main-content">
+                                <h3>{{ sch.name }}</h3>
+                                <span *ngIf="sch.major" style="margin-top: 15px; display: block;">Chuyên nghành: {{
+                                    sch.major }}</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="cart">
-                        <a routerLink="">
-                            <span class="form_cart">
-                                <i class="fa-solid fa-cart-plus"></i>
-                                <span class="count_cart_product">
-                                    <span id="count_cart">4</span>
-                                </span>
-                            </span>
-                            <span>Giỏ hàng</span>
-                        </a>
+                    <h3>* Thành tích học tập *</h3>
+                    <p *ngIf="sch.archievements.length == 0">- Chưa có thành tích nổi bật</p>
+                    <div *ngFor="let archieve of sch.archievements" class="main-mark">
+                        <div>
+                            <span>{{ archieve.start_at }} -</span> <br> <span>{{ archieve.end_at }}</span>
+                        </div>
+                        <div class="mark">
+                        </div>
+                        <div class="list-main-content">
+                            <span>{{ archieve.name }}</span>
+                            <p id="project-desc">
+                                {{ archieve.desc }}
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="header_bottom">
-            <div class="header_bottom_main">
 
-                <div class="logo">
-                    <a routerLink=""><img
-                            src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648304785/logo-germe_ba9rvi.png"
-                            alt="" /></a>
-                </div>
-                <div class="nav">
-                    <nav>
-                        <ul class="main_father">
-                            <li><a routerLink="?direct=homepage">Trang chủ</a></li>
-                            <li>
-                                <a routerLink="#new_product">Đồng hồ<i class="fas fa-angle-down"></i></a>
-                                <div class="dropdown_father">
-                                    <div class="arrow"></div>
-                                    <ul>
-                                        <li><a routerLink="?direct=product&filter=men">Đồng hồ nam</a></li>
-                                        <li><a routerLink="?direct=product&filter=women">Đồng hồ nữ</a></li>
-                                        <li id="sub_dropdown">
-                                            <a routerLink="">
-                                                Thương hiệu<i class="fas fa-angle-right"></i>
-                                            </a>
-                                            <div class="dropdown_child">
-                                                <div class="arrow_child"></div>
-                                                <ul>
-                                                    <li *ngFor="let cate of listCate">
-                                                        <a href="">{{ cate.cate_name }}</a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li><a routerLink="">Bán chạy</a></li>
-                            <li><a routerLink="">Giảm giá sốc</a></li>
-                            <li><a routerLink="">Bảo hành</a></li>
-                            <li><a routerLink="">Về chúng tôi</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="search">
-                    <input type="checkbox" id="check_search" hidden>
-                    <label for="check_search">
-                        <i class="fa-solid fa-magnifying-glass"></i>
-                    </label>
-                    <label for="check_search" class="overlay_search"></label>
-                    <div class="form_search">
-                        <form action="" method="GET">
-                            <div class="search">
-                                <i class="fas fa-search"></i>
-                                <input id="input_search" type="text" autocomplete="off" name="keyword"
-                                    (input)="onSearch($event)" placeholder="Nhập từ khóa tìm kiếm...">
-                                <label for="check_search">
-                                    <i class="fas fa-times" id="close_search"></i>
-                                </label>
-                            </div>
-                            <div class="list_search">
-                                <span *ngIf="listSearch && listSearch.length > 0">{{ listSearch.length }} kết quả phù
-                                    hợp</span>
-                                <div class="card" *ngFor="let s of listSearch">
-                                    <a href="">
-                                        <div class="img">
-                                            <img src="{{ s.image }}" alt="">
-                                        </div>
-                                        <div class="txt">
-                                            <p>{{ s.product_name }}</p>
-                                            <div class="price">
-                                                <span id="old">
-                                                    {{ formatCurrency(s.price) }}
-                                                </span>
-                                                <span id="new">
-                                                    {{ formatCurrency(s.price - (s.price * s.discount / 100)) }}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div *ngIf="listSearch && listSearch.length == 0" id="not_found"
-                                    class="text-center mt-3">
-                                    <img src="https://res.cloudinary.com/dcalzi23m/image/upload/v1648361888/search_not_found33_yjmp2j.png"
-                                        alt="">
-                                    <h4 class="font-weight-700">Không tìm thấy kết quả!</h4>
-                                    <ul>
-                                        <li>Kiểm tra lỗi chính tả của từ khóa đã nhập</li>
-                                        <li>Thử tìm kiếm bằng từ khóa khác</li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <ul id="top_search">
-                                <span>Các từ khóa nổi bật:</span>
-                                <li><i class="fas fa-search"></i><span>Hublot</span></li>
-                                <li><i class="fas fa-search"></i><span>Rolex</span></li>
-                                <li><i class="fas fa-search"></i><span>Graff</span></li>
-                                <li><i class="fas fa-search"></i><span>Chanel</span></li>
-                            </ul>
-                        </form>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</header>
-
-<main>
-    <router-outlet></router-outlet>
-</main>
-
-<footer>
-    <section id="warranty">
-
-    </section>
-    <div class="footer_content">
-        <div class="footer_top">
-            <div class="register_email">
-                <h3>Tham gia cùng chúng tôi</h3>
-                <input type="text" placeholder="NHẬP EMAIL TẠI ĐÂY...">
-                <button>ĐĂNG KÝ</button>
-            </div>
-            <hr>
-        </div>
-        <div class="footer_bottom">
-            <div class="contact">
-                <h4>LIÊN HỆ</h4>
-                <ul>
-                    <li>CÔNG TY CỔ PHẦN TRỰC TUYẾN YOUTH</li>
-                    <li>VPGD: 80/47 Xuân phương - Nam Từ Liêm - Hà Nội</li>
-                    <li>Hotline: 1800 6005</li>
-                    <li>youthwatchs@gmail.com</li>
-                </ul>
-            </div>
-            <div class="support">
-                <h4>HỖ TRỢ</h4>
-                <ol id="support">
-                    <li><a href="">Chính sách bảo hành</a></li>
-                    <li><a href="">Chính sách đổi hàng</a></li>
-                    <li><a href="">Chính sách bảo mật</a></li>
-                    <li><a href="">Chính sách vận chuyển</a></li>
-                    <li><a href="">Hướng dẫn thanh toán</a></li>
-                </ol>
-            </div>
-            <div class="about_us" id="about_us">
-                <h4>VỀ CHÚNG TÔI</h4>
-                <ul>
-                    <li>Với hơn 20 cửa hàng trải dài cả nước, Youth hy vọng sẽ mang đến
-                        sự phục vụ chu đáo cho tất cả các khách hàng. Hệ thống cửa hàng
-                        thời trang Youth luôn luôn lắng nghe những ý kiến đóng góp từ
-                        các khách hàng với mục tiêu đẩy mạnh dịch vụ, mở rộng hệ thống
-                        và làm hài lòng những vị khách đến trên toàn quốc.</li>
-                </ul>
-            </div>
-            <div class="follow_us">
-                <h4>THEO DÕI CHÚNG TÔI</h4>
-                <ul id="icon">
-                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
-                    <li><a href=""><i class="fab fa-instagram"></i></a></li>
-                    <li><a href=""><i class="fab fa-twitter"></i></a></li>
-                    <li><a href=""><i class="fab fa-youtube-square"></i></a></li>
-                </ul>
-
-                <iframe
-                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FYOUTH-100990415587834&tabs=timeline&width=340&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                    width="340" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                    allowfullscreen="true"
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
             </div>
         </div>
     </div>
-</footer>
-
-<div class="gototop" (click)="gotop()">
-    <span>Về đầu trang </span> <i class="fa-solid fa-arrow-up-long"></i>
 </div>

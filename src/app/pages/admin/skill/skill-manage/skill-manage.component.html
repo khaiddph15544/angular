@@ -1,0 +1,26 @@
+<a routerLink="add"><button class="btn btn-success" id="add">Thêm mới</button></a>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Point</th>
+            <th>Image</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let skill of skills | paginate: {itemsPerPage: 4, currentPage: page}" id="row_{{skill.id}}">
+            <td>{{ skill.name }}</td>
+            <td>{{ skill.point }}</td>
+            <td><img [src]="skill.image" alt=""></td>
+            <td><app-btn-status [status]="skill.status" (changeStatus)="changeStatus($event, skill)"></app-btn-status></td>
+            <td>
+                <a routerLink="update/{{ skill.id }}"><button class="btn btn-warning">Sửa</button></a>
+                <button class="btn btn-danger ms-1" (click)="onDelete(skill.id)">Xóa</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<pagination-controls class="listBtnPage" *ngIf="skills && skills.length > 4" (pageChange)="page = $event">
+</pagination-controls>

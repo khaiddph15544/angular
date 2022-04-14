@@ -5,7 +5,7 @@
 
 aside {
     width: 100%;
-    height: 730px;
+    height: 740px;
     border-right: 1px solid #c5c5c5;
     box-shadow: 0 0 10px #999;
 }
@@ -14,7 +14,6 @@ aside {
     margin: 0 10px;
     border-bottom: 1px solid #c5c5c5;
     height: 90px;
-    margin-top: 15px;
 }
 
 .aside-header {
@@ -51,4 +50,16 @@ aside {
 .aside_content ul li a:hover{
     padding-left: 55px;
     transition: all .4s;
+}
+.main-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 105px;
+    line-height: 105px;
+}
+.main-header img{
+    width: 180px;
+    margin: auto;
+    display: block;
 }
