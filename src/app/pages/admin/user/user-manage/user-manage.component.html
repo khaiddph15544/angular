@@ -9,6 +9,7 @@
             <th>Age</th>
             <th>Username</th>
             <th>Role</th>
+            <th>Status</th>
             <th>Action</th>
         </tr>
     </thead>
@@ -20,6 +21,7 @@
             <td>{{ u.age }}</td>
             <td>{{ u.user_name }}</td>
             <td>{{ u.role == 1 ? "Quản trị viên" : "Người dùng" }}</td>
+            <td><app-status-btn [status]="u.status" (changeStatus)="changeStatus($event, u)"></app-status-btn></td>
             <td>
                 <a routerLink="update/{{ u.id }}"><button class="btn btn-warning">Sửa</button></a>
                 <a (click)="onDelete(u.id)" id="remove"><button class="btn btn-danger">Xóa</button></a>

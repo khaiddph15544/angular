@@ -1,24 +1,24 @@
-<div class="slider">
-    <div *ngFor="let p of sliders" class="main">
-      <div class="txt">
-        <h2 *ngIf="p.name.length > 20">
-          {{ p.name.split(" ")[0] }}
-          <p> {{ p.name.slice(p.name.split(" ")[0].length + 1, p.name.length) }}</p>
-        </h2>
-        <h2 *ngIf="p.name.length < 20">
-          {{ p.name }}
-        </h2>
-        <span>Sự kết hợp hoàn hảo giữa thiết kế và chức năng</span> <br>
-        <a href=""><button>XEM THÊM</button></a>
-      </div>
-      <img class="image" src="{{ p.image }}" alt="">
+<div *ngIf="sliders && sliders.length > 0" class="slider">
+  <div *ngFor="let p of sliders" class="main">
+    <div class="txt">
+      <h2 *ngIf="p.name.length > 20">
+        {{ p.name.split(" ")[0] }}
+        <p> {{ p.name.slice(p.name.split(" ")[0].length + 1, p.name.length) }}</p>
+      </h2>
+      <h2 *ngIf="p.name.length < 20">
+        {{ p.name }}
+      </h2>
+      <span>Sự kết hợp hoàn hảo giữa thiết kế và chức năng</span> <br>
+      <a href=""><button>XEM THÊM</button></a>
     </div>
-  
-    <i class="fas fa-chevron-left"></i>
-    <i class="fas fa-chevron-right"></i>
-    <div class="dotbox">
-      <div class="dot" id="dot1"></div>
-      <div class="dot" id="dot2"></div>
-      <div class="dot" id="dot3"></div>
-    </div>
+    <img class="image" src="{{ p.image }}" alt="">
   </div>
+
+  <i class="fas fa-chevron-left" (click)="plusSlides(-1)"></i>
+  <i class="fas fa-chevron-right" (click)="plusSlides(1)"></i>
+  <div class="dotbox">
+    <div class="dot" id="dot1" (click)="currentSlide(1)"></div>
+    <div class="dot" id="dot2" (click)="currentSlide(2)"></div>
+    <div class="dot" id="dot3" (click)="currentSlide(3)"></div>
+  </div>
+</div>

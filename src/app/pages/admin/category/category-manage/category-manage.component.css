@@ -19,3 +19,8 @@ table tr td{
 #add{
     width: 100px;
 }
+.listBtnPage{
+    display: block;
+    text-align: center;
+    margin-top: 25px;
+}

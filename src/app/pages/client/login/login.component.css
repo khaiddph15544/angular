@@ -1,8 +1,7 @@
 .main-login{
     width: 100%;
-    height: 600px;
+    padding: 25px 0;
     background-image: url("https://res.cloudinary.com/dcalzi23m/image/upload/v1649166998/945dd8f2da4d15134c5c_b1qjmu.jpg");
-    margin: 40px 0;
     display: flex;
     align-items: center;
 }
@@ -10,6 +9,7 @@
     background-color: #fff;
     width: 400px;
     margin:auto;
+    padding-bottom: 25px;
     height: 80%;
     display: block;
     border-radius: 7px;
@@ -27,7 +27,7 @@
 }
 .main-form-login input[type="text"], .main-form-login input[type="password"], .main-form-login button{
     width: 100%;
-    margin: 25px 0;
+    margin: 15px 0;
     padding: 9px 0;
     border: 1px solid #c5c5c5;
     display: block;
@@ -75,6 +75,7 @@
     width: 100%;
     display: block;
     text-align: center;
+    cursor: pointer;
 }
 #register{
     text-align: center;

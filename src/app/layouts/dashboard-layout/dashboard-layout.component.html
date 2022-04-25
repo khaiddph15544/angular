@@ -1,30 +1,12 @@
 <div class="dashboard-container">
-    <aside>
-        <div class="aside-header">
-            <h1>ADMIN</h1>
-        </div>
-        <div class="aside_content">
-            <ul>
-                <li><a routerLink="/admin">TRANG CHỦ</a></li>
-                <li><a routerLink="/admin/category">LOẠI HÀNG</a></li>
-                <li><a routerLink="/admin/phones">HÀNG HÓA</a></li>
-                <li><a routerLink="/admin/user">NGƯỜI DÙNG</a></li>
-                <li><a routerLink="/admin/comment">BÌNH LUẬN</a></li>
-                <li><a routerLink="/admin/order">ĐƠN HÀNG</a></li>
-                <li><a routerLink="/admin/warranty">BẢO HÀNH</a></li>
-                <li><a routerLink="/admin/cart">GIỎ HÀNG</a></li>
-                <li><a routerLink="/admin/slider">SLIDER</a></li>
-                <li><a routerLink="/admin/statistical">THỐNG KÊ</a></li>
-                <li><a routerLink="">TRANG NGƯỜI DÙNG CUỐI</a></li>
-            </ul>
-        </div>
-    </aside>
-    <main>
-        <div class="main-header">
-            <img src="assets/image/logo.png" alt="">
-        </div>
-        <div class="main_content">
-            <router-outlet></router-outlet>
-        </div>
-    </main>
+    <app-aside-admin></app-aside-admin>
+    <div class="article">
+        <main>
+            <app-header-admin></app-header-admin>
+            <div class="main_content">
+                <router-outlet></router-outlet>
+            </div>
+            <app-footer-admin></app-footer-admin>
+        </main>
+    </div>
 </div>

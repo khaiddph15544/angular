@@ -18,9 +18,9 @@
                             </a>
                             <div id="showUserlogged">
                                 <input type="checkbox" id="checkShowUser" hidden>
-                                <label for="checkShowUser" *ngIf="userDetail" style="cursor: pointer;" id="showUser">
+                                <label *ngIf="userDetail" for="checkShowUser" style="cursor: pointer;" id="showUser">
                                     <i class="far fa-user-circle"></i>
-                                    <span>{{ userDetail.name }}</span>
+                                    <span>{{ userDetail.user_name || userDetail.name}}</span>
                                 </label>
                                 <div class="subShowUser">
                                     <div id='user_action'>
@@ -60,7 +60,7 @@
                 <div class="nav">
                     <nav>
                         <ul class="main_father">
-                            <li><a routerLink="">Trang chủ</a></li>
+                            <li><a href="">Trang chủ</a></li>
                             <li>
                                 <a routerLink="/phones">Điện thoại<i class="fas fa-angle-down"></i></a>
                                 <div class="dropdown_father">

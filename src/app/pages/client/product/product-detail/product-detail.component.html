@@ -11,7 +11,7 @@
                     productDetail.discount / 100 )) }}</span> <del id="old_cost" *ngIf="productDetail.discount > 0">{{
                     formatCurrency(productDetail.price) }}</del>
             </span>
-            <span>Thương hiệu: {{ productDetail.category.cate_name }}</span> <br>
+            <span>Thương hiệu: {{ productDetail.category.cate_name }}</span> <br> <br>
             <span>Phí vận chuyển: </span> <span id="ship">30.000 đ</span> <br>
             <span>Số lượng
                 <input type="button" id="minus_detail" value="-" (click)="minus_quantity()">
@@ -28,12 +28,10 @@
 
     </div>
     <div class="sub_detail">
-
         <div class="description">
             <h3 id="desc">Mô tả: </h3>
             <span id="desc_text">{{ productDetail.desc }}</span>
         </div>
-
         <div class="comment">
             <div class="main_comment">
                 <h3>Bình luận về {{ productDetail.product_name }}</h3>

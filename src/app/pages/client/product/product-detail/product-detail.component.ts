@@ -27,23 +27,30 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe(event => {
-      const {id} = event
-      if(id != undefined){
-        this.router.navigate(["/phones/"+id+"/show"])
+      const { id } = event
+      if (id != undefined) {
+        this.router.navigate(["/phones/" + id + "/show"])
         window.scroll({
-          top:0,
+          top: 0,
           left: 0,
-          behavior: 'smooth' 
+          behavior: 'smooth'
         })
       }
       this.ps.getOne(id, "category").subscribe(data => {
-        this.productDetail = data
+        if (data.status == 1) {
+          this.productDetail = data
+        }else{
+          this.router.navigate([""])
+        }
         this.status = this.productDetail.quantity > 0 ? 'Còn hàng' : 'Hết hàng'
-        this.model = this.productDetail.model == 0 ? 'Nam' : 'Nữ'
         this.cate.getProductByCate(this.productDetail.categoryId).subscribe(data => {
           this.productByCate = data.products.filter((item: any) => item.id != id)
         })
       })
+      this.ps.getOne(id).subscribe(data => {
+        this.updateView(data)
+      })
+
     })
   }
 
@@ -102,5 +109,10 @@ export class ProductDetailComponent implements OnInit {
 
   formatCurrency(data: any) {
     return new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(data)
+  }
+
+  updateView(product: any) {
+    product = { ...product, view: product.view + 1 }
+    this.ps.update(product).subscribe()
   }
 }

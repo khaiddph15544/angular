@@ -9,9 +9,11 @@
         </ul>
     </nav>
 </div>
+<h2 class="text-center" id="personal-infor">Đặng Đình Khải - PH15544</h2>
 
 <div class="new_user">
     <h2>Thành viên mới</h2>
+
     <table class="table table-hover">
         <thead>
             <tr>
@@ -19,18 +21,16 @@
                 <th>Người dùng</th>
                 <th>Email</th>
                 <th>Tuổi</th>
-                <th>Thời gian đăng ký</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let user of users">
-                <td>{{ user.id }}</td>
+            <tr *ngFor="let user of users ; let i = index">
+                <td>{{ i+1 }}</td>
                 <td>{{ user.user_name }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.age }}</td>
-                <td>{{ user.id }}</td>
             </tr>
         </tbody>
     </table>
+
 </div>
-<h2 class="text-center" id="personal-infor">Đặng Đình Khải - PH15544</h2>

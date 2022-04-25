@@ -5,14 +5,16 @@
             <th>Category id</th>
             <th>Category name</th>
             <th>Slug</th>
+            <th>Status</th>
             <th>Action</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let cate of listCate" id="row_{{cate.id}}">
+        <tr *ngFor="let cate of listCate | paginate: {itemsPerPage: 5, currentPage: page}" id="row_{{cate.id}}">
             <td>{{ cate.id }}</td>
             <td>{{ cate.cate_name }}</td>
             <td>{{ cate.slug }}</td>
+            <td><app-status-btn [status]="cate.status" (changeStatus)="changeStatus($event, cate)"></app-status-btn></td>
             <td>
                 <a routerLink="update/{{ cate.id }}"><button class="btn btn-warning ms-1">Sửa</button></a>
                 <a (click)="onDelete(cate.id)" id="remove"><button class="btn btn-danger">Xóa</button></a>
@@ -20,3 +22,5 @@
         </tr>
     </tbody>
 </table>
+<pagination-controls class="listBtnPage" *ngIf="listCate && listCate.length > 5" (pageChange)="page = $event">
+</pagination-controls>

@@ -87,27 +87,27 @@ export class ProductFormComponent implements OnInit {
   }
 
   onSubmit(newProduct: any) {
-    // this.image = <HTMLInputElement>document.getElementById("image")
-    // const formData = new FormData()
-    // formData.append('file', this.image.files[0])
+    let image = newProduct.image
+    if (this.previewUpload) {
+      image = this.previewUpload
+      newProduct = { ...newProduct, image, status: 0, view: 0 }
+    }
+
     if (newProduct.id == "") {
-      newProduct = {...newProduct, image: "bbbb", status: 0, view: 0}
-      this.ps.insert(newProduct).subscribe(data => {
+      this.ps.insert(newProduct).subscribe(() => {
         alert("Thêm mới thành công!")
         this.router.navigate(["/admin/phones"])
       })
     } else {
-      this.ps.getOne(this.id).subscribe(data => {
-        let image = data.image
-        if(this.previewUpload){
-          image = "abc"
-        }
-        newProduct = { ...newProduct, image, status: data.status, view: data.view}
+      this.ps.getOne(this.id).subscribe((data) => {
+        image = !this.previewUpload ? data.image : this.previewUpload
+        newProduct = {...newProduct, image, status: data.status, view: data.view}
         this.ps.update(newProduct).subscribe(() => {
           alert("Cập nhật thành công!")
           this.router.navigate(["/admin/phones"])
         })
       })
+      
     }
   }
   returnPage() {

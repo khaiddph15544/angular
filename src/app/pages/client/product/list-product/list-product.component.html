@@ -6,28 +6,25 @@
                     <h3>BỘ LỌC</h3>
                 </div>
                 <aside class="filter">
-
-                    <form action="" method="GET">
+                    <form [formGroup]="formFilterPrice">
+                        <h3>Theo thương hiệu</h3>
+                        <div class="filter_by_brand">
+                            <div class="brand" *ngFor="let cate of listCate">
+                                <input type="checkbox" id="brand_{{ cate.id }}" value="{{ cate.cate_name }}" (click)="groupFilter($event)">
+                                {{ cate.cate_name }}
+                            </div>
+                        </div>
                         <h3>Khoảng Giá</h3>
                         <div class="filter_by_price">
-                            <input id="min_price" autocomplete="off" type="number" name="min_price" placeholder="Từ">
-                            <input id="max_price" autocomplete="off" type="number" name="max_price" placeholder="Đến">
+                            <input id="min_price" autocomplete="off" formControlName="from" type="number"
+                                name="min_price" placeholder="Từ">
+                            <input id="max_price" autocomplete="off" formControlName="to" type="number" name="max_price"
+                                placeholder="Đến">
                         </div>
                         <div class="filter">
                             <button type="button" (click)="filterByPrice()">ÁP DỤNG</button>
                         </div>
-                        <h3>Theo thương hiệu</h3>
-                        <div class="filter_by_brand">
-                            <div class="brand" *ngFor="let cate of listCate">
-                                <input type="checkbox" id="brand_{{ cate.cate_id }}" value="{{ cate.cate_id }}">
-                                {{ cate.cate_name }}
-                            </div>
-                        </div>
-                        <h3>Theo giới tính</h3> <br>
-                        <div class="gender">
-                            <input id="nam" type="checkbox" name="gender" value="0"> <span>Nam</span>
-                            <input id="nu" type="checkbox" name="gender" value="1"> <span>Nữ</span>
-                        </div>
+
                     </form>
                 </aside>
 
@@ -55,13 +52,15 @@
                 </aside>
             </div>
             <div class="main_right">
-                <h1>SẢN PHẨM <span id="count_products"></span></h1> <span class="result_product_length" *ngIf="listProduct">( Tìm thấy {{ listProduct.length }} sản phẩm phù hợp )</span>
+                <h1>SẢN PHẨM <span id="count_products"></span></h1> <span class="result_product_length"
+                    *ngIf="listProduct">( Tìm thấy {{ listProduct.length }} sản phẩm phù hợp )</span>
                 <select name="" (input)="sortBy($event)" id="sort-by">
                     <option value="0">Sắp xếp theo</option>
                     <option value="1">Mới nhất</option>
                     <option value="2">Giá từ thấp đến cao</option>
                     <option value="3">Giá từ cao đến thấp</option>
                 </select>
+                <div class="filterByTitle">Lọc theo: <label *ngFor="let n of arrCateNameFilter" for="brand_{{ n.idQuery }}"><span>{{ n.nameQuery }} &ensp; <i class="fa-solid fa-xmark"></i></span></label> </div>
                 <div class="right">
                     <article class="product"
                         *ngFor="let p of listProduct | paginate: {itemsPerPage: 9, currentPage: page}">

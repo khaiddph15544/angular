@@ -1,1 +1,38 @@
-<p>user-form works!</p>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)" id="func_form" class="sliceForm">
+    <div>
+        <label for="" *ngIf="!id">Mã người dùng</label> <input type="text" *ngIf="!id" formControlName="id"
+            placeholder="Auto Number" readonly>
+        <label for="">Email</label> <input type="text" formControlName="email">
+        <app-show-validate [formField]="userForm.get('email')" key="Email"></app-show-validate>
+        <label for="" *ngIf="!id">Password</label> <input type="text" *ngIf="!id" formControlName="password">
+        <app-show-validate [formField]="userForm.get('password')" key="Mật khẩu"></app-show-validate>
+        <label for="">Image</label> <input type="file" id="image" (change)="imageChange($event)">
+        <div>
+            <img [src]="oldImage" alt="" id="oldImage">
+            <i *ngIf="previewUpload && id" class="fa-solid fa-arrows-left-right"></i>
+            <img [src]="previewUpload" alt="" id="previewImage">
+        </div>
+    </div>
+    <div>
+        <label for="">User name</label> <input type="text" formControlName="user_name">
+        <app-show-validate [formField]="userForm.get('user_name')" key="Tên tài khoản"></app-show-validate>
+        <label for="">Gender</label>
+        <select name="" formControlName="gender">
+            <option value="0">Nam</option>
+            <option value="1">Nữ</option>
+        </select>
+        <app-show-validate [formField]="userForm.get('gender')" key="Giới tính"></app-show-validate>
+        <label for="">Age</label><input type="text" formControlName="age">
+        <app-show-validate [formField]="userForm.get('age')" key="Tuổi"></app-show-validate>
+        <label for="">Role</label>
+        <select name="" formControlName="role">
+            <option value="0">Người dùng</option>
+            <option value="1">Quản trị viên</option>
+        </select>
+        <app-show-validate [formField]="userForm.get('role')" key="Vai trò"></app-show-validate>
+    </div>
+    <div>
+        <button name="btn_add" class="btn btn-success" [disabled]="!userForm.valid">{{ action }}</button>
+        <button type="button" class="ms-2 btn btn-danger" (click)="returnPage()">Hủy</button>
+    </div>
+</form>

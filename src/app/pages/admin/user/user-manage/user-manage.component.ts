@@ -15,13 +15,29 @@ export class UserManageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.getUser()
+  }
+  getUser() {
     this.us.get().subscribe(data => {
       this.listUser = data
     })
   }
 
-  onDelete(id: Number){
-
+  onDelete(id: number) {
+    const confirm = window.confirm("Bạn có muốn xóa không?");
+    if(confirm){
+      this.us.delete(id).subscribe(() => {
+        this.getUser()
+      })
+    }
+  }
+  changeStatus(event: number, product: any) {
+    this.us.getOne(product.id).subscribe(data => {
+      const newProduct = { ...data, status: event }
+      this.us.update(newProduct).subscribe((data) => {
+        this.getUser()
+      })
+    })
   }
 
 }

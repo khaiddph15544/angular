@@ -20,7 +20,6 @@ import { ProductManageComponent } from './pages/admin/product/product-manage/pro
 import { CategoryFormComponent } from './pages/admin/category/category-form/category-form.component'
 import { CategoryManageComponent } from './pages/admin/category/category-manage/category-manage.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { AdminComponent } from './components/admin/admin.component';
 import { ProductDetailComponent } from './pages/client/product/product-detail/product-detail.component';
 import { ListProductComponent } from './pages/client/product/list-product/list-product.component';
 import { HomeComponent } from './pages/client/home/home.component';
@@ -39,6 +38,14 @@ import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { ProductAdminDetailComponent } from './pages/admin/product/product-admin-detail/product-admin-detail.component';
 import { ShowValidateComponent } from './components/show-validate/show-validate.component';
+import { TestComponent } from './components/test/test.component';
+import { TestpageComponent } from './pages/testpage/testpage.component';
+import { UserFormComponent } from './pages/admin/user/user-form/user-form.component';
+import { FormatCurrencyComponent } from './components/format-currency/format-currency.component';
+import { HeaderAdminComponent } from './components/admin/header-admin/header-admin.component';
+import { FooterAdminComponent } from './components/admin/footer-admin/footer-admin.component';
+import { AsideAdminComponent } from './components/admin/aside-admin/aside-admin.component';
+import { ToastrModule } from 'ngx-toastr';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,9 +58,9 @@ import { ShowValidateComponent } from './components/show-validate/show-validate.
     CategoryManageComponent,
     ProductManageComponent,
     CategoryFormComponent,
-    AdminComponent,
     ProductFormComponent,
     UserManageComponent,
+    UserFormComponent,
     StatusBtnComponent,
     CategoryDetailComponent,
     HeaderComponent,
@@ -62,7 +69,13 @@ import { ShowValidateComponent } from './components/show-validate/show-validate.
     LoginComponent,
     RegisterComponent,
     ProductAdminDetailComponent,
-    ShowValidateComponent
+    ShowValidateComponent,
+    TestComponent,
+    TestpageComponent,
+    FormatCurrencyComponent,
+    HeaderAdminComponent,
+    FooterAdminComponent,
+    AsideAdminComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +91,8 @@ import { ShowValidateComponent } from './components/show-validate/show-validate.
     MatButtonModule,
     MatTableModule,
     ReactiveFormsModule,
-    SocialLoginModule
+    SocialLoginModule,
+    ToastrModule.forRoot()
   ],
   providers: [
     ProductService,

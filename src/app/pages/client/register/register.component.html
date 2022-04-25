@@ -1,14 +1,18 @@
 <div class="main-register">
-    <form action="">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
         <div class="main-form-register">
             <h3>Đăng ký</h3>
-            <input type="text" placeholder="Nhập email của bạn...">
-            <input type="text" placeholder="Nhập tên tài khoản...">
-            <input type="password" placeholder="Nhập mật khẩu...">
-            <input type="password" placeholder="Xác nhận mật khẩu...">
+            <input type="text" formControlName="email" placeholder="Nhập email của bạn...">
+            <app-show-validate [formField]="registerForm.get('email')" key="Email"></app-show-validate>
+            <input type="text" formControlName="user_name" placeholder="Nhập tên tài khoản...">
+            <app-show-validate [formField]="registerForm.get('user_name')" key="Tên tài khoản"></app-show-validate>
+            <input type="password" formControlName="password" placeholder="Nhập mật khẩu...">
+            <app-show-validate [formField]="registerForm.get('password')" key="Mật khẩu"></app-show-validate>
+            <input type="password" formControlName="repassword" placeholder="Xác nhận mật khẩu...">
+            <app-show-validate [formField]="registerForm.get('repassword')" key="Xác nhận mật khẩu"></app-show-validate>
             <button>Đăng ký</button>
             <p id="orLogin">Hoặc</p>
-            <a routerLink="" id="loginWithGoogle">
+            <a id="loginWithGoogle"  (click)="signInWithGoogle()">
                 <img src="assets/image/logo-google.png" alt="">
                 Đăng nhập bằng google
             </a>

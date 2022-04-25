@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SocialAuthService } from 'angularx-social-login';
 import { CartService } from 'src/app/services/cart/cart.service';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { ProductService } from 'src/app/services/product/product.service';
@@ -22,7 +23,8 @@ export class HeaderComponent implements OnInit {
     private ps: ProductService,
     private cart: CartService,
     private router: Router,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private authService: SocialAuthService
   ) {
     this.header = new EventEmitter()
   }
@@ -37,7 +39,6 @@ export class HeaderComponent implements OnInit {
     })
 
     $(window.onload = () => {
-
       $(window.onscroll = () => {
         if (scrollY > 25) {
           $(".header_bottom").addClass("sticky");
@@ -67,20 +68,19 @@ export class HeaderComponent implements OnInit {
   }
 
   getUser() {
-    const userStorage = localStorage.getItem("google_account")
+    const userStorage = localStorage.getItem("accountSignin")
     if (userStorage) {
       this.userDetail = JSON.parse(userStorage)
     } else {
       this.userDetail = undefined
     }
-
   }
   signOut() {
     $(".subShowUser").css({
       "visibility": "hidden",
       "transition": "0s"
     })
-    localStorage.removeItem('google_account')
+    localStorage.removeItem('accountSignin')
     this.getUser()
   }
 
@@ -98,7 +98,6 @@ export class HeaderComponent implements OnInit {
       $(".list_search").css('display', 'none')
     }
     this.ps.get().subscribe(data => {
-      console.log(data)
       this.listProductShow.push(data)
       this.listSearch = data.filter((product: any) => {
         const usernameLowerCase = product.product_name.toLowerCase()
@@ -136,5 +135,4 @@ export class HeaderComponent implements OnInit {
       behavior: 'smooth'
     })
   }
-
 }

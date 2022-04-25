@@ -1,0 +1,12 @@
+.main-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 105px;
+    line-height: 105px;
+}
+.main-header img{
+    width: 180px;
+    margin: auto;
+    display: block;
+}

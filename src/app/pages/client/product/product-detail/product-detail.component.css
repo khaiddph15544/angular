@@ -118,9 +118,9 @@ main{
 .container_detail .comment .main_comment img{
     width: 50px;
 }
-
 .container_detail .comment h3 {
     margin: 25px 0;
+    font-weight: bold;
 }
 
 .container_detail .comment #cmt_content {

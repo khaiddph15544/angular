@@ -10,6 +10,7 @@ import { CategoryService } from 'src/app/services/category/category.service';
 export class CategoryManageComponent implements OnInit {
 
   listCate: any
+  page: number = 1
   constructor(
     private cate: CategoryService,
     private router: Router
@@ -28,6 +29,9 @@ export class CategoryManageComponent implements OnInit {
         $("#row_" + id).css('display', 'none')
       })
     }
+  }
 
+  changeStatus(event: any, data: any){
+    console.log(event)
   }
 }

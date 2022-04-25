@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category/category.service';
 import { ProductService } from 'src/app/services/product/product.service';
@@ -18,12 +19,21 @@ export class ListProductComponent implements OnInit {
   minPrice: any
   maxPrice: any
   arrFilterByPrice: Array<any> = []
+  formFilterPrice: any
+  arrIdFilterByCate: Array<any> = []
+  arrFilterByCate: Array<any> = []
+  arrCateNameFilter: Array<any> = []
   constructor(
     private cate: CategoryService,
     private ps: ProductService,
     private activeRoute: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {
+    this.formFilterPrice = new FormGroup({
+      from: new FormControl(""),
+      to: new FormControl("")
+    })
+  }
 
   ngOnInit(): void {
     this.activeRoute.params.subscribe(event => {
@@ -47,13 +57,6 @@ export class ListProductComponent implements OnInit {
       this.listProductByView = data
     })
   }
-
-  getProductBySlug(slug: String) {
-    this.cate.getProductBySlug(slug).subscribe(data => {
-      this.listProduct = data[0].products
-    })
-  }
-
   getAllProduct() {
     this.ps.get().subscribe((data) => {
       data.forEach((e: any) => {
@@ -63,6 +66,13 @@ export class ListProductComponent implements OnInit {
       });
     })
   }
+
+  getProductBySlug(slug: String) {
+    this.cate.getProductBySlug(slug).subscribe(data => {
+      this.listProduct = data[0].products
+    })
+  }
+
   currentListProduct = () => {
     this.listProduct.sort((a: any, b: any) => a.id < b.id ? -1 : (b.id < a.id ? 1 : 0))
     return this.listProduct
@@ -72,13 +82,16 @@ export class ListProductComponent implements OnInit {
     this.minPrice = $("#min_price").val()
     this.maxPrice = $("#max_price").val()
     this.arrFilterByPrice = []
-    this.listProduct.forEach((e: any) => {
-      if ((e.price - (e.price * e.discount / 100)) >= this.minPrice && (e.price - (e.price * e.discount / 100)) <= this.maxPrice) {
-        this.arrFilterByPrice.push(e)
-      }
-    });
+    this.ps.get().subscribe(res => {
+      res.forEach((e: any) => {
+        if ((e.price - (e.price * e.discount / 100)) >= this.minPrice && (e.price - (e.price * e.discount / 100)) <= this.maxPrice && e.status == 1) {
+          this.arrFilterByPrice.push(e)
+        }
+      });
+    })
     this.listProduct = this.arrFilterByPrice
   }
+
   sortBy(event: any) {
     const targetSort = event.target.value
 
@@ -111,5 +124,31 @@ export class ListProductComponent implements OnInit {
 
   formatCurrency(data: any) {
     return new Intl.NumberFormat("vi-VN", { style: "currency", currency: "VND" }).format(Math.round(data))
+  }
+  groupFilter(event: any) {
+    this.arrFilterByCate = []
+    const idQuery = Number(String(event.target.id).substring(6, 7))
+    const nameQuery = event.target.value
+    if (event.target.checked) {
+      this.arrIdFilterByCate.push(idQuery)
+      this.arrCateNameFilter.push({idQuery, nameQuery})
+    } else {
+      this.arrIdFilterByCate.splice(this.arrIdFilterByCate.indexOf(idQuery), 1)
+      this.arrCateNameFilter = this.arrCateNameFilter.filter(e => e.idQuery  != idQuery)
+    }
+
+    if(this.arrIdFilterByCate.length > 0){
+      (<HTMLInputElement>document.querySelector(".filterByTitle")).style.display = "block"
+      this.arrIdFilterByCate.forEach(e => {
+        this.ps.getProductByCate(e).subscribe((res: any) => {
+          this.arrFilterByCate.push(...res)
+        })
+      })
+      this.listProduct = this.arrFilterByCate
+    }else{
+      (<HTMLInputElement>document.querySelector(".filterByTitle")).style.display = "none"
+      this.listProduct = []
+      this.getAllProduct()
+    }
   }
 }

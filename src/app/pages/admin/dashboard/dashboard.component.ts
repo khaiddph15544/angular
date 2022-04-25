@@ -12,6 +12,7 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class DashboardComponent implements OnInit {
 
+  page: number = 1
   users: any
   countUser: number = 0
   countProduct: number = 0
@@ -28,7 +29,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.us.get().subscribe(data => {
-      this.users = data
+      this.users = data.reverse().slice(0, 6)
       this.countUser = data.length
     })
     this.ps.get().subscribe(data => {
