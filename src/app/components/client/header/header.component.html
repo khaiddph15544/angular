@@ -43,7 +43,7 @@
                             <span class="form_cart">
                                 <i class="fa-solid fa-cart-plus"></i>
                                 <span class="count_cart_product">
-                                    <span id="count_cart">4</span>
+                                    <span *ngIf="listCart" id="count_cart">{{ listCart.length }}</span>
                                 </span>
                             </span>
                             <span>Giỏ hàng</span>
@@ -161,13 +161,17 @@
         <h2>GIỎ HÀNG CỦA BẠN</h2>
         <i class="fas fa-times" style="cursor: pointer" (click)="closeCart()"></i>
     </div>
-    <div class="cart-theme-content-empty" *ngIf="listCart && listCart.length > 0">
+    <div class="cart-theme-content-empty" *ngIf="listCart && listCart.length == 0">
         <p>Hiện đang chưa có sản phẩm nào</p>
         <p>trong giỏ hàng của bạn.</p>
         <button>Mua hàng ngay</button>
     </div>
-    <div class="cart-theme-content" *ngIf="listCart && listCart.length > 0">
-
+    <div *ngIf="listCart && listCart.length > 0">
+        <div class="cart-theme-content" *ngFor="let item of listCart">
+            <i class="fas fa-times" style="cursor: pointer" (click)="closeCart()"></i>
+            <img [src]="item.product.image" alt="" width="80">
+            <input type="text" value="-"> <input type="text"> <input type="text" value="+">
+        </div>
     </div>
 </div>
 

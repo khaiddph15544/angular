@@ -1,6 +1,5 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TestComponent } from './components/test/test.component';
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { HomeLayoutComponent } from './layouts/home-layout/home-layout.component';
 import { CategoryDetailComponent } from './pages/admin/category/category-detail/category-detail.component';
@@ -17,7 +16,6 @@ import { LoginComponent } from './pages/client/login/login.component';
 import { ListProductComponent } from './pages/client/product/list-product/list-product.component';
 import { ProductDetailComponent } from './pages/client/product/product-detail/product-detail.component';
 import { RegisterComponent } from './pages/client/register/register.component';
-import { TestpageComponent } from './pages/testpage/testpage.component';
 
 const routes: Routes = [
   {
@@ -53,14 +51,6 @@ const routes: Routes = [
   {
     path: 'signout',
     redirectTo: ''
-  },
-  {
-    path: 'dd',
-    component: TestpageComponent
-  },
-  {
-    path: 'cc',
-    component: TestComponent
   },
   {
     path: 'admin',

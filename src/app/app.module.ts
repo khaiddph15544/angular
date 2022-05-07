@@ -38,8 +38,6 @@ import { GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule } from 
 import { DashboardLayoutComponent } from './layouts/dashboard-layout/dashboard-layout.component';
 import { ProductAdminDetailComponent } from './pages/admin/product/product-admin-detail/product-admin-detail.component';
 import { ShowValidateComponent } from './components/show-validate/show-validate.component';
-import { TestComponent } from './components/test/test.component';
-import { TestpageComponent } from './pages/testpage/testpage.component';
 import { UserFormComponent } from './pages/admin/user/user-form/user-form.component';
 import { FormatCurrencyComponent } from './components/format-currency/format-currency.component';
 import { HeaderAdminComponent } from './components/admin/header-admin/header-admin.component';
@@ -70,8 +68,6 @@ import { ToastrModule } from 'ngx-toastr';
     RegisterComponent,
     ProductAdminDetailComponent,
     ShowValidateComponent,
-    TestComponent,
-    TestpageComponent,
     FormatCurrencyComponent,
     HeaderAdminComponent,
     FooterAdminComponent,

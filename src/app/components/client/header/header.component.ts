@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
   listCart: any
   userDetail: any
   listProductShow: Array<any> = []
+  userId: number = 0
 
   constructor(
     private cate: CategoryService,
@@ -34,9 +35,12 @@ export class HeaderComponent implements OnInit {
     this.cate.get().subscribe(data => {
       this.listCate = data
     })
-    this.cart.get().subscribe(data => {
-      this.listCart = data
-    })
+    if(this.userDetail){
+      this.cart.getByUser(this.userDetail.id).subscribe(data => {
+        this.listCart = data
+        console.log(this.listCart[0].product.image)
+      })
+    }
 
     $(window.onload = () => {
       $(window.onscroll = () => {
@@ -74,6 +78,7 @@ export class HeaderComponent implements OnInit {
     } else {
       this.userDetail = undefined
     }
+    return this.userDetail
   }
   signOut() {
     $(".subShowUser").css({
@@ -115,6 +120,7 @@ export class HeaderComponent implements OnInit {
       'width': '100%'
     })
   }
+  
   closeSearch() {
     $("#input_search").val("")
     this.onSearch("")

@@ -13,4 +13,7 @@ export class CartService {
   get(): Observable<any>{
     return this.http.get(apiUrl+`?_expand=product&_expand=user`)
   }
+  getByUser(userId: number | string): Observable<any>{
+    return this.http.get(apiUrl+`?userId=${userId}&_expand=product`)
+  }
 }

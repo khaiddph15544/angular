@@ -22,7 +22,7 @@
       "categoryId": 1,
       "image": "assets/image/product/iphone11.png",
       "status": 1,
-      "view": 62
+      "view": 63
     },
     {
       "id": 3,
@@ -150,7 +150,7 @@
       "price": 26000000,
       "quantity": 1000,
       "discount": 20,
-      "view": 501,
+      "view": 502,
       "desc": "Chiếc đồng hồ ZENITH Pilot Montre D'Aeronef Type 20 Tourbillon Chronograph Rose Gold 48mm được thiết kế theo phong cách đồng hồ phi công điển hình của hãng rất được yêu thích. Đồng hồ với tông màu đen, bộ vỏ vàng hồng , nổi bật với thiết kế skeleton bên trong toát lên vẻ đẹp của sự phức tạp cho cỗ máy.",
       "categoryId": 2,
       "status": 1,
@@ -673,8 +673,22 @@
   ],
   "cart": [
     {
-      "cartid": 1,
+      "cartId": 1,
       "userId": 1,
+      "productId": 5,
+      "price": 15000000,
+      "quantity": 2
+    },
+    {
+      "cartId": 2,
+      "userId": 1,
+      "productId": 3,
+      "price": 11000000,
+      "quantity": 3
+    },
+    {
+      "cartId": 3,
+      "userId": 2,
       "productId": 5,
       "price": 15000000,
       "quantity": 2
